@@ -1,0 +1,1544 @@
+# Logfile created on Mon Jun 28 09:51:02 +0700 2010
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-28 10:07:10) [GET]
+
+NameError (uninitialized constant HomeController):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (67.1ms)
+Rendered rescues/_request_and_response (2.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:07:42) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (47.1ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 344ms (View: 275, DB: 47) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:09:21) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (4.3ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 142ms (View: 109, DB: 4) | 200 OK [http://localhost/]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-06-28 10:09:31) [GET]
+  Parameters: {"id"=>"2"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (30.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 2) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1974ms (View: 1918, DB: 30) | 200 OK [http://localhost/datasets/2]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:09:41) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (6.8ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 152ms (View: 106, DB: 7) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 10:17:24) [DELETE]
+  Parameters: {"authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "id"=>"1"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 1) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+##### Aws::SdbInterface returned an error: 400 Bad Request
+<?xml version="1.0"?>
+<Response><Errors><Error><Code>InvalidParameterValue</Code><Message>Value (a) for parameter DomainName is invalid. </Message><BoxUsage>0.0055590278</BoxUsage></Error></Errors><RequestID>f5d0151d-2b41-7ced-a105-eec5c3d6ad13</RequestID></Response> #####
+##### Aws::SdbInterface request: sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=DeleteDomain&DomainName=a&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-06-28T03%3A17%3A24.000Z&Version=2009-04-15&Signature=xUgFG8H8UvF8pvOtwoGlrDyiGAeFOuylTkCxmLLk5Kg%3D ####
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+Aws::AwsError (InvalidParameterValue: Value (a) for parameter DomainName is invalid. 
+REQUEST=sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=DeleteDomain&DomainName=a&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-06-28T03%3A17%3A24.000Z&Version=2009-04-15&Signature=xUgFG8H8UvF8pvOtwoGlrDyiGAeFOuylTkCxmLLk5Kg%3D 
+REQUEST ID=f5d0151d-2b41-7ced-a105-eec5c3d6ad13 ):
+  aws (2.3.13) lib/awsbase/right_awsbase.rb:697:in `request_info_impl'
+  aws (2.3.13) lib/awsbase/right_awsbase.rb:462:in `request_info2'
+  aws (2.3.13) lib/sdb/right_sdb_interface.rb:100:in `request_info'
+  aws (2.3.13) lib/sdb/right_sdb_interface.rb:314:in `delete_domain'
+  app/models/dataset.rb:25:in `remove_remote_database'
+  app/controllers/datasets_controller.rb:76:in `destroy'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (549.2ms)
+Rendered rescues/_request_and_response (5.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:17:43) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (7.6ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 275ms (View: 198, DB: 8) | 200 OK [http://localhost/datasets/]
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (21.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (10.9ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 10:28:29) [DELETE]
+  Parameters: {"authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "id"=>"1"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 1) [0m
+  [4;35;1mDataset Destroy (11.5ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 1[0m
+Redirected to http://localhost:3000/datasets
+Completed in 409ms (DB: 13) | 302 Found [http://localhost/datasets/1]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:28:30) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (7.2ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 327ms (View: 245, DB: 7) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 10:28:49) [DELETE]
+  Parameters: {"authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "id"=>"2"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 2) [0m
+  [4;36;1mDataset Destroy (10.3ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 2[0m
+Redirected to http://localhost:3000/datasets
+Completed in 266ms (DB: 11) | 302 Found [http://localhost/datasets/2]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:28:50) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (3.2ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 574ms (View: 257, DB: 3) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 10:29:06) [DELETE]
+  Parameters: {"authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "id"=>"3"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 3) [0m
+  [4;35;1mDataset Destroy (10.1ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/datasets
+Completed in 145ms (DB: 11) | 302 Found [http://localhost/datasets/3]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:29:07) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (828.8ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 1075ms (View: 143, DB: 829) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 10:29:15) [DELETE]
+  Parameters: {"authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "id"=>"4"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (1.4ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 4) [0m
+  [4;36;1mDataset Destroy (10.7ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 4[0m
+Redirected to http://localhost:3000/datasets
+Completed in 87ms (DB: 12) | 302 Found [http://localhost/datasets/4]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:29:15) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (4.9ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 229ms (View: 155, DB: 5) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 10:29:19) [DELETE]
+  Parameters: {"authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "id"=>"5"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (4.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 5) [0m
+  [4;35;1mDataset Destroy (5.6ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 5[0m
+Redirected to http://localhost:3000/datasets
+Completed in 78ms (DB: 11) | 302 Found [http://localhost/datasets/5]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:29:19) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (12.2ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 168ms (View: 113, DB: 12) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 10:29:23) [DELETE]
+  Parameters: {"authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "id"=>"6"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (4.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 6) [0m
+  [4;36;1mDataset Destroy (7.1ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 6[0m
+Redirected to http://localhost:3000/datasets
+Completed in 76ms (DB: 12) | 302 Found [http://localhost/datasets/6]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:29:23) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (1.8ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 159ms (View: 104, DB: 2) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 10:29:26) [DELETE]
+  Parameters: {"authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "id"=>"7"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (10.4ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 7) [0m
+  [4;35;1mDataset Destroy (2.8ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 7[0m
+Redirected to http://localhost:3000/datasets
+Completed in 110ms (DB: 13) | 302 Found [http://localhost/datasets/7]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:29:27) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (8.8ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 127ms (View: 72, DB: 9) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 10:29:31) [DELETE]
+  Parameters: {"authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "id"=>"8"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (10.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 8) [0m
+  [4;36;1mDataset Destroy (10.9ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 8[0m
+Redirected to http://localhost:3000/datasets
+Completed in 286ms (DB: 21) | 302 Found [http://localhost/datasets/8]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:29:31) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (1.4ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 114ms (View: 67, DB: 1) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 10:29:34) [DELETE]
+  Parameters: {"authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "id"=>"9"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (6.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 9) [0m
+  [4;35;1mDataset Destroy (9.5ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 9[0m
+Redirected to http://localhost:3000/datasets
+Completed in 82ms (DB: 16) | 302 Found [http://localhost/datasets/9]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:29:34) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 85ms (View: 36, DB: 1) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#new (for 127.0.0.1 at 2010-06-28 10:29:36) [GET]
+New Aws::SdbInterface using per_request-connection mode
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 487ms (View: 399, DB: 0) | 200 OK [http://localhost/datasets/new]
+
+
+Processing DatasetsController#create (for 127.0.0.1 at 2010-06-28 10:30:11) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "dataset"=>{"uid"=>"ao"}}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (9.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'ao') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 4946ms (View: 91, DB: 10) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#create (for 127.0.0.1 at 2010-06-28 10:30:20) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"+3t4zVLxIu4RAcpS7EOdwWtsS/QM5DT5ONYVGNYZ3dM=", "dataset"=>{"uid"=>"test"}}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (8.0ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1451ms (View: 72, DB: 8) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 10:35:59) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (118.6ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 464ms (View: 132, DB: 119) | 200 OK [http://localhost/]
+
+
+Processing DatasetsController#new (for 127.0.0.1 at 2010-06-28 10:36:36) [GET]
+New Aws::SdbInterface using per_request-connection mode
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 282ms (View: 253, DB: 0) | 200 OK [http://localhost/datasets/new]
+
+
+Processing DatasetsController#create (for 127.0.0.1 at 2010-06-28 10:36:40) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"8Z7cqLzDXhviDP1yol50NfNOsv1vrRj7feRn8N/3V/k=", "dataset"=>{"uid"=>"foobar"}}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'foobar') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (6.6ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 03:36:43', '2010-06-28 03:36:43', 'foobar')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Redirected to http://localhost:3000/datasets/11
+Completed in 5064ms (DB: 7) | 302 Found [http://localhost/datasets]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-06-28 10:36:48) [GET]
+  Parameters: {"id"=>"11"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 11) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1462ms (View: 1320, DB: 1) | 200 OK [http://localhost/datasets/11]
+  [4;36;1mSQL (4.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.1ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (2.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (7.4ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (7.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.1ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (5.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+New Aws::SdbInterface using per_request-connection mode
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 11:18:06) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (4.5ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 186ms (View: 93, DB: 4) | 200 OK [http://localhost/datasets]
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (5.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+
+Processing DatasetsController#destroy (for 127.0.0.1 at 2010-06-28 11:21:34) [DELETE]
+  Parameters: {"authenticity_token"=>"8Z7cqLzDXhviDP1yol50NfNOsv1vrRj7feRn8N/3V/k=", "id"=>"11"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (3.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 11) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (10.6ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 11[0m
+Redirected to http://localhost:3000/datasets
+Completed in 2494ms (DB: 15) | 302 Found [http://localhost/datasets/11]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 11:21:37) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 38ms (View: 15, DB: 1) | 200 OK [http://localhost/datasets]
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+##### Aws::SdbInterface returned an error: 503 Service Unavailable
+<?xml version="1.0"?>
+<Response><Errors><Error><Code>ServiceUnavailable</Code><Message>Service AmazonSimpleDB is currently unavailable. Please try again later</Message></Error></Errors><RequestID>2686bb37-06c0-2bb7-c742-b88be34f3cfe</RequestID></Response> #####
+##### Aws::SdbInterface request: sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=DeleteDomain&DomainName=emmanuel_gutmann&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-06-28T04%3A34%3A11.000Z&Version=2009-04-15&Signature=HE2Nb8Ah%2FT2WKGpPk54BtJC2Oa6BudBImqSJDSS4jMk%3D ####
+##### Retry is needed, error pattern match: is currently unavailable #####
+Closing HTTPS connection to sdb.amazonaws.com:443, reason: 'Aws::AWSErrorHandler: error match to pattern 'is currently unavailable''
+##### Retry #1 is being performed. Sleeping for 0.2 sec. Whole time: 0.030183 sec ####
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+
+
+Processing DatasetsController#new (for 127.0.0.1 at 2010-06-28 11:42:30) [GET]
+New Aws::SdbInterface using per_request-connection mode
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 114ms (View: 79, DB: 0) | 200 OK [http://localhost/datasets/new]
+
+
+Processing DatasetsController#create (for 127.0.0.1 at 2010-06-28 11:42:34) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"8Z7cqLzDXhviDP1yol50NfNOsv1vrRj7feRn8N/3V/k=", "dataset"=>{"uid"=>"aoeu"}}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aoeu') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (9.7ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:42:38', '2010-06-28 04:42:38', 'aoeu')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Redirected to http://localhost:3000/datasets/12
+Completed in 6944ms (DB: 10) | 302 Found [http://localhost/datasets]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-06-28 11:42:41) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1455ms (View: 1393, DB: 1) | 200 OK [http://localhost/datasets/12]
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 11:50:30) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.7ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 62ms (View: 30, DB: 2) | 200 OK [http://localhost/datasets]
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.1ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (5.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.4ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (5.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-06-28 12:03:29) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1741ms (View: 1709, DB: 1) | 200 OK [http://localhost/datasets/12]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 12:03:35) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.4ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 57ms (View: 33, DB: 1) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#new (for 127.0.0.1 at 2010-06-28 12:03:36) [GET]
+New Aws::SdbInterface using per_request-connection mode
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 120ms (View: 56, DB: 0) | 200 OK [http://localhost/datasets/new]
+
+
+Processing DatasetsController#create (for 127.0.0.1 at 2010-06-28 12:03:41) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"8Z7cqLzDXhviDP1yol50NfNOsv1vrRj7feRn8N/3V/k=", "dataset"=>{"uid"=>"tom"}}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1478ms (View: 160, DB: 1) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 12:04:19) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (4.5ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 79ms (View: 40, DB: 5) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#edit (for 127.0.0.1 at 2010-06-28 12:04:21) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (3.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 104ms (View: 64, DB: 4) | 200 OK [http://localhost/datasets/12/edit]
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-06-28 12:04:25) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"8Z7cqLzDXhviDP1yol50NfNOsv1vrRj7feRn8N/3V/k=", "dataset"=>{"uid"=>"tom"}, "id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom' AND "datasets".id <> 12) LIMIT 1[0m
+  [4;36;1mDataset Update (2.8ms)[0m   [0;1mUPDATE "datasets" SET "updated_at" = '2010-06-28 05:04:25', "uid" = 'tom' WHERE "id" = 12[0m
+Redirected to http://localhost:3000/datasets/12
+Completed in 93ms (DB: 4) | 302 Found [http://localhost/datasets/12]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-06-28 12:04:25) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (4.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 2314ms (View: 2279, DB: 5) | 200 OK [http://localhost/datasets/12]
+
+
+Processing DatasetsController#edit (for 127.0.0.1 at 2010-06-28 12:04:35) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 91ms (View: 48, DB: 1) | 200 OK [http://localhost/datasets/12/edit]
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-06-28 12:04:39) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"8Z7cqLzDXhviDP1yol50NfNOsv1vrRj7feRn8N/3V/k=", "dataset"=>{"uid"=>"aoeu"}, "id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aoeu' AND "datasets".id <> 12) LIMIT 1[0m
+  [4;35;1mDataset Update (4.8ms)[0m   [0mUPDATE "datasets" SET "updated_at" = '2010-06-28 05:04:39', "uid" = 'aoeu' WHERE "id" = 12[0m
+Redirected to http://localhost:3000/datasets/12
+Completed in 76ms (DB: 6) | 302 Found [http://localhost/datasets/12]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-06-28 12:04:39) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1643ms (View: 1614, DB: 1) | 200 OK [http://localhost/datasets/12]
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.5ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (7.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.6ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (5.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.4ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (7.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (4.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (7.9ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.5ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.5ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-07-01 09:37:45) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (31.7ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 234ms (View: 153, DB: 32) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-07-01 09:37:48) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (5.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 1, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+##### Aws::SdbInterface returned an error: 400 Bad Request
+<?xml version="1.0"?>
+<Response><Errors><Error><Code>RequestInTheFuture</Code><Message>Request timestamp is in the future. Timestamp date is 2010-07-01T02:37:49.000Z. Current date is 2010-06-28T08:42:48Z</Message></Error></Errors><RequestID>3c220f28-92bb-a4e4-44d4-5f9fe629c918</RequestID></Response> #####
+##### Aws::SdbInterface request: sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=ListDomains&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-07-01T02%3A37%3A49.000Z&Version=2009-04-15&Signature=akAGK9aYzN91%2FfR9HidBRCJjFR2l%2BPwUBr5Whs2%2Fh%2BI%3D ####
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+ActionView::TemplateError (RequestInTheFuture: Request timestamp is in the future. Timestamp date is 2010-07-01T02:37:49.000Z. Current date is 2010-06-28T08:42:48Z
+REQUEST=sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=ListDomains&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-07-01T02%3A37%3A49.000Z&Version=2009-04-15&Signature=akAGK9aYzN91%2FfR9HidBRCJjFR2l%2BPwUBr5Whs2%2Fh%2BI%3D 
+REQUEST ID=3c220f28-92bb-a4e4-44d4-5f9fe629c918 ) on line #8 of app/views/datasets/show.html.erb:
+5: 
+6: 
+7: 	<p> 
+8: 		<%= Dataset.sdb.list_domains[:domains] %>
+9: 	</p>
+10: 
+11: <%= link_to 'Edit', edit_dataset_path(@dataset) %> |
+
+    aws (2.3.13) lib/awsbase/right_awsbase.rb:697:in `request_info_impl'
+    aws (2.3.13) lib/awsbase/right_awsbase.rb:462:in `request_info2'
+    aws (2.3.13) lib/sdb/right_sdb_interface.rb:100:in `request_info'
+    aws (2.3.13) lib/sdb/right_sdb_interface.rb:228:in `list_domains'
+    app/views/datasets/show.html.erb:8
+    app/controllers/datasets_controller.rb:18:in `show'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (104.0ms)
+Rendered rescues/_request_and_response (32.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-07-01 09:38:29) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+##### Aws::SdbInterface returned an error: 400 Bad Request
+<?xml version="1.0"?>
+<Response><Errors><Error><Code>RequestInTheFuture</Code><Message>Request timestamp is in the future. Timestamp date is 2010-07-01T02:38:29.000Z. Current date is 2010-06-28T08:43:22Z</Message></Error></Errors><RequestID>5635c08e-ab3d-8cb9-5240-eb1ada2ee42a</RequestID></Response> #####
+##### Aws::SdbInterface request: sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=ListDomains&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-07-01T02%3A38%3A29.000Z&Version=2009-04-15&Signature=ebDjG2xTCUZ4CQwwfVXUc2wgL0xw6A%2BppNQ22W%2BR2c4%3D ####
+Closing HTTPS connection to sdb.amazonaws.com:443, reason: 'Aws::AWSErrorHandler: code: 400: 'Bad Request', probability: 10%'
+
+ActionView::TemplateError (RequestInTheFuture: Request timestamp is in the future. Timestamp date is 2010-07-01T02:38:29.000Z. Current date is 2010-06-28T08:43:22Z
+REQUEST=sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=ListDomains&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-07-01T02%3A38%3A29.000Z&Version=2009-04-15&Signature=ebDjG2xTCUZ4CQwwfVXUc2wgL0xw6A%2BppNQ22W%2BR2c4%3D 
+REQUEST ID=5635c08e-ab3d-8cb9-5240-eb1ada2ee42a ) on line #8 of app/views/datasets/show.html.erb:
+5: 
+6: 
+7: 	<p> 
+8: 		<%= Dataset.sdb.list_domains[:domains] %>
+9: 	</p>
+10: 
+11: <%= link_to 'Edit', edit_dataset_path(@dataset) %> |
+
+    aws (2.3.13) lib/awsbase/right_awsbase.rb:697:in `request_info_impl'
+    aws (2.3.13) lib/awsbase/right_awsbase.rb:462:in `request_info2'
+    aws (2.3.13) lib/sdb/right_sdb_interface.rb:100:in `request_info'
+    aws (2.3.13) lib/sdb/right_sdb_interface.rb:228:in `list_domains'
+    app/views/datasets/show.html.erb:8
+    app/controllers/datasets_controller.rb:18:in `show'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (352.8ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#new (for 127.0.0.1 at 2010-07-01 09:38:39) [GET]
+New Aws::SdbInterface using per_request-connection mode
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 74ms (View: 43, DB: 0) | 200 OK [http://localhost/datasets/new]
+
+
+Processing DatasetsController#create (for 127.0.0.1 at 2010-07-01 09:38:42) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"8Z7cqLzDXhviDP1yol50NfNOsv1vrRj7feRn8N/3V/k=", "dataset"=>{"uid"=>"foobar"}}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'foobar') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+##### Aws::SdbInterface returned an error: 400 Bad Request
+<?xml version="1.0"?>
+<Response><Errors><Error><Code>RequestInTheFuture</Code><Message>Request timestamp is in the future. Timestamp date is 2010-07-01T02:38:42.000Z. Current date is 2010-06-28T08:43:36Z</Message></Error></Errors><RequestID>289bb8e9-89e1-bdfa-688d-f4e3a13b5124</RequestID></Response> #####
+##### Aws::SdbInterface request: sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=ListDomains&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-07-01T02%3A38%3A42.000Z&Version=2009-04-15&Signature=1GfXXlY4HvkkjuPoQnxS5DGR5%2BFzSfpt3HiW4vuuDrE%3D ####
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+Aws::AwsError (RequestInTheFuture: Request timestamp is in the future. Timestamp date is 2010-07-01T02:38:42.000Z. Current date is 2010-06-28T08:43:36Z
+REQUEST=sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=ListDomains&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-07-01T02%3A38%3A42.000Z&Version=2009-04-15&Signature=1GfXXlY4HvkkjuPoQnxS5DGR5%2BFzSfpt3HiW4vuuDrE%3D 
+REQUEST ID=289bb8e9-89e1-bdfa-688d-f4e3a13b5124 ):
+  aws (2.3.13) lib/awsbase/right_awsbase.rb:697:in `request_info_impl'
+  aws (2.3.13) lib/awsbase/right_awsbase.rb:462:in `request_info2'
+  aws (2.3.13) lib/sdb/right_sdb_interface.rb:100:in `request_info'
+  aws (2.3.13) lib/sdb/right_sdb_interface.rb:228:in `list_domains'
+  app/models/dataset.rb:30:in `must_not_duplicate_database_tables'
+  app/controllers/datasets_controller.rb:46
+  app/controllers/datasets_controller.rb:45:in `create'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (118.1ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (4.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.7ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (7.1ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (6.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 15:47:45) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (2.0ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 215ms (View: 33, DB: 2) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-06-28 15:47:49) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1601ms (View: 1551, DB: 1) | 200 OK [http://localhost/datasets/12]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 15:48:00) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (2.0ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 790ms (View: 748, DB: 2) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-06-28 15:48:02) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1422ms (View: 1363, DB: 1) | 200 OK [http://localhost/datasets/12]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 15:50:15) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 81ms (View: 55, DB: 1) | 200 OK [http://localhost/datasets]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-06-28 15:50:16) [GET]
+  Parameters: {"id"=>"12"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 12) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1339ms (View: 1285, DB: 1) | 200 OK [http://localhost/datasets/12]
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (5.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-06-28 16:05:40) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.7ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 59ms (View: 30, DB: 2) | 200 OK [http://localhost/datasets]
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mCREATE TABLE "datasets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uid" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (13.3ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (4.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100623102610')[0m

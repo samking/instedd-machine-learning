@@ -1,0 +1,12 @@
+<p>
+  <b>Uid:</b>
+  <%=h @dataset.uid %>
+</p>
+
+
+	<p> 
+		<%= Dataset.sdb.list_domains[:domains] %>
+	</p>
+
+<%= link_to 'Edit', edit_dataset_path(@dataset) %> |
+<%= link_to 'Back', datasets_path %>

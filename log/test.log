@@ -1,0 +1,2512 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-24 11:01:43) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.0ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1625ms (View: 78, DB: 0) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-24 11:01:44) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;36;1mDataset Destroy (15.6ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 16ms (DB: 16) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-24 11:01:44) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-24 11:01:44) [GET]
+  [4;36;1mDataset Load (0.0ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-24 11:01:44) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (0.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-24 11:01:44) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Completed in 3266ms (View: 3266, DB: 0) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (0.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-24 11:01:48) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (0.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.0ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 4062ms (View: 0, DB: 0) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (18.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:10:41) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1761ms (View: 107, DB: 24) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (4.6ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (1.4ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:10:43) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (11.3ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1282ms (DB: 19) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (1.5ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:10:44) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 34ms (View: 27, DB: 7) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:10:44) [GET]
+  [4;36;1mDataset Load (3.0ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 49ms (View: 40, DB: 3) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:10:44) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 10ms (View: 7, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (5.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:10:44) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1286ms (View: 1280, DB: 7) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (4.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:10:46) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 1318ms (View: 17, DB: 6) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (10.2ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:11:59', '2010-06-28 04:11:59', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith' AND "datasets".id <> 980190963) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 1, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (3.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 1, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 2, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (8.7ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:12:29', '2010-06-28 04:12:29', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (0.6ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (2.4ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (9.0ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:12:37', '2010-06-28 04:12:37', 'emmanuel_gutmann')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (8.6ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:12:40', '2010-06-28 04:12:40', 'tom')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (2.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom' AND "datasets".id <> 980190963) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:12:52) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1388ms (View: 73, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:12:53) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (9.2ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1267ms (DB: 13) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (10.3ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:12:55) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.2ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 47ms (View: 34, DB: 12) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:12:55) [GET]
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 33ms (View: 25, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:12:55) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 12ms (View: 10, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:12:55) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (2.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1335ms (View: 1330, DB: 3) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (4.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:12:56) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.4ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 1347ms (View: 41, DB: 7) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 1, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (4.1ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (8.1ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:15:32', '2010-06-28 04:15:32', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 1, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (0.9ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;35;1mDataset Load (2.2ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (3.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:15:56) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1332ms (View: 88, DB: 5) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (8.0ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:15:57) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (4.2ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1245ms (DB: 16) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (1.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:15:59) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 13ms (View: 10, DB: 3) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:15:59) [GET]
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 25ms (View: 18, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:15:59) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:15:59) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1298ms (View: 1294, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (4.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:16:00) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 1353ms (View: 18, DB: 7) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (8.2ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:19:23', '2010-06-28 04:19:23', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith' AND "datasets".id <> 980190963) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.8ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (9.0ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:19:32', '2010-06-28 04:19:32', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (0.5ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (2.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (10.9ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:19:38', '2010-06-28 04:19:38', 'emmanuel_gutmann')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'ta') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.8ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (8.6ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:19:43', '2010-06-28 04:19:43', 'tom')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom' AND "datasets".id <> 980190963) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:19:54) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1351ms (View: 50, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (7.2ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:19:56) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (9.2ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1266ms (DB: 18) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:19:57) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 29ms (View: 23, DB: 6) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:19:57) [GET]
+  [4;36;1mDataset Load (1.4ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 19ms (View: 15, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:19:57) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:19:57) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1291ms (View: 1288, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (2.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:19:59) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 1289ms (View: 18, DB: 4) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (19.4ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:25:33', '2010-06-28 04:25:33', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith' AND "datasets".id <> 980190963) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (12.5ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (9.0ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:25:38', '2010-06-28 04:25:38', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (0.6ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (2.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (12.8ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:25:45', '2010-06-28 04:25:45', 'emmanuel_gutmann')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'lu') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (8.6ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:25:50', '2010-06-28 04:25:50', 'tom')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom' AND "datasets".id <> 980190963) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:26:01) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 4667ms (View: 39, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (6.9ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:26:06) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (9.2ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1670ms (DB: 18) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:26:08) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 31ms (View: 25, DB: 5) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:26:08) [GET]
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 19ms (View: 16, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:26:08) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:26:08) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1583ms (View: 1579, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (4.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:26:09) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (1.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 1506ms (View: 45, DB: 7) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (9.8ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:30:46', '2010-06-28 04:30:46', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith' AND "datasets".id <> 980190963) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (5.3ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (10.8ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:30:52', '2010-06-28 04:30:52', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (0.8ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (3.4ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 1, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (9.7ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:31:03', '2010-06-28 04:31:03', 'emmanuel_gutmann')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 1, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 2, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 3, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.4ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (2.0ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'ox') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.4ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (8.5ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:31:23', '2010-06-28 04:31:23', 'tom')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.2ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom' AND "datasets".id <> 980190963) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:31:35) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 4581ms (View: 71, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:31:40) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (18.7ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1501ms (DB: 24) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:31:41) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 31ms (View: 25, DB: 5) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:31:41) [GET]
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 18ms (View: 15, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:31:41) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 12ms (View: 11, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:31:41) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1282ms (View: 1278, DB: 1) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (4.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:31:43) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 1363ms (View: 42, DB: 6) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (7.1ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (5.4ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:33:06', '2010-06-28 04:33:06', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith' AND "datasets".id <> 980190963) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (3.5ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:33:14', '2010-06-28 04:33:14', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (2.2ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (2.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (9.4ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:33:23', '2010-06-28 04:33:23', 'emmanuel_gutmann')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'up') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (10.6ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:33:28', '2010-06-28 04:33:28', 'tom')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom' AND "datasets".id <> 980190963) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:33:40) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1614ms (View: 79, DB: 5) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:33:42) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (9.0ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1251ms (DB: 13) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.3ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:33:43) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 29ms (View: 23, DB: 5) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:33:43) [GET]
+  [4;36;1mDataset Load (2.9ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 21ms (View: 15, DB: 3) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:33:43) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 14ms (View: 13, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:33:44) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1328ms (View: 1325, DB: 1) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (11.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:33:45) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 1531ms (View: 42, DB: 14) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (104.0ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:36:16', '2010-06-28 04:36:16', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (5.0ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'nh') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (3.7ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (9.0ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 04:36:23', '2010-06-28 04:36:23', 'tom')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:36:33) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1384ms (View: 71, DB: 5) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:36:35) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (11.0ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1308ms (DB: 15) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.3ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:36:36) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 29ms (View: 23, DB: 6) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:36:36) [GET]
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 18ms (View: 15, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:36:36) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 11ms (View: 11, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:36:36) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1279ms (View: 1276, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (4.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:36:38) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 1346ms (View: 41, DB: 6) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (4.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'km') LIMIT 1[0m
+  [4;36;1mDataset Load (1.8ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:51:10) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (4.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:51:10) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (4.5ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 3459ms (DB: 17) | 302 Found [http://test.host/datasets/980190962]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (2.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:51:13) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 29ms (View: 26, DB: 3) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:51:13) [GET]
+  [4;35;1mDataset Load (4.8ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 26ms (View: 19, DB: 5) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:51:13) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 13ms (View: 12, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;36;1mDataset Load (1.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:51:13) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1547ms (View: 1543, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;36;1mDataset Load (5.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:51:15) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;35;1mDataset Load (1.2ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 57ms (View: 40, DB: 8) | 200 OK [http://test.host/datasets/980190962?]
+  [4;35;1mSQL (7.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (4.9ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'pg') LIMIT 1[0m
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:52:24) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:52:24) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (8.4ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1839ms (DB: 20) | 302 Found [http://test.host/datasets/980190962]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (4.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:52:26) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (2.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 36ms (View: 29, DB: 8) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:52:26) [GET]
+  [4;35;1mDataset Load (5.5ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 23ms (View: 15, DB: 5) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:52:26) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:52:26) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1445ms (View: 1442, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;36;1mDataset Load (4.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:52:28) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;35;1mDataset Load (1.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 42ms (View: 23, DB: 7) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (4.5ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'pq') LIMIT 1[0m
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:56:49) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:56:49) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (10.9ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1329ms (DB: 18) | 302 Found [http://test.host/datasets/980190962]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (4.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:56:51) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 49ms (View: 43, DB: 7) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:56:51) [GET]
+  [4;35;1mDataset Load (4.7ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 23ms (View: 16, DB: 5) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:56:51) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:56:51) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1334ms (View: 1331, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;36;1mDataset Load (5.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:56:52) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 36ms (View: 22, DB: 7) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+##### Aws::SdbInterface returned an error: 503 Service Unavailable
+<?xml version="1.0"?>
+<Response><Errors><Error><Code>ServiceUnavailable</Code><Message>Service AmazonSimpleDB is currently unavailable. Please try again later</Message></Error></Errors><RequestID>253f2ea1-acc1-3cd9-97d7-8734397ec271</RequestID></Response> #####
+##### Aws::SdbInterface request: sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=DeleteDomain&DomainName=eliseo_kautzer&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-06-28T04%3A58%3A05.000Z&Version=2009-04-15&Signature=hhW138lOt1672gSkdbjqNAUQ0LXN6vr83ws5xNpTqcw%3D ####
+##### Retry is needed, error pattern match: is currently unavailable #####
+Closing HTTPS connection to sdb.amazonaws.com:443, reason: 'Aws::AWSErrorHandler: error match to pattern 'is currently unavailable''
+##### Retry #1 is being performed. Sleeping for 0.2 sec. Whole time: 0.010085 sec ####
+Opening new HTTPS connection to sdb.amazonaws.com:443
+##### Aws::SdbInterface returned an error: 503 Service Unavailable
+<?xml version="1.0"?>
+<Response><Errors><Error><Code>ServiceUnavailable</Code><Message>Service AmazonSimpleDB is currently unavailable. Please try again later</Message></Error></Errors><RequestID>80333706-8f60-bfe6-50d6-c269bca5292d</RequestID></Response> #####
+##### Aws::SdbInterface request: sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=DeleteDomain&DomainName=eliseo_kautzer&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-06-28T04%3A58%3A05.000Z&Version=2009-04-15&Signature=hhW138lOt1672gSkdbjqNAUQ0LXN6vr83ws5xNpTqcw%3D ####
+##### Retry is needed, error pattern match: is currently unavailable #####
+Closing HTTPS connection to sdb.amazonaws.com:443, reason: 'Aws::AWSErrorHandler: error match to pattern 'is currently unavailable''
+##### Retry #2 is being performed. Sleeping for 0.4 sec. Whole time: 1.50235 sec ####
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 1, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (4.0ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eo') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (13.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 11:58:25) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (1.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (6.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (4.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 11:58:27) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (4.5ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1304ms (DB: 35) | 302 Found [http://test.host/datasets/980190962]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (1.4ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 11:58:28) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 23ms (View: 20, DB: 2) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 11:58:28) [GET]
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 21ms (View: 15, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 11:58:28) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 11:58:28) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1265ms (View: 1262, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;36;1mDataset Load (38.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 11:58:30) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;35;1mDataset Load (3.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 54ms (View: 41, DB: 42) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (7.6ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'ax') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (5.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 12:01:23) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1372ms (View: 130, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (2.7ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 12:01:24) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (11.0ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1326ms (DB: 16) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.4ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 12:01:26) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 29ms (View: 24, DB: 5) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 12:01:26) [GET]
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 18ms (View: 14, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 12:01:26) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (1.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 12:01:26) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1317ms (View: 1314, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (4.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 12:01:27) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 74ms (View: 57, DB: 7) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (12.5ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:01:59', '2010-06-28 05:01:59', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.5ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'sq') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (7.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (9.0ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:02:06', '2010-06-28 05:02:06', 'tom')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 12:02:17) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1930ms (View: 71, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 12:02:19) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (8.5ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1267ms (DB: 13) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 12:02:20) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.2ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 32ms (View: 25, DB: 6) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 12:02:20) [GET]
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 23ms (View: 15, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 12:02:20) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 12:02:20) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1255ms (View: 1252, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (4.2ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 12:02:22) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 56ms (View: 41, DB: 6) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (4.3ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:08:25', '2010-06-28 05:08:25', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (5.3ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'sx') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 12:08:38) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1322ms (View: 76, DB: 5) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (3.2ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 12:08:39) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (10.6ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1257ms (DB: 16) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 12:08:40) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 35ms (View: 29, DB: 6) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 12:08:41) [GET]
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 21ms (View: 17, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 12:08:41) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (1.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 12:08:41) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1267ms (View: 1263, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (4.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 12:08:42) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (1.2ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 58ms (View: 44, DB: 6) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (4.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'um') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (3.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (8.2ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:13:27', '2010-06-28 05:13:27', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+##### Aws::SdbInterface returned an error: 503 Service Unavailable
+<?xml version="1.0"?>
+<Response><Errors><Error><Code>ServiceUnavailable</Code><Message>Service AmazonSimpleDB is currently unavailable. Please try again later</Message></Error></Errors><RequestID>fc1e46da-74da-2e60-bcb5-279e59371dd9</RequestID></Response> #####
+##### Aws::SdbInterface request: sdb.amazonaws.com:443/?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=CreateDomain&DomainName=test_nonunique&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-06-28T05%3A13%3A27.000Z&Version=2009-04-15&Signature=OIcw%2BjccPDC%2FlXxv1itwnenAbxJncZgxsSbLWyxuMLs%3D ####
+##### Retry is needed, error pattern match: is currently unavailable #####
+Closing HTTPS connection to sdb.amazonaws.com:443, reason: 'Aws::AWSErrorHandler: error match to pattern 'is currently unavailable''
+##### Retry #1 is being performed. Sleeping for 0.2 sec. Whole time: 0.011308 sec ####
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 12:13:40) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1464ms (View: 68, DB: 5) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 12:13:41) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (4.4ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1381ms (DB: 8) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (2.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 12:13:43) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 18ms (View: 10, DB: 3) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 12:13:43) [GET]
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 26ms (View: 23, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 12:13:43) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (4.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 12:13:43) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1283ms (View: 1272, DB: 5) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (4.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 12:13:44) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 33ms (View: 23, DB: 6) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (9.9ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:14:17', '2010-06-28 05:14:17', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (5.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'jd') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (3.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (8.3ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:14:24', '2010-06-28 05:14:24', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (1.2ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 12:14:35) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1324ms (View: 36, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (6.1ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 12:14:37) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (9.4ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1231ms (DB: 17) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (2.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 12:14:38) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 31ms (View: 24, DB: 5) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 12:14:38) [GET]
+  [4;36;1mDataset Load (1.4ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 19ms (View: 15, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 12:14:38) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 12:14:38) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1251ms (View: 1247, DB: 1) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (3.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 12:14:39) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.4ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 61ms (View: 43, DB: 6) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (8.4ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:18:57', '2010-06-28 05:18:57', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (62.8ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 're') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (1.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (32.1ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:19:05', '2010-06-28 05:19:05', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (13.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (4.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 12:19:21) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1391ms (View: 70, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (10.0ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 12:19:23) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (9.1ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1502ms (DB: 22) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (1.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 12:19:24) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 15ms (View: 12, DB: 3) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 12:19:24) [GET]
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 26ms (View: 18, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 12:19:24) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 12ms (View: 10, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (1.4ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 12:19:24) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1237ms (View: 1232, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (1.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 12:19:25) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 49ms (View: 41, DB: 3) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (12.5ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:24:46', '2010-06-28 05:24:46', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'bb') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (3.2ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (5.3ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:24:54', '2010-06-28 05:24:54', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (8.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 12:25:11) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1489ms (View: 115, DB: 15) | 200 OK [http://test.host/datasets?]
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 12:25:13) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (9.0ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1444ms (DB: 13) | 302 Found [http://test.host/datasets/980190962]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (6.2ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 12:25:14) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 15ms (View: 12, DB: 8) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 12:25:14) [GET]
+  [4;35;1mDataset Load (4.5ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 36ms (View: 28, DB: 5) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 12:25:14) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 12:25:14) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1386ms (View: 1379, DB: 1) | 200 OK [http://test.host/datasets/980190962]
+  [4;36;1mDataset Load (2.4ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 12:25:16) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 27ms (View: 19, DB: 4) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (9.5ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:28:21', '2010-06-28 05:28:21', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (1.1ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;35;1mDataset Load (3.7ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (9.6ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:28:29', '2010-06-28 05:28:29', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (1.0ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (2.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'td') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (4.2ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (10.0ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:28:37', '2010-06-28 05:28:37', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (0.4ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (4.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 12:28:53) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1440ms (View: 69, DB: 10) | 200 OK [http://test.host/datasets?]
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 12:28:54) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (4.2ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1494ms (DB: 8) | 302 Found [http://test.host/datasets/980190962]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (1.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 12:28:56) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 14ms (View: 11, DB: 3) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 12:28:56) [GET]
+  [4;35;1mDataset Load (3.5ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 20ms (View: 15, DB: 3) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 12:28:56) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 12:28:56) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1274ms (View: 1271, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;36;1mDataset Load (2.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 12:28:57) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 187ms (View: 179, DB: 3) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (6.6ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:30:05', '2010-06-28 05:30:05', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (0.6ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;35;1mDataset Load (4.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (11.1ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:30:11', '2010-06-28 05:30:11', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (6.5ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'gu') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (5.0ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (11.1ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 05:30:19', '2010-06-28 05:30:19', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (7.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 12:30:34) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 2440ms (View: 67, DB: 14) | 200 OK [http://test.host/datasets?]
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 12:30:37) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (8.4ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1248ms (DB: 15) | 302 Found [http://test.host/datasets/980190962]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mDataset Load (4.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 12:30:38) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 29ms (View: 23, DB: 6) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 12:30:38) [GET]
+  [4;35;1mDataset Load (1.6ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 21ms (View: 17, DB: 2) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 12:30:38) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 13ms (View: 12, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 12:30:38) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 5261ms (View: 5257, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;36;1mDataset Load (2.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 12:30:43) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 63ms (View: 39, DB: 4) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (4.6ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 08:47:32', '2010-06-28 08:47:32', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (1.0ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;35;1mDataset Load (10.0ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (12.5ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 08:47:41', '2010-06-28 08:47:41', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (0.7ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (1.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'gm') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (2.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (4.8ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 08:47:49', '2010-06-28 08:47:49', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (5.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 15:48:10) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1557ms (View: 48, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (5.4ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 15:48:12) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (9.0ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1306ms (DB: 18) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (1.2ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 15:48:13) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.0ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 30ms (View: 24, DB: 6) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 15:48:13) [GET]
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 18ms (View: 15, DB: 1) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 15:48:13) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 17ms (View: 16, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (1.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 15:48:13) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request failure count: 1, exception: #<Timeout::Error: execution expired>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 6289ms (View: 6285, DB: 2) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (3.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 15:48:20) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 57ms (View: 42, DB: 5) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (8.6ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 08:57:27', '2010-06-28 08:57:27', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (4.7ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;35;1mDataset Load (5.8ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (9.4ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 08:57:34', '2010-06-28 08:57:34', 'emmanuel_gutmann')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (0.4ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (2.2ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'op') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (3.6ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (10.8ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 08:57:45', '2010-06-28 08:57:45', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (1.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 15:57:58) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1326ms (View: 66, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (2.7ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 15:58:00) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (8.8ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1212ms (DB: 13) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 15:58:01) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 30ms (View: 25, DB: 5) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 15:58:01) [GET]
+  [4;36;1mDataset Load (2.5ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 20ms (View: 16, DB: 2) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 15:58:01) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 15:58:01) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Rightscale::HttpConnection : request to server sdb.amazonaws.com interrupted by ctrl-c
+Interrupt
+/usr/lib/ruby/1.8/net/http.rb:560:in `initialize'/usr/lib/ruby/1.8/net/http.rb:560:in `open'/usr/lib/ruby/1.8/net/http.rb:560:in `connect'/usr/lib/ruby/1.8/timeout.rb:62:in `timeout'/usr/lib/ruby/1.8/timeout.rb:93:in `timeout'/usr/lib/ruby/1.8/net/http.rb:560:in `connect'/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'/usr/lib/ruby/1.8/net/http.rb:548:in `start'/var/lib/gems/1.8/gems/http_connection-1.3.0/lib/right_http_connection.rb:311:in `start'/var/lib/gems/1.8/gems/http_connection-1.3.0/lib/right_http_connection.rb:357:in `request'/var/lib/gems/1.8/gems/http_connection-1.3.0/lib/right_http_connection.rb:331:in `loop'/var/lib/gems/1.8/gems/http_connection-1.3.0/lib/right_http_connection.rb:331:in `request'/var/lib/gems/1.8/gems/aws-2.3.13/lib/awsbase/right_awsbase.rb:682:in `request_info_impl'/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'/var/lib/gems/1.8/gems/aws-2.3.13/lib/awsbase/benchmark_fix.rb:30:in `add!'/var/lib/gems/1.8/gems/aws-2.3.13/lib/awsbase/right_awsbase.rb:682:in `request_info_impl'/var/lib/gems/1.8/gems/aws-2.3.13/lib/awsbase/right_awsbase.rb:462:in `request_info2'/var/lib/gems/1.8/gems/aws-2.3.13/lib/sdb/right_sdb_interface.rb:100:in `request_info'/var/lib/gems/1.8/gems/aws-2.3.13/lib/sdb/right_sdb_interface.rb:228:in `list_domains'/mnt/hgfs/shared/instedd-ml/app/views/datasets/show.html.erb:8:in `_run_erb_app47views47datasets47show46html46erb'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `send'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `render_without_template_tracking'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:306:in `with_template'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:30:in `render_without_template_tracking'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/test_case.rb:20:in `render'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:942:in `render_without_benchmark'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135:in `send'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:175:in `call'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:175:in `respond'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `each'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `respond'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:107:in `respond_to'/mnt/hgfs/shared/instedd-ml/app/controllers/datasets_controller.rb:18:in `show'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/test_process.rb:567:in `process_with_test'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/test_process.rb:447:in `process'/var/lib/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/test_process.rb:398:in `get'./test/functional/datasets_controller_test.rb:24:in `test_should_show_dataset'/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/testing/setup_and_teardown.rb:62:in `__send__'/var/lib/gems/1.8/gems/activesupport-2.3.8/lib/active_support/testing/setup_and_teardown.rb:62:in `run'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/testsuite.rb:38:in `run'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/testsuite.rb:37:in `each'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/testsuite.rb:37:in `run'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/testsuite.rb:38:in `run'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/testsuite.rb:37:in `each'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/testsuite.rb:37:in `run'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/ui/testrunnermediator.rb:48:in `run_suite'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/ui/console/testrunner.rb:82:in `start_mediator'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/ui/console/testrunner.rb:52:in `start'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/ui/testrunnerutilities.rb:24:in `run'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/autorunner.rb:304:in `run'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit/autorunner.rb:52:in `run'/var/lib/gems/1.8/gems/test-unit-2.0.9/lib/test/unit.rb:321/var/lib/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5.join('
+')}
+Request was:  /?AWSAccessKeyId=AKIAJTBXHDD2FWE4LYGQ&Action=ListDomains&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-06-28T08%3A58%3A01.000Z&Version=2009-04-15&Signature=acwnZrRkHA8FchWCylwi6wHIi%2FlLEhVIhveJEnikcIg%3D
+Response was: -none-
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 15:58:02) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 29ms (View: 21, DB: 2) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (8.8ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 08:58:59', '2010-06-28 08:58:59', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (0.6ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;35;1mDataset Load (3.5ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (4.7ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 08:59:06', '2010-06-28 08:59:06', 'eliseo_kautzer')[0m
+  [4;35;1mDataset Load (1.7ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (9.2ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 08:59:07', '2010-06-28 08:59:07', 'emmanuel_gutmann')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (1.9ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (2.5ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'lz') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (3.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (8.5ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 08:59:19', '2010-06-28 08:59:19', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+
+
+Processing DatasetsController#create (for 0.0.0.0 at 2010-06-28 15:59:34) [POST]
+  Parameters: {"dataset"=>{}}
+  [4;35;1mDataset Load (0.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" IS NULL) LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 1489ms (View: 71, DB: 6) | 200 OK [http://test.host/datasets?]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#destroy (for 0.0.0.0 at 2010-06-28 15:59:36) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (8.3ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190962[0m
+Redirected to http://test.host/datasets
+Completed in 1286ms (DB: 13) | 302 Found [http://test.host/datasets/980190962]
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT count(*) AS count_all FROM "datasets" [0m
+  [4;36;1mDataset Load (3.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#edit (for 0.0.0.0 at 2010-06-28 15:59:37) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mDataset Load (1.4ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 27ms (View: 21, DB: 6) | 200 OK [http://test.host/datasets/980190962/edit]
+
+
+Processing DatasetsController#index (for 0.0.0.0 at 2010-06-28 15:59:37) [GET]
+  [4;36;1mDataset Load (1.5ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Completed in 19ms (View: 15, DB: 2) | 200 OK [http://test.host/datasets]
+
+
+Processing DatasetsController#new (for 0.0.0.0 at 2010-06-28 15:59:37) [GET]
+Rendering template within layouts/datasets
+Rendering datasets/new
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://test.host/datasets/new]
+  [4;35;1mDataset Load (0.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#show (for 0.0.0.0 at 2010-06-28 15:59:37) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mDataset Load (0.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1588ms (View: 1585, DB: 1) | 200 OK [http://test.host/datasets/980190962]
+  [4;35;1mDataset Load (2.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+
+
+Processing DatasetsController#update (for 0.0.0.0 at 2010-06-28 15:59:39) [PUT]
+  Parameters: {"dataset"=>{}, "id"=>"980190962"}
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190962) [0m
+  [4;35;1mDataset Load (0.5ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'MyString' AND "datasets".id <> 980190962) LIMIT 1[0m
+Rendering template within layouts/datasets
+Rendering datasets/edit
+Completed in 28ms (View: 19, DB: 3) | 200 OK [http://test.host/datasets/980190962?]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (8.4ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:09:38', '2010-06-28 09:09:38', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (0.9ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;35;1mDataset Load (3.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (4.5ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:09:45', '2010-06-28 09:09:45', 'eliseo_kautzer')[0m
+  [4;35;1mDataset Load (1.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (8.4ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:09:46', '2010-06-28 09:09:46', 'emmanuel_gutmann')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (0.4ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (2.4ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'yj') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (3.7ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (8.7ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:09:54', '2010-06-28 09:09:54', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (1.2ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (53.7ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (17.0ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:13:33', '2010-06-28 09:13:33', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (0.5ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;35;1mDataset Load (3.6ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (8.3ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:13:39', '2010-06-28 09:13:39', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (2.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (8.8ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:13:44', '2010-06-28 09:13:44', 'emmanuel_gutmann')[0m
+  [4;35;1mDataset Load (2.3ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (8.9ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:13:45', '2010-06-28 09:13:45', 'tom')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (0.5ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (3.1ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'rv') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (4.0ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (9.8ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:13:53', '2010-06-28 09:13:53', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (2.4ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aric.smith') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (4.0ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:16:52', '2010-06-28 09:16:52', 'aric.smith')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (0.8ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;35;1mDataset Load (3.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'eliseo_kautzer') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Create (8.1ms)[0m   [0;1mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:16:58', '2010-06-28 09:16:58', 'eliseo_kautzer')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Destroy (131.2ms)[0m   [0mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;36;1mDataset Load (15.1ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'emmanuel_gutmann') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (9.4ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:17:08', '2010-06-28 09:17:08', 'emmanuel_gutmann')[0m
+  [4;36;1mDataset Load (5.0ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'tom') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (27.7ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:17:10', '2010-06-28 09:17:10', 'tom')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Destroy (1.4ms)[0m   [0;1mDELETE FROM "datasets" WHERE "id" = 980190963[0m
+  [4;35;1mDataset Load (2.2ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'ye') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (3.1ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Create (48.4ms)[0m   [0mINSERT INTO "datasets" ("created_at", "updated_at", "uid") VALUES('2010-06-28 09:17:21', '2010-06-28 09:17:21', 'test_nonunique')[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (36.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 980190963) [0m
+  [4;35;1mDataset Load (1.4ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'test_nonunique') LIMIT 1[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
