@@ -1,4 +1,5 @@
 class DatasetsController < ApplicationController
+
   # GET /datasets
   # GET /datasets.xml
   def index
@@ -57,6 +58,7 @@ class DatasetsController < ApplicationController
   # PUT /datasets/1.xml
   def update
     @dataset = Dataset.find(params[:id])
+	@dataset.learn_from_data(params[:dataurl]) if params[:dataurl]
 
     respond_to do |format|
       if @dataset.update_attributes(params[:dataset])

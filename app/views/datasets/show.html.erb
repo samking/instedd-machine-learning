@@ -3,10 +3,9 @@
   <%=h @dataset.uid %>
 </p>
 
-
-	<p> 
-		<%= Dataset.sdb.list_domains[:domains] %>
-	</p>
+<h2>Attributes</h2>
+<p><%= @dataset.get_items.each {|item| p item.inspect << "<br />\n"} %></p>
 
 <%= link_to 'Edit', edit_dataset_path(@dataset) %> |
 <%= link_to 'Back', datasets_path %>
+
