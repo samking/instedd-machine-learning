@@ -3,6 +3,7 @@ require 'open-uri'
 
 class Dataset < ActiveRecord::Base
 	#TODO: support other database services
+	#TODO: don't expose my sdb password to the world
 	@@sdb = Aws::SdbInterface.new( 'AKIAJTBXHDD2FWE4LYGQ', '9AmTRYMSoC66d660ixPLgioxCIlDIVPLlTN2USEs')
 	def self.sdb
 		@@sdb
@@ -22,6 +23,7 @@ class Dataset < ActiveRecord::Base
 
 	#TODO: support formats other than csv
 	#TODO: support csv without header (specify noheader by parameter)
+	#TODO: support parameters to specify rows, cols, and services
 	def learn_from_data(dataUrl)
 		reader = CSV::Reader.create(open(dataUrl))
 		header = reader.shift
@@ -35,6 +37,11 @@ class Dataset < ActiveRecord::Base
 			items << Aws::SdbInterface::Item.new(UUIDTools::UUID.timestamp_create, attributes)
 		end
 		@@sdb.batch_put_attributes(uid, items)
+	end
+
+	#TODO: ask machine learning services if we're still learning
+	def is_learning?
+		false
 	end
 
 	def get_items

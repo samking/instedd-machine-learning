@@ -3,6 +3,9 @@
   <%=h @dataset.uid %>
 </p>
 
+<h2>Is the service still learning?</h2>
+<p><%= @dataset.is_learning? %></p>
+
 <h2>Attributes</h2>
 <p><%= @dataset.get_items.each {|item| p item.inspect << "<br />\n"} %></p>
 
