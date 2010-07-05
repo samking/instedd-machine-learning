@@ -3,8 +3,7 @@ require 'open-uri'
 
 class Dataset < ActiveRecord::Base
 	#TODO: support other database services
-	#TODO: don't expose my sdb password to the world
-	@@sdb = Aws::SdbInterface.new( 'AKIAJTBXHDD2FWE4LYGQ', '9AmTRYMSoC66d660ixPLgioxCIlDIVPLlTN2USEs')
+	@@sdb = Aws::SdbInterface.new($db_config[:sdb_user], $db_config[:sdb_pass])
 	def self.sdb
 		@@sdb
 	end

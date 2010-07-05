@@ -3513,3 +3513,6 @@ Rendering datasets/show
 Opening new HTTPS connection to sdb.amazonaws.com:443
 Closing HTTPS connection to sdb.amazonaws.com:443
 Completed in 6445ms (View: 5828, DB: 1) | 200 OK [http://localhost/datasets/13]
+New Aws::SdbInterface using per_request-connection mode
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
