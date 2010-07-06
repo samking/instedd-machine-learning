@@ -22,6 +22,10 @@ Rails::Initializer.run do |config|
   config.gem "aws"
   config.gem "uuidtools"
   config.gem "parseconfig"
+  config.gem "calais" #nokogiri, one of the dependenceis, requires you to 
+					  #sudo apt-get install libxslt-dev libxml2-dev
+					  #curb requires you to
+					  #sudo apt-get install libcurl4-openssl-dev 
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

@@ -33,11 +33,6 @@ class DatasetsController < ApplicationController
     end
   end
 
-  # GET /datasets/1/edit
-  def edit
-    @dataset = Dataset.find(params[:id])
-  end
-
   # POST /datasets
   # POST /datasets.xml
   def create

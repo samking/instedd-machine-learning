@@ -7,8 +7,14 @@
 <p><%= @dataset.is_learning? %></p>
 
 <h2>Attributes</h2>
-<p><%= @dataset.get_items.each {|item| p item.inspect << "<br />\n"} %></p>
+<p><%= @dataset.get_items.each {|item| p item.inspect; p "<br />\n"} %></p>
 
-<%= link_to 'Edit', edit_dataset_path(@dataset) %> |
+<%= link_to 'Destroy', @dataset, :confirm => 'Are you sure?', :method => :delete %></td>
 <%= link_to 'Back', datasets_path %>
+<p><%= form_tag(dataset_path, :method => "put") %>
+    URL of Data to Add<%= text_field_tag 'dataurl' %>
+    <%= submit_tag 'Add Data' %>
+</p>
+
+
 
