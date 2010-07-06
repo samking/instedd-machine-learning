@@ -7,7 +7,9 @@
 <p><%= @dataset.is_learning? %></p>
 
 <h2>Attributes</h2>
-<p><%= @dataset.get_items.each {|item| p item.inspect; p "<br />\n"} %></p>
+<% @dataset.get_items.each do |item| %>
+	<p><%= item.inspect %></p>
+<% end %>
 
 <%= link_to 'Destroy', @dataset, :confirm => 'Are you sure?', :method => :delete %></td>
 <%= link_to 'Back', datasets_path %>
