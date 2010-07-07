@@ -48,9 +48,9 @@ Rails::Initializer.run do |config|
 
   #load the DB files after rails loads
   config.after_initialize {
-	db_yaml = YAML.load_file("#{RAILS_ROOT}/config/remote-db-config.yml")
-	$db_config = db_yaml[ENV['RAILS_ENV'] || 'development']
-	$db_config.symbolize_keys!
+      db_yaml = YAML.load_file("#{RAILS_ROOT}/config/user-config.yml")
+      $db_config = db_yaml[ENV['RAILS_ENV'] || 'development']
+      $db_config.symbolize_keys!
   }
 
 end
