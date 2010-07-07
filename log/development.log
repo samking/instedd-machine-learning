@@ -6023,3 +6023,46 @@ Rendering datasets/show
 Opening new HTTPS connection to sdb.amazonaws.com:443
 Closing HTTPS connection to sdb.amazonaws.com:443
 Completed in 1727ms (View: 1678, DB: 1) | 200 OK [http://localhost/datasets/14]
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-07-06 17:10:51) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (354.9ms)[0m   [0mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 14796ms (View: 10079, DB: 355) | 200 OK [http://localhost/]
+New Aws::SdbInterface using per_request-connection mode
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (2.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (104.5ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443

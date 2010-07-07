@@ -1,0 +1,5 @@
+development:
+  sdb_user: sdb-api-key
+  sdb_pass: sdb-secret-key
+  calais_key: calais-api-key
+

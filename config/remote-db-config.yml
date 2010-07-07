@@ -1,4 +1,0 @@
-development:
-  sdb_user: your-account-id-for-amazon-sdb
-  sdb_pass: your-secret-key-for-amazon-sdb
-
