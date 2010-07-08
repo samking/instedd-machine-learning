@@ -3,10 +3,16 @@ require 'open-uri'
 
 class Dataset < ActiveRecord::Base
   #TODO: support other database services
-  @@sdb = Aws::SdbInterface.new($db_config[:sdb_user], $db_config[:sdb_pass])
+  @@sdb = Aws::SdbInterface.new($user_config[:sdb_user], $user_config[:sdb_pass])
   def self.sdb
     @@sdb
   end
+
+  #Calais only allows 4 requests per second, and if we do more than that,
+  #it's slower than if we limited the requests on our end.
+  #Each request takes about 2 seconds, so 8 threads should allow 4 requests
+  #per second
+  NumCalaisThreads = 8
 
   #validation
   validates_uniqueness_of :uid
@@ -22,8 +28,7 @@ class Dataset < ActiveRecord::Base
 
   #TODO: support formats other than csv
   #TODO: support csv without header (specify noheader by parameter)
-  #TODO: support parameters to specify rows, cols, and services
-  def learn_from_data(dataUrl)
+  def add_data(dataUrl)
     reader = CSV::Reader.create(open(dataUrl))
     header = reader.shift
 
@@ -36,6 +41,13 @@ class Dataset < ActiveRecord::Base
       items << Aws::SdbInterface::Item.new(UUIDTools::UUID.timestamp_create, attributes)
     end
     @@sdb.batch_put_attributes(uid, items)
+  end
+
+  #TODO: support parameters to specify rows, cols, and services
+  def learn(service)
+    items = get_items
+    learning_response = method("learn_from_" + service.to_s).call(items)
+
   end
 
   #TODO: ask machine learning services if we're still learning
@@ -57,18 +69,39 @@ class Dataset < ActiveRecord::Base
     @@sdb.list_domains[:domains].inspect
   end
 
+  def self.hash_to_xml(hash, builder=Builder::XmlMarkup.new)
+    builder.item {
+      hash.each do |key, value|
+        eval "builder.#{key}('#{value}')"
+      end
+    }
+    builder.target!
+  end
+
   def sdb_to_xml
     items = get_items
     builder = Builder::XmlMarkup.new
-    builder.instruct!
     items.each do |item|
-      builder.item {
-        item.each do |key, value|
-          eval "builder.#{key}('#{value}')"
-        end
-      }
+      hash_to_xml(item, builder)  
     end
     builder.target!
+  end
+
+  def self.make_calais_request(content, type, function_call)
+    response = Calais.method(function_call).call(:content => content, 
+                                      :content_type => type, 
+                                      :license_id => $user_config[:calais_key]
+                                     )
+  end
+
+  def self.learn_from_calais(rows, type=:html, function_call=:enlighten)
+      rows = [rows] if not rows.respond_to? :pmap #assumes that there is one element
+
+      #calais doesn't have an API for batch processing, so in order to run a
+      #request on each element, we want to run them in parallel
+      response = rows.pmap([NumCalaisThreads, rows.length].min) do |row| 
+          make_calais_request(row, type, function_call)
+      end
   end
 
   private

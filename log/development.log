@@ -6066,3 +6066,405 @@ New Aws::SdbInterface using per_request-connection mode
   [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
 Opening new HTTPS connection to sdb.amazonaws.com:443
 Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-07-07 11:13:37) [GET]
+  Parameters: {"id"=>"14"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.9ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 2646ms (View: 2512, DB: 1) | 200 OK [http://localhost/datasets/14]
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-07-07 11:15:39) [PUT]
+  Parameters: {"commit"=>"Add Data", "id"=>"14", "dataurl"=>"http://stanford.edu/~samking/temp/foo.csv"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (16.9ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (6.0ms)[0m   [0;1mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aoeu' AND "datasets".id <> 14) LIMIT 1[0m
+Redirected to http://localhost:3000/datasets/14
+Completed in 4640ms (DB: 23) | 302 Found [http://localhost/datasets/14]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-07-07 11:15:44) [GET]
+  Parameters: {"id"=>"14"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (3.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1867ms (View: 1787, DB: 3) | 200 OK [http://localhost/datasets/14]
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-07-07 11:24:05) [PUT]
+  Parameters: {"commit"=>"Add Data", "id"=>"14", "dataurl"=>"http://stanford.edu/~samking/temp/foo2.csv"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (351.8ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;35;1mDataset Load (133.9ms)[0m   [0mSELECT "datasets".id FROM "datasets" WHERE ("datasets"."uid" = 'aoeu' AND "datasets".id <> 14) LIMIT 1[0m
+Redirected to http://localhost:3000/datasets/14
+Completed in 69938ms (DB: 486) | 302 Found [http://localhost/datasets/14]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-07-07 11:25:20) [GET]
+  Parameters: {"id"=>"14"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (2.4ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 2516ms (View: 2106, DB: 2) | 200 OK [http://localhost/datasets/14]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+  [4;35;1mDataset Load (6.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+  [4;36;1mDataset Load (3.4ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+  [4;35;1mDataset Load (7.3ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+  [4;35;1mDataset Load (2.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.0ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.2ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.3ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-07-07 15:34:50) [GET]
+  Parameters: {"id"=>"14"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.4ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 5187ms (View: 4468, DB: 1) | 200 OK [http://localhost/datasets/14]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+  [4;35;1mSQL (2.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (2.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+New Aws::SdbInterface using per_request-connection mode
+New Aws::SdbInterface using per_request-connection mode
+New Aws::SdbInterface using per_request-connection mode
+New Aws::SdbInterface using per_request-connection mode
+New Aws::SdbInterface using per_request-connection mode
+New Aws::SdbInterface using per_request-connection mode

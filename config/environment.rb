@@ -26,6 +26,7 @@ Rails::Initializer.run do |config|
 					  #sudo apt-get install libxslt-dev libxml2-dev
 					  #curb requires you to
 					  #sudo apt-get install libcurl4-openssl-dev 
+  config.gem "schleyfox-peach", :source => "http://gems.github.com", :lib => "peach"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -49,8 +50,8 @@ Rails::Initializer.run do |config|
   #load the DB files after rails loads
   config.after_initialize {
       db_yaml = YAML.load_file("#{RAILS_ROOT}/config/user-config.yml")
-      $db_config = db_yaml[ENV['RAILS_ENV'] || 'development']
-      $db_config.symbolize_keys!
+      $user_config = db_yaml[ENV['RAILS_ENV'] || 'development']
+      $user_config.symbolize_keys!
   }
 
 end
