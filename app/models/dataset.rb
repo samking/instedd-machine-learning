@@ -8,6 +8,9 @@ class Dataset < ActiveRecord::Base
     @@sdb
   end
 
+  #TODO: support other machine learning services
+  MACHINE_LEARNING_SERVICES = [:calais]
+
   #Calais only allows 4 requests per second, and if we do more than that,
   #it's slower than if we limited the requests on our end.
   #Each request takes about 2 seconds, so 8 threads should allow 4 requests
@@ -45,9 +48,9 @@ class Dataset < ActiveRecord::Base
 
   #TODO: support parameters to specify rows, cols, and services
   def learn(service)
+    raise "#{service} not supported" unless MACHINE_LEARNING_SERVICES.include? service
     items = get_items
     learning_response = method("learn_from_" + service.to_s).call(items)
-
   end
 
   #TODO: ask machine learning services if we're still learning
@@ -91,7 +94,16 @@ class Dataset < ActiveRecord::Base
     response = Calais.method(function_call).call(:content => content, 
                                       :content_type => type, 
                                       :license_id => $user_config[:calais_key]
-                                     )
+                                     ) do |curl_client|
+      #the Calais class makes a call to Curb's version of libcurl, which, by
+      #default, sends an "Expect: 100" on any posts longer than 1024 bytes.
+      #This block ensures that the Calais Client already has that code disabled
+      #by giving the Calais Client a Curl instance with that header disabled.
+      curl_client.instance_eval do 
+        @client = Curl::Easy.new
+        @client.headers["Expect"] = ''
+      end
+    end
   end
 
   def self.learn_from_calais(rows, type=:html, function_call=:enlighten)
