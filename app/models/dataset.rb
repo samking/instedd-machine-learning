@@ -74,7 +74,6 @@ class Dataset < ActiveRecord::Base
     while used_length < total_length
       current_chunk = ("%0#{SDB_CHUNK_IDENTIFIER_SIZE}d" % chunk_number) + 
         remaining_attribute[0...SDB_MAX_CHUNK_SIZE]
-      p current_chunk.length
       chunked_attribute << current_chunk
       remaining_attribute = remaining_attribute[SDB_MAX_CHUNK_SIZE..-1]
       used_length += current_chunk.length - SDB_CHUNK_IDENTIFIER_SIZE
@@ -83,8 +82,15 @@ class Dataset < ActiveRecord::Base
     chunked_attribute
   end
 
-  def unchunk_sdb_attribute
-    #TODO: implement
+  def unchunk_sdb_attribute attribute_arr
+    attr_map = {}
+    attribute_arr.each do |chunk|
+      index = chunk[0...SDB_CHUNK_IDENTIFIER_SIZE]
+      chunk_payload = chunk[SDB_CHUNK_IDENTIFIER_SIZE..-1]
+      attr_map[index] = chunk_payload
+    end
+    sorted_chunks = attr_map.sort.map {|key_val_arr| key_val_arr[1]}
+    return sorted_chunks.join
   end
 
   def add_response_to_database(database, learning_response, service)
@@ -100,20 +106,28 @@ class Dataset < ActiveRecord::Base
     false
   end
 
+  def reassemble_sdb_items(items)
+    reassembled_items = {}
+    items.each do |col_head, val|
+      reassembled_items[col_head] = unchunk_sdb_attribute(val)
+    end
+    reassembled_items
+  end
+
   def get_database(reassemble=true)
-    keys = []
-    items = []
-    @@sdb.select("select * from #{uid}")[:items].each do |item|
-      item.each do |key, val|
-        keys << key
-        items << val
+    row_uids = []
+    items = [] #all columns within a row will occupy one index in items
+    @@sdb.select("select * from #{uid}")[:items].each do |item| #each row
+      item.each do |row_uid, val| 
+        row_uids << row_uid
+        items << (reassemble ? reassemble_sdb_items(val) : val)
       end
     end
-    return keys, items
+    return row_uids, items
   end
 
   def get_items(reassemble=true)
-    get_database[1]
+    get_database(reassemble)[1]
   end
 
   def self.get_domain_list_string
