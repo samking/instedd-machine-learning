@@ -15,7 +15,8 @@
 <%= link_to 'Back', datasets_path %>
 <p><%= form_tag(dataset_path, :method => "put") %>
     URL of Data to Add<%= text_field_tag 'dataurl' %>
-    <%= submit_tag 'Add Data' %>
+    Service to Use (supported: calais)<%= text_field_tag 'service' %>
+    <%= submit_tag 'Add Data and/or run Machine Learning' %>
 </p>
 
 

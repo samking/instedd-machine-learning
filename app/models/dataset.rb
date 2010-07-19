@@ -1,21 +1,22 @@
 require 'csv'
 require 'open-uri'
 
+
 class Dataset < ActiveRecord::Base
-  #TODO: support other database services
+  #TODO: support other database services and put the database interface into a class
   @@sdb = Aws::SdbInterface.new($user_config[:sdb_user], $user_config[:sdb_pass])
   def self.sdb
     @@sdb
   end
 
-  #TODO: support other machine learning services
+  #TODO: support other machine learning services and put the machine learning interface into a class
   MACHINE_LEARNING_SERVICES = [:calais]
 
   #Calais only allows 4 requests per second, and if we do more than that,
   #it's slower than if we limited the requests on our end.
   #Each request takes about 2 seconds, so 8 threads should allow 4 requests
   #per second
-  NumCalaisThreads = 8
+  NUM_CALAIS_THREADS = 8
 
   #validation
   validates_uniqueness_of :uid
@@ -31,8 +32,8 @@ class Dataset < ActiveRecord::Base
 
   #TODO: support formats other than csv
   #TODO: support csv without header (specify noheader by parameter)
-  def add_data(dataUrl)
-    reader = CSV::Reader.create(open(dataUrl))
+  def add_data(data_url)
+    reader = CSV::Reader.create(open(data_url))
     header = reader.shift
 
     items = []
@@ -46,11 +47,17 @@ class Dataset < ActiveRecord::Base
     @@sdb.batch_put_attributes(uid, items)
   end
 
-  #TODO: support parameters to specify rows, cols, and services
-  def learn(service)
-    raise "#{service} not supported" unless MACHINE_LEARNING_SERVICES.include? service
-    items = get_items
-    learning_response = method("learn_from_" + service.to_s).call(items)
+  #each attribute value stored in a SDB database can only be 
+  def chunk_sdb_attribute
+  end
+
+  def add_response_to_database(database, learning_response, service)
+    items = []
+    database[0].zip(learning_response) do |row_name, ml_response|
+      items << Aws::SdbInterface::Item.new(row_name, {"ml_#{service}:#{Time.new}" => ml_response})
+    end
+    p items[0]
+    @@sdb.batch_put_attributes(uid,items)
   end
 
   #TODO: ask machine learning services if we're still learning
@@ -58,14 +65,20 @@ class Dataset < ActiveRecord::Base
     false
   end
 
-  def get_items
+  def get_database
+    keys = []
     items = []
     @@sdb.select("select * from #{uid}")[:items].each do |item|
       item.each do |key, val|
+        keys << key
         items << val
       end
     end
-    items
+    return keys, items
+  end
+
+  def get_items
+    get_database[1]
   end
 
   def self.get_domain_list_string
@@ -111,9 +124,17 @@ class Dataset < ActiveRecord::Base
 
       #calais doesn't have an API for batch processing, so in order to run a
       #request on each element, we want to run them in parallel
-      response = rows.pmap([NumCalaisThreads, rows.length].min) do |row| 
+      rows.pmap([NUM_CALAIS_THREADS, rows.length].min) do |row| 
           make_calais_request(row, type, function_call)
       end
+  end
+
+  #TODO: support parameters to specify rows, cols, and services
+  def learn(service)
+    raise "#{service} not supported" unless MACHINE_LEARNING_SERVICES.include? service
+    database = get_database
+    learning_response = Dataset.method("learn_from_" + service.to_s).call(database[1])
+    add_response_to_database(database, learning_response, service)
   end
 
   private

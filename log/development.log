@@ -6478,3 +6478,311 @@ New Aws::SdbInterface using per_request-connection mode
 [0m
 New Aws::SdbInterface using per_request-connection mode
 New Aws::SdbInterface using per_request-connection mode
+
+
+Processing DatasetsController#index (for 127.0.0.1 at 2010-07-09 17:53:11) [GET]
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (2.6ms)[0m   [0;1mSELECT * FROM "datasets" [0m
+Rendering template within layouts/datasets
+Rendering datasets/index
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1838ms (View: 1774, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-07-09 17:53:16) [GET]
+  Parameters: {"id"=>"14"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 1411ms (View: 1380, DB: 1) | 200 OK [http://localhost/datasets/14]
+New Aws::SdbInterface using per_request-connection mode
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+  [4;36;1mSQL (2.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mDataset Load (1.1ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+New Aws::SdbInterface using per_request-connection mode
+New Aws::SdbInterface using per_request-connection mode
+#<NoMethodError: undefined method `item_name' for #<Aws::SdbInterface:0xb6c5a560>>
+/var/lib/gems/1.8/gems/aws-2.3.13/lib/sdb/right_sdb_interface.rb:376:in `batch_put_attributes'/var/lib/gems/1.8/gems/aws-2.3.13/lib/sdb/right_sdb_interface.rb:374:in `each'/var/lib/gems/1.8/gems/aws-2.3.13/lib/sdb/right_sdb_interface.rb:374:in `batch_put_attributes'(irb):26:in `irb_binding'/usr/lib/ruby/1.8/irb/workspace.rb:52:in `irb_binding'/usr/lib/ruby/1.8/irb/workspace.rb:52.join('
+')}
+Request was:  /?AWSAccessKeyId=AKIAJD75GJNOLQ4YCD7Q&Action=GetAttributes&DomainName=aoeu&ItemName=7038f6b0-88d7-11df-97c7-000c29645e21&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2010-07-19T03%3A20%3A15.000Z&Version=2009-04-15&Signature=1NJrU2nA8X5y%2FnEZGEfBMAfsC7xWAOrt0R7UnDJxKvM%3D
+Response was: 200 -- OK -- <?xml version="1.0"?>
+<GetAttributesResponse xmlns="http://sdb.amazonaws.com/doc/2009-04-15/"><GetAttributesResult><Attribute><Name>tags</Name><Value>pnh</Value></Attribute><Attribute><Name>col1</Name><Value>sam</Value></Attribute><Attribute><Name>col2</Name><Value>king</Value></Attribute><Attribute><Name>ml_7-19-2010_test-service</Name><Value>this is the response from the test</Value></Attribute></GetAttributesResult><ResponseMetadata><RequestId>edecd3ed-b10e-25da-2c1d-f0e7590fc38d</RequestId><BoxUsage>0.0000093522</BoxUsage></ResponseMetadata></GetAttributesResponse>
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-07-19 10:45:55) [GET]
+  Parameters: {"id"=>"14"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.5ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 3179ms (View: 2821, DB: 1) | 200 OK [http://localhost/datasets/14]
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-07-19 10:47:16) [PUT]
+  Parameters: {"commit"=>"Add Data and/or run Machine Learning", "service"=>"calais", "id"=>"14", "dataurl"=>""}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.7ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+
+Errno::ENOENT (No such file or directory - ):
+  /usr/lib/ruby/1.8/open-uri.rb:32:in `initialize'
+  /usr/lib/ruby/1.8/open-uri.rb:32:in `open_uri_original_open'
+  /usr/lib/ruby/1.8/open-uri.rb:32:in `open'
+  app/models/dataset.rb:36:in `add_data'
+  app/controllers/datasets_controller.rb:56:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (2253.5ms)
+Rendered rescues/_request_and_response (30.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-07-19 10:51:53) [PUT]
+  Parameters: {"commit"=>"Add Data and/or run Machine Learning", "service"=>"calais", "id"=>"14", "dataurl"=>""}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (1.1ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+
+RuntimeError (calais not supported):
+  app/models/dataset.rb:60:in `learn'
+  app/controllers/datasets_controller.rb:57:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (66.7ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-07-19 10:53:45) [PUT]
+  Parameters: {"commit"=>"Add Data and/or run Machine Learning", "service"=>"calais", "id"=>"14", "dataurl"=>""}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+
+RuntimeError (calais not supported):
+  app/models/dataset.rb:60:in `learn'
+  app/controllers/datasets_controller.rb:57:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (140.5ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-07-19 11:15:21) [PUT]
+  Parameters: {"commit"=>"Add Data and/or run Machine Learning", "service"=>"calais", "id"=>"14", "dataurl"=>""}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+
+RuntimeError (calais not supported):
+  app/models/dataset.rb:60:in `learn'
+  app/controllers/datasets_controller.rb:57:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (224.8ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-07-19 11:18:56) [PUT]
+  Parameters: {"commit"=>"Add Data and/or run Machine Learning", "service"=>"calais", "id"=>"14", "dataurl"=>""}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.6ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+NameError (undefined method `learn_from_calais' for class `Dataset'):
+  app/models/dataset.rb:62:in `method'
+  app/models/dataset.rb:62:in `learn'
+  app/controllers/datasets_controller.rb:57:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (84.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-07-19 11:19:44) [PUT]
+  Parameters: {"commit"=>"Add Data and/or run Machine Learning", "service"=>"calais", "id"=>"14", "dataurl"=>""}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.6ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+NameError (undefined method `learn_from_calais' for class `Dataset'):
+  app/models/dataset.rb:131:in `method'
+  app/models/dataset.rb:131:in `learn'
+  app/controllers/datasets_controller.rb:57:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (71.9ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-07-19 11:20:10) [PUT]
+  Parameters: {"commit"=>"Add Data and/or run Machine Learning", "service"=>"calais", "id"=>"14", "dataurl"=>""}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+##### Aws::SdbInterface returned an error: 400 Bad Request
+<?xml version="1.0"?>
+<Response><Errors><Error><Code>InvalidParameterValue</Code><Message>Value (--&gt;&lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:c="http://s.opencalais.com/1/pred/"&gt;&lt;rdf:Description c:calaisRequestID="a7376deb-d412-8833-129e-9262df71aa8b" c:id="http://id.opencalais.com/o1VMQlyX0VCFgMDLYZO6KA" rdf:about="http://d.opencalais.com/dochash-1/76422009-9201-3280-8357-e91bbd3cbc60"&gt;&lt;rdf:type rdf:resource="http://s.opencalais.com/1/type/sys/DocInfo"/&gt;&lt;c:document&gt;&lt;![CDATA[&lt;body&gt; lastkingtagsphnom penhfirstsam&lt;/body&gt;]]&gt;&lt;/c:document&gt;&lt;c:docTitle/&gt;&lt;c:docDate&gt;2010-07-19 00:21:20.453&lt;/c:docDate&gt;&lt;/rdf:Description&gt;&lt;rdf:Description c:contentType="text/html" c:emVer="7.1.1103.5" c:langIdVer="DefaultLangId" c:language="InputTextTooShort" c:processingVer="CalaisJob01" c:submissionDate="2010-07-19 00:21:20.375" rdf:about="http://d.opencalais.com/dochash-1/76422009-9201-3280-8357-e91bbd3cbc60/meta"&gt;&lt;rdf:type rdf:resource="http://s.opencalais.com/1/type/sys/DocInfoMeta"/&gt;&lt;c:docId rdf:resource="http://d.opencalais.com/dochash-1/76422009-9201-3280-8357-e91bbd3cbc60"/&gt;&lt;c:submitterCode&gt;07ba59a8-841b-9632-e291-7ddbe0511158&lt;/c:submitterCode&gt;&lt;c:signature&gt;digestalg-1|Hqvu1hNldRglZ/oG4C+9op3EOSw=|Q2edV0TanZyn+rVjJnDJKx/xb6c/MVQTKB39NAFjEm4zrhehx+fGkA==&lt;/c:signature&gt;&lt;/rdf:Description&gt;&lt;rdf:Description rdf:about="http://d.opencalais.com/dochash-1/76422009-9201-3280-8357-e91bbd3cbc60/lid/DefaultLangId"&gt;&lt;rdf:type rdf:resource="http://s.opencalais.com/1/type/lid/DefaultLangId"/&gt;&lt;c:docId rdf:resource="http://d.opencalais.com/dochash-1/76422009-9201-3280-8357-e91bbd3cbc60"/&gt;&lt;c:lang rdf:resource="http://d.opencalais.com/lid/DefaultLangId/InputTextTooShort"/&gt;&lt;/rdf:Description&gt;&lt;/rdf:RDF&gt;) for parameter Value is invalid. Value exceeds maximum length of 1024</Message><BoxUsage>0.0000000000</BoxUsage></Error></Errors><RequestID>855e0019-17c3-1152-4edb-de4b989343b6</RequestID></Response> #####
+##### Aws::SdbInterface request: sdb.amazonaws.com:443/ ####
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+Aws::AwsError (InvalidParameterValue: Value (--><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:c="http://s.opencalais.com/1/pred/"><rdf:Description c:calaisRequestID="a7376deb-d412-8833-129e-9262df71aa8b" c:id="http://id.opencalais.com/o1VMQlyX0VCFgMDLYZO6KA" rdf:about="http://d.opencalais.com/dochash-1/76422009-9201-3280-8357-e91bbd3cbc60"><rdf:type rdf:resource="http://s.opencalais.com/1/type/sys/DocInfo"/><c:document><![CDATA[<body> lastkingtagsphnom penhfirstsam</body>]]></c:document><c:docTitle/><c:docDate>2010-07-19 00:21:20.453</c:docDate></rdf:Description><rdf:Description c:contentType="text/html" c:emVer="7.1.1103.5" c:langIdVer="DefaultLangId" c:language="InputTextTooShort" c:processingVer="CalaisJob01" c:submissionDate="2010-07-19 00:21:20.375" rdf:about="http://d.opencalais.com/dochash-1/76422009-9201-3280-8357-e91bbd3cbc60/meta"><rdf:type rdf:resource="http://s.opencalais.com/1/type/sys/DocInfoMeta"/><c:docId rdf:resource="http://d.opencalais.com/dochash-1/76422009-9201-3280-8357-e91bbd3cbc60"/><c:submitterCode>07ba59a8-841b-9632-e291-7ddbe0511158</c:submitterCode><c:signature>digestalg-1|Hqvu1hNldRglZ/oG4C+9op3EOSw=|Q2edV0TanZyn+rVjJnDJKx/xb6c/MVQTKB39NAFjEm4zrhehx+fGkA==</c:signature></rdf:Description><rdf:Description rdf:about="http://d.opencalais.com/dochash-1/76422009-9201-3280-8357-e91bbd3cbc60/lid/DefaultLangId"><rdf:type rdf:resource="http://s.opencalais.com/1/type/lid/DefaultLangId"/><c:docId rdf:resource="http://d.opencalais.com/dochash-1/76422009-9201-3280-8357-e91bbd3cbc60"/><c:lang rdf:resource="http://d.opencalais.com/lid/DefaultLangId/InputTextTooShort"/></rdf:Description></rdf:RDF>) for parameter Value is invalid. Value exceeds maximum length of 1024
+REQUEST=sdb.amazonaws.com:443/ 
+REQUEST ID=855e0019-17c3-1152-4edb-de4b989343b6 ):
+  aws (2.3.13) lib/awsbase/right_awsbase.rb:697:in `request_info_impl'
+  aws (2.3.13) lib/awsbase/right_awsbase.rb:462:in `request_info2'
+  aws (2.3.13) lib/sdb/right_sdb_interface.rb:100:in `request_info'
+  aws (2.3.13) lib/sdb/right_sdb_interface.rb:381:in `batch_put_attributes'
+  app/models/dataset.rb:55:in `add_response_to_database'
+  app/models/dataset.rb:132:in `learn'
+  app/controllers/datasets_controller.rb:57:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (83.5ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DatasetsController#show (for 127.0.0.1 at 2010-07-19 11:21:20) [GET]
+  Parameters: {"id"=>"14"}
+New Aws::SdbInterface using per_request-connection mode
+  [4;36;1mDataset Load (0.7ms)[0m   [0;1mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Rendering template within layouts/datasets
+Rendering datasets/show
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Completed in 5442ms (View: 5405, DB: 1) | 200 OK [http://localhost/datasets/14]
+
+
+Processing DatasetsController#update (for 127.0.0.1 at 2010-07-19 11:23:32) [PUT]
+  Parameters: {"commit"=>"Add Data and/or run Machine Learning", "service"=>"calais", "id"=>"14", "dataurl"=>""}
+New Aws::SdbInterface using per_request-connection mode
+  [4;35;1mDataset Load (0.8ms)[0m   [0mSELECT * FROM "datasets" WHERE ("datasets"."id" = 14) [0m
+Opening new HTTPS connection to sdb.amazonaws.com:443
+Closing HTTPS connection to sdb.amazonaws.com:443
+Opening new HTTPS connection to sdb.amazonaws.com:443
+##### Aws::SdbInterface returned an error: 400 Bad Request
+<?xml version="1.0"?>
+<Response><Errors><Error><Code>InvalidParameterValue</Code><Message>Value (--&gt;&lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:c="http://s.opencalais.com/1/pred/"&gt;&lt;rdf:Description c:calaisRequestID="180a3b30-16cb-9d49-129e-8f17e0c3f643" c:id="http://id.opencalais.com/q*CCiNLfu1FgnBwHcS1RsA" rdf:about="http://d.opencalais.com/dochash-1/e06c4a8a-4848-3dc5-bfc6-5203d8ed2dde"&gt;&lt;rdf:type rdf:resource="http://s.opencalais.com/1/type/sys/DocInfo"/&gt;&lt;c:document&gt;&lt;![CDATA[&lt;body&gt; tagsdelcol1markcol2kuller&lt;/body&gt;]]&gt;&lt;/c:document&gt;&lt;c:docTitle/&gt;&lt;c:docDate&gt;2010-07-18 23:23:47.640&lt;/c:docDate&gt;&lt;/rdf:Description&gt;&lt;rdf:Description c:contentType="text/html" c:emVer="7.1.1103.5" c:langIdVer="DefaultLangId" c:language="InputTextTooShort" c:processingVer="CalaisJob01" c:submissionDate="2010-07-18 23:23:47.468" rdf:about="http://d.opencalais.com/dochash-1/e06c4a8a-4848-3dc5-bfc6-5203d8ed2dde/meta"&gt;&lt;rdf:type rdf:resource="http://s.opencalais.com/1/type/sys/DocInfoMeta"/&gt;&lt;c:docId rdf:resource="http://d.opencalais.com/dochash-1/e06c4a8a-4848-3dc5-bfc6-5203d8ed2dde"/&gt;&lt;c:submitterCode&gt;07ba59a8-841b-9632-e291-7ddbe0511158&lt;/c:submitterCode&gt;&lt;c:signature&gt;digestalg-1|TP4VjU7nH/rgh62MSKCD+7ckl/c=|I+Tzj3lOapfsPMpj0R0vah3KH3cXujNcTw+glJd3XAbUKxHpVFRwWA==&lt;/c:signature&gt;&lt;/rdf:Description&gt;&lt;rdf:Description rdf:about="http://d.opencalais.com/dochash-1/e06c4a8a-4848-3dc5-bfc6-5203d8ed2dde/lid/DefaultLangId"&gt;&lt;rdf:type rdf:resource="http://s.opencalais.com/1/type/lid/DefaultLangId"/&gt;&lt;c:docId rdf:resource="http://d.opencalais.com/dochash-1/e06c4a8a-4848-3dc5-bfc6-5203d8ed2dde"/&gt;&lt;c:lang rdf:resource="http://d.opencalais.com/lid/DefaultLangId/InputTextTooShort"/&gt;&lt;/rdf:Description&gt;&lt;/rdf:RDF&gt;) for parameter Value is invalid. Value exceeds maximum length of 1024</Message><BoxUsage>0.0000307873</BoxUsage></Error></Errors><RequestID>096b3e73-abab-b801-8f06-c22bcb66ef47</RequestID></Response> #####
+##### Aws::SdbInterface request: sdb.amazonaws.com:443/ ####
+Closing HTTPS connection to sdb.amazonaws.com:443
+
+Aws::AwsError (InvalidParameterValue: Value (--><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:c="http://s.opencalais.com/1/pred/"><rdf:Description c:calaisRequestID="180a3b30-16cb-9d49-129e-8f17e0c3f643" c:id="http://id.opencalais.com/q*CCiNLfu1FgnBwHcS1RsA" rdf:about="http://d.opencalais.com/dochash-1/e06c4a8a-4848-3dc5-bfc6-5203d8ed2dde"><rdf:type rdf:resource="http://s.opencalais.com/1/type/sys/DocInfo"/><c:document><![CDATA[<body> tagsdelcol1markcol2kuller</body>]]></c:document><c:docTitle/><c:docDate>2010-07-18 23:23:47.640</c:docDate></rdf:Description><rdf:Description c:contentType="text/html" c:emVer="7.1.1103.5" c:langIdVer="DefaultLangId" c:language="InputTextTooShort" c:processingVer="CalaisJob01" c:submissionDate="2010-07-18 23:23:47.468" rdf:about="http://d.opencalais.com/dochash-1/e06c4a8a-4848-3dc5-bfc6-5203d8ed2dde/meta"><rdf:type rdf:resource="http://s.opencalais.com/1/type/sys/DocInfoMeta"/><c:docId rdf:resource="http://d.opencalais.com/dochash-1/e06c4a8a-4848-3dc5-bfc6-5203d8ed2dde"/><c:submitterCode>07ba59a8-841b-9632-e291-7ddbe0511158</c:submitterCode><c:signature>digestalg-1|TP4VjU7nH/rgh62MSKCD+7ckl/c=|I+Tzj3lOapfsPMpj0R0vah3KH3cXujNcTw+glJd3XAbUKxHpVFRwWA==</c:signature></rdf:Description><rdf:Description rdf:about="http://d.opencalais.com/dochash-1/e06c4a8a-4848-3dc5-bfc6-5203d8ed2dde/lid/DefaultLangId"><rdf:type rdf:resource="http://s.opencalais.com/1/type/lid/DefaultLangId"/><c:docId rdf:resource="http://d.opencalais.com/dochash-1/e06c4a8a-4848-3dc5-bfc6-5203d8ed2dde"/><c:lang rdf:resource="http://d.opencalais.com/lid/DefaultLangId/InputTextTooShort"/></rdf:Description></rdf:RDF>) for parameter Value is invalid. Value exceeds maximum length of 1024
+REQUEST=sdb.amazonaws.com:443/ 
+REQUEST ID=096b3e73-abab-b801-8f06-c22bcb66ef47 ):
+  aws (2.3.13) lib/awsbase/right_awsbase.rb:697:in `request_info_impl'
+  aws (2.3.13) lib/awsbase/right_awsbase.rb:462:in `request_info2'
+  aws (2.3.13) lib/sdb/right_sdb_interface.rb:100:in `request_info'
+  aws (2.3.13) lib/sdb/right_sdb_interface.rb:381:in `batch_put_attributes'
+  app/models/dataset.rb:56:in `add_response_to_database'
+  app/models/dataset.rb:133:in `learn'
+  app/controllers/datasets_controller.rb:57:in `update'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (299.1ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
