@@ -9,6 +9,10 @@ class Dataset < ActiveRecord::Base
     @@sdb
   end
 
+  SDB_MAX_NUM_CHUNKS = 256
+  #the first 3 characters are the chunk identifier
+  SDB_MAX_CHUNK_SIZE = 1024 - 3
+
   #TODO: support other machine learning services and put the machine learning interface into a class
   MACHINE_LEARNING_SERVICES = [:calais]
 
@@ -40,23 +44,48 @@ class Dataset < ActiveRecord::Base
     reader.each do |row| 
       attributes = {}
       header.zip(row) do |col_head, col|
-        attributes[col_head] = col
+        attributes[col_head] = chunk_sdb_attribute(col)
       end
       items << Aws::SdbInterface::Item.new(UUIDTools::UUID.timestamp_create, attributes)
     end
     @@sdb.batch_put_attributes(uid, items)
   end
 
+  def num_attributes_remaining item_name
+    num_attributes_used = @@sdb.get_attributes(uid, item_name)[:attributes].length
+    return SDB_MAX_NUM_CHUNKS - num_attributes_used
+  end
+
   #each attribute value stored in a SDB database can only be 
-  def chunk_sdb_attribute
+  #SDB_MAX_CHUNK_SIZE bytes However, each attribute can hold 
+  #multiple values.  
+  #This function splits one value into several associated with
+  #one attribute.
+  def chunk_sdb_attribute attribute
+    return unless attribute
+    total_length = attribute.length
+    used_length = 0
+    chunk_number = 1
+    chunked_attribute = []
+    remaining_attribute = attribute
+    while used_length < total_length
+      current_chunk = ("%03d" % chunk_number) + attribute[0...SDB_MAX_CHUNK_SIZE]
+      chunked_attribute << current_chunk
+      remaining_attribute =  remaining_attribute[SDB_MAX_CHUNK_SIZE..-1]
+      used_length += SDB_MAX_CHUNK_SIZE
+    end
+    chunked_attribute
+  end
+
+  def unchunk_sdb_attribute
+    #TODO: implement
   end
 
   def add_response_to_database(database, learning_response, service)
     items = []
     database[0].zip(learning_response) do |row_name, ml_response|
-      items << Aws::SdbInterface::Item.new(row_name, {"ml_#{service}:#{Time.new}" => ml_response})
+      items << Aws::SdbInterface::Item.new(row_name, {"ml_#{service}:#{Time.new}" => chunk_sdb_attribute(ml_response)})
     end
-    p items[0]
     @@sdb.batch_put_attributes(uid,items)
   end
 
@@ -65,7 +94,7 @@ class Dataset < ActiveRecord::Base
     false
   end
 
-  def get_database
+  def get_database(reassemble=true)
     keys = []
     items = []
     @@sdb.select("select * from #{uid}")[:items].each do |item|
@@ -77,7 +106,7 @@ class Dataset < ActiveRecord::Base
     return keys, items
   end
 
-  def get_items
+  def get_items(reassemble=true)
     get_database[1]
   end
 
