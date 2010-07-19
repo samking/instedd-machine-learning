@@ -10,8 +10,11 @@ class Dataset < ActiveRecord::Base
   end
 
   SDB_MAX_NUM_CHUNKS = 256
-  #the first 3 characters are the chunk identifier
-  SDB_MAX_CHUNK_SIZE = 1024 - 3
+  #the first 3 characters are the chunk identifier, and SDB can only 
+  #take 1023 bytes per chunk
+  SDB_CHUNK_IDENTIFIER_SIZE = 3
+  SDB_MAX_CHUNK_SIZE = 1023 - SDB_CHUNK_IDENTIFIER_SIZE
+  SDB_MINIMUM_TABLE_NAME_LENGTH = 3
 
   #TODO: support other machine learning services and put the machine learning interface into a class
   MACHINE_LEARNING_SERVICES = [:calais]
@@ -24,7 +27,7 @@ class Dataset < ActiveRecord::Base
 
   #validation
   validates_uniqueness_of :uid
-  validates_length_of :uid, :minimum => 3
+  validates_length_of :uid, :minimum => SDB_MINIMUM_TABLE_NAME_LENGTH 
   validate_on_create :must_not_duplicate_database_tables 
 
   #sets up the online database
@@ -69,10 +72,13 @@ class Dataset < ActiveRecord::Base
     chunked_attribute = []
     remaining_attribute = attribute
     while used_length < total_length
-      current_chunk = ("%03d" % chunk_number) + attribute[0...SDB_MAX_CHUNK_SIZE]
+      current_chunk = ("%0#{SDB_CHUNK_IDENTIFIER_SIZE}d" % chunk_number) + 
+        remaining_attribute[0...SDB_MAX_CHUNK_SIZE]
+      p current_chunk.length
       chunked_attribute << current_chunk
-      remaining_attribute =  remaining_attribute[SDB_MAX_CHUNK_SIZE..-1]
-      used_length += SDB_MAX_CHUNK_SIZE
+      remaining_attribute = remaining_attribute[SDB_MAX_CHUNK_SIZE..-1]
+      used_length += current_chunk.length - SDB_CHUNK_IDENTIFIER_SIZE
+      chunk_number += 1
     end
     chunked_attribute
   end

@@ -53,7 +53,7 @@ class DatasetsController < ApplicationController
   # PUT /datasets/1.xml
   def update
     @dataset = Dataset.find(params[:id])
-    @dataset.add_data(params[:dataurl].intern) unless params[:dataurl].blank?
+    @dataset.add_data(params[:dataurl]) unless params[:dataurl].blank?
     @dataset.learn(params[:service].intern) unless params[:service].blank?
 
     respond_to do |format|
