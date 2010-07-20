@@ -37,6 +37,11 @@ class Dataset < ActiveRecord::Base
   #uid can never change
   attr_readonly :uid
 
+  def remove_data(row_to_remove, col_to_remove=[])
+    col_to_remove = [] if col_to_remove.blank? #empty parameter means delete the whole row
+    @@sdb.delete_attributes(uid, row_to_remove, [col_to_remove])
+  end
+
   #TODO: support formats other than csv
   #TODO: support csv without header (specify noheader by parameter)
   def add_data(data_url)
@@ -124,6 +129,15 @@ class Dataset < ActiveRecord::Base
       end
     end
     return row_uids, items
+  end
+
+  def get_database_as_map
+    database = get_database
+    map = {}
+    database[0].zip(database[1]) do |key, val|
+      map[key] = val
+    end
+    map
   end
 
   def get_items(reassemble=true)

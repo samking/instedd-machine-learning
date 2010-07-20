@@ -7,16 +7,18 @@
 <p><%= @dataset.is_learning? %></p>
 
 <h2>Attributes</h2>
-<% @dataset.get_items.each do |item| %>
-	<p><%= item.inspect %></p>
+<% @dataset.get_database_as_map.each do |key, val| %>
+	<p><%= [key, val].inspect %></p>
 <% end %>
 
 <%= link_to 'Destroy', @dataset, :confirm => 'Are you sure?', :method => :delete %></td>
 <%= link_to 'Back', datasets_path %>
 <p><%= form_tag(dataset_path, :method => "put") %>
-    URL of Data to Add<%= text_field_tag 'dataurl' %>
-    Service to Use (supported: calais)<%= text_field_tag 'service' %>
-    <%= submit_tag 'Add Data and/or run Machine Learning' %>
+  UUID of row to delete<%= text_field_tag 'removerows' %><br />
+  Column to remove from row (blank deletes entire row)<%= text_field_tag 'removecols' %><br />
+  URL of Data to Add<%= text_field_tag 'dataurl' %><br />
+  Service to Use (supported: calais)<%= text_field_tag 'service' %><br />
+  <%= submit_tag 'Modify Data and/or run Machine Learning' %>
 </p>
 
 

@@ -53,6 +53,8 @@ class DatasetsController < ApplicationController
   # PUT /datasets/1.xml
   def update
     @dataset = Dataset.find(params[:id])
+    @dataset.remove_data(params[:removerows], params[:removecols]
+                        ) unless params[:removerows].blank? #it's ok if removecols is blank
     @dataset.add_data(params[:dataurl]) unless params[:dataurl].blank?
     @dataset.learn(params[:service].intern) unless params[:service].blank?
 
