@@ -1,8 +1,10 @@
 require 'csv'
 require 'open-uri'
 
-
 class Dataset < ActiveRecord::Base
+  #TODO: the database still has its own primary key because Rails doesn't like primary keys other than autoincrementing numbers.  If needed, a hackish workaround is at http://stackoverflow.com/questions/1200568/using-rails-how-can-i-set-my-primary-key-to-not-be-an-integer-typed-column
+  set_primary_key :uid
+
   #TODO: support other database services and put the database interface into a class
   @@sdb = Aws::SdbInterface.new($user_config[:sdb_user], $user_config[:sdb_pass])
   def self.sdb
@@ -14,7 +16,7 @@ class Dataset < ActiveRecord::Base
   #take 1023 bytes per chunk
   SDB_CHUNK_IDENTIFIER_SIZE = 3
   SDB_MAX_CHUNK_SIZE = 1023 - SDB_CHUNK_IDENTIFIER_SIZE
-  SDB_MINIMUM_TABLE_NAME_LENGTH = 3
+  SDB_MINIMUM_TABLE_NAME_LENGTH = 4
 
   #TODO: support other machine learning services and put the machine learning interface into a class
   MACHINE_LEARNING_SERVICES = [:calais]

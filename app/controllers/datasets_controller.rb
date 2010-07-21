@@ -37,6 +37,7 @@ class DatasetsController < ApplicationController
   # POST /datasets.xml
   def create
     @dataset = Dataset.new(params[:dataset])
+    @dataset.uid = params[:dataset][:uid] #uid is a primary key, which can't be set via mass assignment
 
     respond_to do |format|
       if @dataset.save
