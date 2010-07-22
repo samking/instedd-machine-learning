@@ -44,6 +44,18 @@ class Dataset < ActiveRecord::Base
     @@sdb.delete_attributes(uid, row_to_remove, [col_to_remove])
   end
 
+  def self.has_database_table? table_name
+    @@sdb.list_domains[:domains].include? table_name
+  end
+
+  def self.delete_database_table table_name
+    @@sdb.delete_domain table_name
+  end
+
+  def self.create_database_table table_name
+    @@sdb.create_domain table_name
+  end
+
   #TODO: support formats other than csv
   #TODO: support csv without header (specify noheader by parameter)
   def add_data(data_url)
@@ -205,15 +217,15 @@ class Dataset < ActiveRecord::Base
   private
 
   def create_remote_database
-    @@sdb.create_domain(uid)
+    Dataset.create_database_table uid
   end
 
   def remove_remote_database
-    @@sdb.delete_domain(uid)
+    Dataset.delete_database_table(uid)
   end
 
   def must_not_duplicate_database_tables 
-    errors.add :uid , 'already in remote database.' if @@sdb.list_domains[:domains].include?(uid)
+    errors.add :uid , 'already in remote database.' if Dataset.has_database_table? uid
   end
 end
 

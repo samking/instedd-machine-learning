@@ -27,6 +27,7 @@ Rails::Initializer.run do |config|
                       #curb requires you to
                       #sudo apt-get install libcurl4-openssl-dev 
   config.gem "schleyfox-peach", :source => "http://gems.github.com", :lib => "peach"
+  config.gem 'test-unit', :lib => 'test/unit' #fixes the bug at http://stackoverflow.com/questions/1145318/getting-uninitialized-constant-error-when-trying-to-run-tests that will cause crashes whenever running cucumber tests
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -50,7 +51,7 @@ Rails::Initializer.run do |config|
   #load the DB files after rails loads
   config.after_initialize {
       db_yaml = YAML.load_file("#{RAILS_ROOT}/config/user-config.yml")
-      $user_config = db_yaml[ENV['RAILS_ENV'] || 'development']
+      $user_config = db_yaml[ENV['RAILS_ENV']] || db_yaml['development']
       $user_config.symbolize_keys!
   }
 

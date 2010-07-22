@@ -41,7 +41,7 @@ class DatasetsController < ApplicationController
 
     respond_to do |format|
       if @dataset.save
-        format.html { redirect_to(@dataset, :notice => 'Dataset was successfully created.') }
+        format.html { redirect_to(@dataset, :notice => 'Dataset was successfully created.', :alert => 'success?') }
         format.xml  { render :xml => @dataset, :status => :created, :location => @dataset }
       else
         format.html { render :action => "new" }
@@ -77,7 +77,7 @@ class DatasetsController < ApplicationController
     @dataset.destroy
 
     respond_to do |format|
-      format.html { redirect_to(datasets_url) }
+      format.html { redirect_to(datasets_url, :notice => 'Dataset was successfully deleted.') }
       format.xml  { head :ok }
     end
   end
