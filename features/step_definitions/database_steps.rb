@@ -10,13 +10,14 @@ end
 
 When /^the test client signs up for a table in the remote database using curl$/ do
   @curl = Curl::Easy.new('http://localhost:3000/datasets.xml')
-  @curl.http_post("dataset[uid]=test")
+  @curl.http_post(Curl::PostField.content('dataset[uid]', "test"))
 end
 
 When /^the test client signs up for a table in the remote database using the web interface$/ do
   Then "I go to the new dataset page"
     And "I fill in \"dataset_uid\" with \"test\""
     And "I press \"dataset_submit\""
+
 end
 
 When /^the test client signs up for a table in the remote database$/ do
@@ -57,7 +58,6 @@ When /^the test client successfully signed up for a table in the remote database
   Then "the test client doesn't have a table in the remote database"
     But "the test client signs up for a table in the remote database"
     And "the test client should have a table in the remote database"
-    And "I should see \"Dataset was successfully created\""
 end
 
 When /^we have a #{QUOTED_ARG} file$/ do |filename|
@@ -71,7 +71,7 @@ end
 When /^the test client adds the #{QUOTED_ARG} file to the database using the web interface$/ do |filename|
   visit dataset_path 'test'
   Then "I fill in \"dataurl\" with \"http://localhost:3000/test/#{filename}\""
-  Then "I press \"Submit\""
+  Then 'I press "Modify Data and/or run Machine Learning"'
 end
 
 def get_random_csv_element(file_descriptor)
@@ -85,7 +85,7 @@ def get_random_csv_element(file_descriptor)
 end
 
 
-When /^the contents of the #{QUOTED_ARG} csv file is in the database^/ do |filename|
+When /^the contents of the #{QUOTED_ARG} csv file is in the database$/ do |filename|
   url = "http://localhost:3000/test/#{filename}"
   element = get_random_csv_element(open(url))
   dataset = Dataset.find('test')
