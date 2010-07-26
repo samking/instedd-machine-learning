@@ -8,9 +8,8 @@ When /^the test client should have a table in the remote database$/ do
   assert Dataset.has_database_table? "test"
 end
 
-When /^the test client signs up for a table in the remote database using curl$/ do
-  @curl = Curl::Easy.new('http://localhost:3000/datasets.xml')
-  @curl.http_post(Curl::PostField.content('dataset[uid]', "test"))
+When /^the test client signs up for a table in the remote database using the api$/ do
+  visit('/datasets.xml', :post, {'dataset[uid]' => 'test'})
 end
 
 When /^the test client signs up for a table in the remote database using the web interface$/ do
@@ -21,27 +20,32 @@ When /^the test client signs up for a table in the remote database using the web
 end
 
 When /^the test client signs up for a table in the remote database$/ do
-  #Then "the test client signs up for a table in the remote database using curl"
-  Then "the test client signs up for a table in the remote database using the web interface"
+  Then "the test client signs up for a table in the remote database using the api"
+  #Then "the test client signs up for a table in the remote database using the web interface"
 end
 
 When /^the test client successfully deletes the table in the remote database$/ do
   Then "the test client should have a table in the remote database"
-    And "the test client deletes the table in the remote database using curl"
+    And "the test client deletes the table in the remote database using the api"
     And "the test client doesn't have a table in the remote database"
 end
 
-When /^the test client deletes the table in the remote database using curl$/ do
-  @curl = Curl::Easy.new('http://localhost:3000/datasets/test.xml')
-  @curl.http_delete
+When /^the test client deletes the table in the remote database using the api$/ do
+  visit('/datasets/test.xml', :delete)
 end
 
-When /^the response to curl should have code #{QUOTED_ARG}$/ do |desired_code|
-  assert_equal desired_code.to_i, @curl.response_code, "The HTTP response code should have been #{desired_code} but was #{@curl.response_code}"
+When /^I cannot view the test client's page$/ do
+  assert_raise ActiveRecord::RecordNotFound do 
+    visit('/datasets/test.xml') 
+  end
 end
 
-When /^the body of the response to curl should include #{QUOTED_ARG}$/ do |desired_body|
-  assert_match desired_body, @curl.body_str, "The response should have included '#{desired_body}' but didn't.  The response: #{@curl.body_str}"
+When /^the response to the api should have code #{QUOTED_ARG}$/ do |desired_code|
+  assert_equal desired_code.to_i, response.response_code, "The HTTP response code should have been #{desired_code} but was #{response.response_code}"
+end
+
+When /^the body of the response to the api should include #{QUOTED_ARG}$/ do |desired_body|
+  assert_match desired_body, response.body, "The response should have included '#{desired_body}' but didn't.  The response: #{response.body}"
 end
 
 When /^the test client deletes the table in the remote database using the web interface$/ do
@@ -50,7 +54,7 @@ When /^the test client deletes the table in the remote database using the web in
 end
 
 When /^the test client deletes the table in the remote database$/ do
-  Then "the test client deletes the table in the remote database using curl"
+  Then "the test client deletes the table in the remote database using the api"
   #Then "the test client deletes the table in the remote database using the web interface"
 end
 
@@ -61,6 +65,7 @@ When /^the test client successfully signed up for a table in the remote database
 end
 
 When /^we have a #{QUOTED_ARG} file$/ do |filename|
+  pending
   url = 'http://localhost:3000/test/' + filename
   file_curl = Curl::Easy.new(url)
   file_curl.head = true #we only want to know if it's there, not get the whole thing
