@@ -31,18 +31,20 @@ Scenario: Create an account with free username using curl
   Given the test client doesn't have a table in the remote database
   When the test client signs up for a table in the remote database using curl
   Then the test client should have a table in the remote database
-    And the response to curl should include "Dataset was successfully created"
+    And the response to curl should have code "201" 
+    And the body of the response to curl should include "<uid>test</uid>"
 
 @creates_test_db_table
 Scenario: Attempt to create an account with used username using curl
   Given the test client successfully signed up for a table in the remote database
   When the test client signs up for a table in the remote database using curl
-  Then the response to curl should include "Uid has already been taken"
+  Then the response to curl should have code "422" 
+    And the body of the response to curl should include "<error>Uid has already been taken</error>"
 
 Scenario: Delete an account in the database using curl
   Given the test client successfully signed up for a table in the remote database
   When the test client deletes the table in the remote database using curl
-  Then the response to curl should include "Dataset was successfully deleted"
+  Then the response to curl should have code "200"
     And the test client shouldn't have a table in the remote database
 
 #this scenario doesn't exist for the web interface because there will be 
@@ -50,5 +52,5 @@ Scenario: Delete an account in the database using curl
 Scenario: Attempt to delete an account not in the database using curl
   Given the test client doesn't have a table in the remote database
   When the test client deletes the table in the remote database using curl
-  Then the response to curl should include "Couldn't find Dataset with ID=test"
+  Then the response to curl should have code "404"
 

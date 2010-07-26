@@ -39,15 +39,15 @@ class DatasetsController < ApplicationController
     @dataset = Dataset.new(params[:dataset])
     @dataset.uid = params[:dataset][:uid] #uid is a primary key, which can't be set via mass assignment
 
-    respond_to do |format|
-      if @dataset.save
-        format.html { redirect_to(@dataset, :notice => 'Dataset was successfully created.', :alert => 'success?') }
-        format.xml  { render :xml => @dataset, :status => :created, :location => @dataset }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @dataset.errors, :status => :unprocessable_entity }
-      end
-    end
+     respond_to do |format|
+       if @dataset.save
+         format.html { redirect_to(@dataset, :notice => 'Dataset was successfully created.', :alert => 'success?') }
+         format.xml  { render :xml => @dataset, :status => :created, :location => @dataset }
+       else
+         format.html { render :action => "new" }
+         format.xml  { render :xml => @dataset.errors, :status => :unprocessable_entity }
+       end
+     end
   end
 
   # PUT /datasets/1

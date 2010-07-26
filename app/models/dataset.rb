@@ -64,8 +64,12 @@ class Dataset < ActiveRecord::Base
 
     items = []
     reader.each do |row| 
+      #csv reader represents blank rows as [nil]
+      next if (row.blank? or (row.length == 1 and row[0].nil?)) 
+
       attributes = {}
       header.zip(row) do |col_head, col|
+        col = '' if col.nil?
         attributes[col_head] = chunk_sdb_attribute(col)
       end
       items << Aws::SdbInterface::Item.new(UUIDTools::UUID.timestamp_create, attributes)
@@ -217,7 +221,7 @@ class Dataset < ActiveRecord::Base
   private
 
   def create_remote_database
-    Dataset.create_database_table uid
+    Dataset.create_database_table(uid)
   end
 
   def remove_remote_database
