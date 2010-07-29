@@ -5,11 +5,11 @@ When /^the test client successfully deletes the table in the remote database$/ d
 end
 
 When /^the test client deletes the table in the remote database using the api$/ do
-  visit((dataset_path('test') + '/datasets/test.xml'), :delete)
+  visit(dataset_path(@test_client[:id]), :delete)
 end
 
 When /^the test client deletes the table in the remote database using the web interface$/ do
-  visit dataset_path 'test'
+  visit dataset_path(@test_client[:id])
   Then "I follow \"Destroy\""
 end
 

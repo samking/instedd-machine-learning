@@ -20,6 +20,6 @@ When /^the contents of the #{QUOTED_ARG} csv file is in the database$/ do |filen
 end
 
 When /^the test client views their database table using the api$/ do
-  visit(dataset_path('test'))
+  visit(dataset_path(@test_client[:id]))
 end
 

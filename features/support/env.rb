@@ -67,5 +67,5 @@ Spork.each_run do
 end
 
 After('@creates_test_db_table') do 
-  Dataset.delete_database_table 'test'
+  Dataset.delete_database_table @test_client[:uuid]
 end
