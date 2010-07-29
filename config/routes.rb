@@ -1,6 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :datasets
-  #TODO: this uses id rather than uid, though, so we need to rewrite paths and some other rails stuff
+  map.resources :datasets, :collection => {:cleanup => :delete}
 
   # The priority is based upon order of creation: first created -> highest priority.
 

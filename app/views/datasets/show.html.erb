@@ -14,9 +14,9 @@
 <%= link_to 'Destroy', @dataset, :confirm => 'Are you sure?', :method => :delete %></td>
 <%= link_to 'Back', datasets_path %>
 <p><%= form_tag(dataset_path, :method => "put") %>
-  UUID of row to delete<%= text_field_tag 'removerows' %><br />
-  Column to remove from row (blank deletes entire row)<%= text_field_tag 'removecols' %><br />
-  URL of Data to Add<%= text_field_tag 'dataurl' %><br />
+  UUID of row to delete<%= text_field_tag 'remove_rows' %><br />
+  Column to remove from row (blank deletes entire row)<%= text_field_tag 'remove_cols' %><br />
+  URL of Data to Add<%= text_field_tag 'data_url' %><br />
   Service to Use (supported: calais)<%= text_field_tag 'service' %><br />
   <%= submit_tag 'Modify Data and/or run Machine Learning' %>
 </p>

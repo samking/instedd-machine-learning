@@ -53,9 +53,9 @@ class DatasetsController < ApplicationController
   # PUT /datasets/1.xml
   def update
     @dataset = Dataset.find(params[:id])
-    @dataset.remove_data(params[:removerows], params[:removecols]
-                        ) unless params[:removerows].blank? #it's ok if removecols is blank
-    @dataset.add_data(params[:dataurl]) unless params[:dataurl].blank?
+    @dataset.remove_data(params[:remove_rows], params[:remove_cols]
+                        ) unless params[:remove_rows].blank? #it's ok if removecols is blank
+    @dataset.add_data(params[:data_url]) unless params[:data_url].blank?
     @dataset.learn(params[:service].intern) unless params[:service].blank?
 
     respond_to do |format|
@@ -80,4 +80,18 @@ class DatasetsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # DELETE /datasets
+  # DELETE /datasets.xml
+  # For when the remote databases get out of sync with the local database
+  # and it is necessary to manually remove elements from them
+  def cleanup
+    Dataset.delete_database_table(params[:table_to_remove]) unless params[:table_to_remove].blank?
+
+    respond_to do |format|
+      format.html { redirect_to(datasets_url, :notice => 'Remote table was successfully deleted.') }
+      format.xml  { head :ok }
+    end
+  end
+
 end
