@@ -18,7 +18,7 @@
 <p><%= Dataset.get_domain_list_string %></p>
 
 <p><%= form_tag(cleanup_datasets_path, :method => "delete") %>
-  Client UUID That Needs Its Tables Deleted <%= text_field_tag 'table_to_remove' %><br />
+  Client UUID That Needs Its Tables Deleted <%= text_field_tag 'table_to_remove' %>
   <%= submit_tag 'Delete' %>
 </p>
 
