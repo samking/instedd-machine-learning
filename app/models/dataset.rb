@@ -2,9 +2,6 @@ require 'csv'
 require 'open-uri'
 
 class Dataset < ActiveRecord::Base
-  #TODO: the database still has its own primary key because Rails doesn't like primary keys other than autoincrementing numbers.  If needed, a hackish workaround is at http://stackoverflow.com/questions/1200568/using-rails-how-can-i-set-my-primary-key-to-not-be-an-integer-typed-column
-  set_primary_key :uid
-
   #TODO: support other database services and put the database interface into a class
   @@sdb = Aws::SdbInterface.new($user_config[:sdb_user], $user_config[:sdb_pass])
   def self.sdb
@@ -16,7 +13,6 @@ class Dataset < ActiveRecord::Base
   #take 1023 bytes per chunk
   SDB_CHUNK_IDENTIFIER_SIZE = 3
   SDB_MAX_CHUNK_SIZE = 1023 - SDB_CHUNK_IDENTIFIER_SIZE
-  SDB_MINIMUM_TABLE_NAME_LENGTH = 4
 
   #TODO: support other machine learning services and put the machine learning interface into a class
   MACHINE_LEARNING_SERVICES = [:calais]
@@ -27,21 +23,18 @@ class Dataset < ActiveRecord::Base
   #per second
   NUM_CALAIS_THREADS = 8
 
-  #validation
-  validates_uniqueness_of :uid
-  validates_length_of :uid, :minimum => SDB_MINIMUM_TABLE_NAME_LENGTH 
-  validate_on_create :must_not_duplicate_database_tables 
 
   #sets up the online database
   after_create :create_remote_database
   before_destroy :remove_remote_database
 
-  #uid can never change
-  attr_readonly :uid
+  #client_uuid can never change
+  before_validation_on_create :generate_client_uuid
+  attr_readonly :client_uuid
 
   def remove_data(row_to_remove, col_to_remove=[])
     col_to_remove = [] if col_to_remove.blank? #empty parameter means delete the whole row
-    @@sdb.delete_attributes(uid, row_to_remove, [col_to_remove])
+    @@sdb.delete_attributes(client_uuid, row_to_remove, [col_to_remove])
   end
 
   def self.has_database_table? table_name
@@ -72,13 +65,13 @@ class Dataset < ActiveRecord::Base
         col = '' if col.nil?
         attributes[col_head] = chunk_sdb_attribute(col)
       end
-      items << Aws::SdbInterface::Item.new(UUIDTools::UUID.timestamp_create, attributes)
+      items << Aws::SdbInterface::Item.new(UUIDTools::UUID.random_create, attributes)
     end
-    @@sdb.batch_put_attributes(uid, items)
+    @@sdb.batch_put_attributes(client_uuid, items)
   end
 
   def num_attributes_remaining item_name
-    num_attributes_used = @@sdb.get_attributes(uid, item_name)[:attributes].length
+    num_attributes_used = @@sdb.get_attributes(client_uuid, item_name)[:attributes].length
     return SDB_MAX_NUM_CHUNKS - num_attributes_used
   end
 
@@ -121,7 +114,7 @@ class Dataset < ActiveRecord::Base
     database[0].zip(learning_response) do |row_name, ml_response|
       items << Aws::SdbInterface::Item.new(row_name, {"ml_#{service}:#{Time.new}" => chunk_sdb_attribute(ml_response)})
     end
-    @@sdb.batch_put_attributes(uid,items)
+    @@sdb.batch_put_attributes(client_uuid,items)
   end
 
   #TODO: ask machine learning services if we're still learning
@@ -140,7 +133,7 @@ class Dataset < ActiveRecord::Base
   def get_database(reassemble=true)
     row_uids = []
     items = [] #all columns within a row will occupy one index in items
-    @@sdb.select("select * from #{uid}")[:items].each do |item| #each row
+    @@sdb.select('select * from `' + client_uuid + '`')[:items].each do |item| #each row
       item.each do |row_uid, val| 
         row_uids << row_uid
         items << (reassemble ? reassemble_sdb_items(val) : val)
@@ -221,15 +214,16 @@ class Dataset < ActiveRecord::Base
   private
 
   def create_remote_database
-    Dataset.create_database_table(uid)
+    Dataset.create_database_table(client_uuid)
   end
 
   def remove_remote_database
-    Dataset.delete_database_table(uid)
+    Dataset.delete_database_table(client_uuid)
   end
 
-  def must_not_duplicate_database_tables 
-    errors.add :uid , 'already in remote database.' if Dataset.has_database_table? uid
+  def generate_client_uuid
+    update_attribute(:client_uuid, UUIDTools::UUID.random_create.to_s)
   end
+
 end
 

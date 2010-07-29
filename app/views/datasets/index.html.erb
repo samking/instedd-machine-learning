@@ -2,12 +2,12 @@
 
 <table>
   <tr>
-    <th>Uid</th>
+    <th>Client UUID</th>
   </tr>
 
 <% @datasets.each do |dataset| %>
   <tr>
-    <td><%=h dataset.uid %></td>
+    <td><%=h dataset.client_uuid %></td>
     <td><%= link_to 'Show', dataset %></td>
     <td><%= link_to 'Destroy', dataset, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

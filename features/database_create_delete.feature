@@ -24,4 +24,8 @@ Scenario: Delete an account in the database using the api
   Then the response to the api should have code "200"
     And the test client shouldn't have a table in the remote database
 
+Scenario: viewing a table that was never created using the api
+  Given the test client doesn't have a table in the remote database
+  Then I will fail with a "ActiveRecord::RecordNotFound" exception if I view the test client's page
+    And I will fail with a "ActiveRecord::RecordNotFound" exception if the test client deletes the table in the remote database using the api
 

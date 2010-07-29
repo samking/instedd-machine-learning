@@ -1,5 +1,7 @@
+require 'ruby-debug'
 ActionController::Routing::Routes.draw do |map|
   map.resources :datasets
+  #TODO: this uses id rather than uid, though, so we need to rewrite paths and some other rails stuff
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -40,6 +42,13 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  #map.connect ':controller/:action/:id'
+  #map.connect ':controller/:action/:id.:format'
+
+  #For cucumber to be able to access static files.  Webrat can't access stuff 
+  #in /public.  Capybara can't do stuff like look at HTTP response codes.
+  #Other solutions would require hardcoding in a URL (because rails thinks 
+  #the url is example.com.  in the test environment)
+  map.connect 'tests/:path', :controller => 'tests', :action => 'show'
+  map.connect 'tests/:path.:format', :controller => 'tests', :action => 'show'
 end

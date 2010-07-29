@@ -9,10 +9,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100623102610) do
+ActiveRecord::Schema.define(:version => 20100729032505) do
 
   create_table "datasets", :force => true do |t|
-    t.string   "uid"
+    t.string   "client_uuid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
