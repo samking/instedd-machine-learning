@@ -2,19 +2,12 @@
 class DatabaseInterface
 
   @@sdb = Aws::SdbInterface.new($user_config[:sdb_user], $user_config[:sdb_pass])
-  def self.sdb
-    @@sdb
-  end
 
+  include DatabaseConstants
+  
   def initialize(table_name)
     @table_name = table_name
   end
-
-  SDB_MAX_NUM_CHUNKS = 256
-  #the first 3 characters are the chunk identifier, and SDB can only 
-  #take 1023 bytes per chunk
-  SDB_CHUNK_IDENTIFIER_SIZE = 3
-  SDB_MAX_CHUNK_SIZE = 1023 - SDB_CHUNK_IDENTIFIER_SIZE
 
   def self.has_table? table_name
     @@sdb.list_domains[:domains].include? table_name
