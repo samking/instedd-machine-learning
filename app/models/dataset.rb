@@ -1,19 +1,8 @@
 require 'csv'
 require 'open-uri'
+require 'database_interface'
 
 class Dataset < ActiveRecord::Base
-  #TODO: support other database services and put the database interface into a class
-  @@sdb = Aws::SdbInterface.new($user_config[:sdb_user], $user_config[:sdb_pass])
-  def self.sdb
-    @@sdb
-  end
-
-  SDB_MAX_NUM_CHUNKS = 256
-  #the first 3 characters are the chunk identifier, and SDB can only 
-  #take 1023 bytes per chunk
-  SDB_CHUNK_IDENTIFIER_SIZE = 3
-  SDB_MAX_CHUNK_SIZE = 1023 - SDB_CHUNK_IDENTIFIER_SIZE
-
   #TODO: support other machine learning services and put the machine learning interface into a class
   MACHINE_LEARNING_SERVICES = [:calais]
 
@@ -23,6 +12,9 @@ class Dataset < ActiveRecord::Base
   #per second
   NUM_CALAIS_THREADS = 8
 
+  def database_table
+    @database_table ||= DatabaseInterface.new(client_uuid)
+  end
 
   #sets up the online database
   after_create :create_remote_database
@@ -32,149 +24,9 @@ class Dataset < ActiveRecord::Base
   before_validation_on_create :generate_client_uuid
   attr_readonly :client_uuid
 
-  def remove_data(row_to_remove, col_to_remove=[])
-    col_to_remove = [] if col_to_remove.blank? #empty parameter means delete the whole row
-    @@sdb.delete_attributes(client_uuid, row_to_remove, [col_to_remove])
-  end
-
-  def self.has_database_table? table_name
-    @@sdb.list_domains[:domains].include? table_name
-  end
-
-  def self.delete_database_table table_name
-    @@sdb.delete_domain table_name
-  end
-
-  def self.create_database_table table_name
-    @@sdb.create_domain table_name
-  end
-
-  #TODO: support formats other than csv
-  #TODO: support csv without header (specify noheader by parameter)
-  def add_data(data_url)
-    reader = CSV::Reader.create(open(data_url))
-    header = reader.shift
-
-    items = []
-    reader.each do |row| 
-      #csv reader represents blank rows as [nil]
-      next if (row.blank? or (row.length == 1 and row[0].nil?)) 
-
-      attributes = {}
-      header.zip(row) do |col_head, col|
-        col = '' if col.nil?
-        attributes[col_head] = chunk_sdb_attribute(col)
-      end
-      items << Aws::SdbInterface::Item.new(UUIDTools::UUID.random_create, attributes)
-    end
-    @@sdb.batch_put_attributes(client_uuid, items)
-  end
-
-  def num_attributes_remaining item_name
-    num_attributes_used = @@sdb.get_attributes(client_uuid, item_name)[:attributes].length
-    return SDB_MAX_NUM_CHUNKS - num_attributes_used
-  end
-
-  #each attribute value stored in a SDB database can only be 
-  #SDB_MAX_CHUNK_SIZE bytes However, each attribute can hold 
-  #multiple values.  
-  #This function splits one value into several associated with
-  #one attribute.
-  def chunk_sdb_attribute attribute
-    return unless attribute
-    total_length = attribute.length
-    used_length = 0
-    chunk_number = 1
-    chunked_attribute = []
-    remaining_attribute = attribute
-    while used_length < total_length
-      current_chunk = ("%0#{SDB_CHUNK_IDENTIFIER_SIZE}d" % chunk_number) + 
-        remaining_attribute[0...SDB_MAX_CHUNK_SIZE]
-      chunked_attribute << current_chunk
-      remaining_attribute = remaining_attribute[SDB_MAX_CHUNK_SIZE..-1]
-      used_length += current_chunk.length - SDB_CHUNK_IDENTIFIER_SIZE
-      chunk_number += 1
-    end
-    chunked_attribute
-  end
-
-  def unchunk_sdb_attribute attribute_arr
-    attr_map = {}
-    attribute_arr.each do |chunk|
-      index = chunk[0...SDB_CHUNK_IDENTIFIER_SIZE]
-      chunk_payload = chunk[SDB_CHUNK_IDENTIFIER_SIZE..-1]
-      attr_map[index] = chunk_payload
-    end
-    sorted_chunks = attr_map.sort.map {|key_val_arr| key_val_arr[1]}
-    return sorted_chunks.join
-  end
-
-  def add_response_to_database(database, learning_response, service)
-    items = []
-    database[0].zip(learning_response) do |row_name, ml_response|
-      items << Aws::SdbInterface::Item.new(row_name, {"ml_#{service}:#{Time.new}" => chunk_sdb_attribute(ml_response)})
-    end
-    @@sdb.batch_put_attributes(client_uuid,items)
-  end
-
   #TODO: ask machine learning services if we're still learning
   def is_learning?
     false
-  end
-
-  def reassemble_sdb_items(items)
-    reassembled_items = {}
-    items.each do |col_head, val|
-      reassembled_items[col_head] = unchunk_sdb_attribute(val)
-    end
-    reassembled_items
-  end
-
-  def get_database(reassemble=true)
-    row_uids = []
-    items = [] #all columns within a row will occupy one index in items
-    @@sdb.select('select * from `' + client_uuid + '`')[:items].each do |item| #each row
-      item.each do |row_uid, val| 
-        row_uids << row_uid
-        items << (reassemble ? reassemble_sdb_items(val) : val)
-      end
-    end
-    return row_uids, items
-  end
-
-  def get_database_as_map
-    database = get_database
-    map = {}
-    database[0].zip(database[1]) do |key, val|
-      map[key] = val
-    end
-    map
-  end
-
-  def get_items(reassemble=true)
-    get_database(reassemble)[1]
-  end
-
-  def self.get_domain_list_string
-    @@sdb.list_domains[:domains].inspect
-  end
-
-  def self.hash_to_xml(hash, builder=Builder::XmlMarkup.new)
-    builder.item {
-      hash.each do |key, value|
-        eval "builder.#{key}('#{value}')"
-      end
-    }
-    builder.target!
-  end
-
-  def sdb_to_xml
-    items = get_items
-    builder = Builder::XmlMarkup.new
-    items.each do |item|
-      hash_to_xml(item, builder)  
-    end
-    builder.target!
   end
 
   def self.make_calais_request(content, type, function_call)
@@ -206,19 +58,19 @@ class Dataset < ActiveRecord::Base
   #TODO: support parameters to specify rows, cols, and services
   def learn(service)
     raise "#{service} not supported" unless MACHINE_LEARNING_SERVICES.include? service
-    database = get_database
-    learning_response = Dataset.method("learn_from_" + service.to_s).call(database[1])
-    add_response_to_database(database, learning_response, service)
+    row_names, rows = database_table.as_array
+    learning_response = Dataset.method("learn_from_" + service.to_s).call(rows)
+    database_table.add_ml_response(row_names, learning_response, service)
   end
 
   private
 
   def create_remote_database
-    Dataset.create_database_table(client_uuid)
+    DatabaseInterface.create_table(client_uuid)
   end
 
   def remove_remote_database
-    Dataset.delete_database_table(client_uuid)
+    DatabaseInterface.delete_table(client_uuid)
   end
 
   def generate_client_uuid

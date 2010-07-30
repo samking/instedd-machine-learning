@@ -15,7 +15,7 @@
 </table>
 
 <h2>Tables in Remote Database</h2>
-<p><%= Dataset.get_domain_list_string %></p>
+<p><%= DatabaseInterface.tables_list.inspect %></p>
 
 <p><%= form_tag(cleanup_datasets_path, :method => "delete") %>
   Client UUID That Needs Its Tables Deleted <%= text_field_tag 'table_to_remove' %>
