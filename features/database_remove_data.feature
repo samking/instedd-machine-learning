@@ -4,9 +4,18 @@ A client
 Should be able to remove parts of rows or entire rows from their database table
 
 Background:
-  Given we created a database table named "test_user"
-    And we put a "4" row "5" column "small" CSV file at "some_url"
-    And we added "some_url" to the "test_user" table
+  Given we have a "4row-5col-small.csv" test file
+    And the test client adds the "4row-5col-small.csv" file to the database using the api
+
+Scenario: deleting a row
+  When we delete a "real" row in the "test_user" table
+  Then there should be "3" rows in the "test_user" table
+    And "3" rows in the "test_user" table should have "5" columns
+
+Scenario: deleting a nonexistent row
+  When we delete a "fake" row in the "test_user" table
+  Then there should be "4" rows in the "test_user" table
+    And "4" rows in the "test_user" table should have "5" columns
 
 Scenario: deleting one column from one row
   When we delete a "real" column from a "real" row in the "test_user" table
@@ -24,13 +33,4 @@ Scenario: deleting a nonexistent column from a nonexistent row
   Then there should be "4" rows in the "test_user" table
     And "4" rows in the "test_user" table should have "5" columns
 
-Scenario: deleting a row
-  When we delete a "real" row in the "test_user" table
-  Then there should be "3" rows in the "test_user" table
-    And "3" rows in the "test_user" table should have "5" columns
-
-Scenario: deleting a nonexistent row
-  When we delete a "fake" row in the "test_user" table
-  Then there should be "4" rows in the "test_user" table
-    And "4" rows in the "test_user" table should have "5" columns
 
