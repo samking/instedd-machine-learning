@@ -73,14 +73,18 @@ class DatabaseInterface
   def has_element? desired_element
     return has_elements [desired_element]
   end
-  
+
+  #returns an array of all elements that are passed in and are not in the database
+  def which_elements_missing? desired_elements
+    database_elements = as_set
+    desired_elements = Set.new(desired_elements)
+    not_in_database = desired_elements - database_elements
+    return not_in_database
+  end
+
   #Returns true if the database contains all of the desired_elements
   def has_elements? desired_elements 
-    database_elements = as_set
-    desired_elements.each do |desired_element|
-      return false if not database_elements.include? desired_element
-    end
-    return true
+    return which_elements_missing?(desired_elements).empty?
   end
 
   #Returns the database as a list of two arrays: row_names and rows.
