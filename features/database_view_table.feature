@@ -9,6 +9,7 @@ Scenario: viewing a table that was never created using the api
   Then I will fail with a "ActiveRecord::RecordNotFound" exception if I view the test client's page
     And I will fail with a "ActiveRecord::RecordNotFound" exception if the test client deletes the table in the remote database using the api
 
+@creates_test_db_table
 Scenario: viewing an existing table
   Given the test client signs up for a table in the remote database using the api
   When I view the test client's page using the api
