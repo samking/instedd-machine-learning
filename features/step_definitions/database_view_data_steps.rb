@@ -57,3 +57,16 @@ When /^the contents of the #{QUOTED_ARG} csv file is displayed to the api$/ do |
   end
 end
 
+When /^there should be #{QUOTED_ARG} rows in the test client's table$/ do |desired_num_rows| 
+  num_rows = @test_client[:dataset].database_table.as_map.size 
+  assert_equal(desired_num_rows.to_i, num_rows,
+               "There should have been #{desired_num_rows} rows.  Instead, there were #{num_rows}")
+end
+
+When /^#{QUOTED_ARG} row(?:|s) in the test client's table should have #{QUOTED_ARG} columns$/ do |num_rows_to_check, desired_num_cols| 
+  rows, cols_arr = @test_client[:dataset].database_table.as_array
+  num_rows_with_correct_cols = cols_arr.select{|cols| cols.size == desired_num_cols.to_i}.size
+  assert_equal(num_rows_with_correct_cols, num_rows_to_check.to_i, 
+               "There should have been #{num_rows_to_check} rows with #{desired_num_cols} columns.  Instead, there were #{num_rows_with_correct_cols}")
+end
+

@@ -3,14 +3,7 @@ require 'open-uri'
 require 'database_interface'
 
 class Dataset < ActiveRecord::Base
-  #TODO: support other machine learning services and put the machine learning interface into a class
-  MACHINE_LEARNING_SERVICES = [:calais]
-
-  #Calais only allows 4 requests per second, and if we do more than that,
-  #it's slower than if we limited the requests on our end.
-  #Each request takes about 2 seconds, so 8 threads should allow 4 requests
-  #per second
-  NUM_CALAIS_THREADS = 8
+  include MachineLearningConstants
 
   def database_table
     @database_table ||= DatabaseInterface.new(client_uuid)
@@ -57,7 +50,6 @@ class Dataset < ActiveRecord::Base
 
   #TODO: support parameters to specify rows, cols, and services
   def learn(service)
-    raise "#{service} not supported" unless MACHINE_LEARNING_SERVICES.include? service
     row_names, rows = database_table.as_array
     learning_response = Dataset.method("learn_from_" + service.to_s).call(rows)
     database_table.add_ml_response(row_names, learning_response, service)

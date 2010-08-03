@@ -1,4 +1,5 @@
 class DatasetsController < ApplicationController
+  include MachineLearningConstants
 
   # GET /datasets
   # GET /datasets.xml
@@ -56,7 +57,13 @@ class DatasetsController < ApplicationController
     @dataset.database_table.remove_data(params[:remove_rows], params[:remove_cols]
                         ) unless params[:remove_rows].blank? #it's ok if removecols is blank
     @dataset.database_table.add_data(params[:data_url]) unless params[:data_url].blank?
-    @dataset.learn(params[:service].intern) unless params[:service].blank?
+    if not params[:service].blank?
+      if MACHINE_LEARNING_SERVICES.include?(params[:service].intern)
+        @dataset.learn(params[:service].intern)
+      else
+        head :unprocessable_entity and return
+      end
+    end
 
     respond_to do |format|
       if @dataset.update_attributes(params[:dataset])
