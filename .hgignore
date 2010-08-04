@@ -1,0 +1,5 @@
+.git
+db/development.sqlite3
+db/production.sqlite3
+db/test.sqlite3
+log

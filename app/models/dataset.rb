@@ -5,17 +5,19 @@ require 'database_interface'
 class Dataset < ActiveRecord::Base
   include MachineLearningConstants
 
+  belongs_to :user
+
   def database_table
-    @database_table ||= DatabaseInterface.new(client_uuid)
+    @database_table ||= DatabaseInterface.new(table_uuid)
   end
 
   #sets up the online database
   after_create :create_remote_database
   before_destroy :remove_remote_database
 
-  #client_uuid can never change
-  before_validation_on_create :generate_client_uuid
-  attr_readonly :client_uuid
+  #table_uuid can never change
+  before_validation_on_create :generate_table_uuid
+  attr_readonly :table_uuid
 
   #TODO: ask machine learning services if we're still learning
   def is_learning?
@@ -58,15 +60,15 @@ class Dataset < ActiveRecord::Base
   private
 
   def create_remote_database
-    DatabaseInterface.create_table(client_uuid)
+    DatabaseInterface.create_table(table_uuid)
   end
 
   def remove_remote_database
-    DatabaseInterface.delete_table(client_uuid)
+    DatabaseInterface.delete_table(table_uuid)
   end
 
-  def generate_client_uuid
-    update_attribute(:client_uuid, UUIDTools::UUID.random_create.to_s)
+  def generate_table_uuid
+    update_attribute(:table_uuid, UUIDTools::UUID.random_create.to_s)
   end
 
 end

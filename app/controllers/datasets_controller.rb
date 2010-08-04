@@ -1,6 +1,8 @@
 class DatasetsController < ApplicationController
   include MachineLearningConstants
 
+  before_filter :login_required
+
   # GET /datasets
   # GET /datasets.xml
   def index
@@ -30,7 +32,7 @@ class DatasetsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @dataset }
+      #format.xml  { render :xml => @dataset }
     end
   end
 
@@ -93,7 +95,7 @@ class DatasetsController < ApplicationController
   # For when the remote databases get out of sync with the local database
   # and it is necessary to manually remove elements from them
   def cleanup
-    Dataset.delete_database_table(params[:table_to_remove]) unless params[:table_to_remove].blank?
+    DatabaseInterface.delete_table(params[:table_to_remove]) unless params[:table_to_remove].blank?
 
     respond_to do |format|
       format.html { redirect_to(datasets_url, :notice => 'Remote table was successfully deleted.') }

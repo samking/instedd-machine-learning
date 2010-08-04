@@ -1,6 +1,6 @@
 #xml.instruct!
 xml.dataset {
-  xml.tag!("client-uuid", @dataset.client_uuid)
+  xml.tag!("table-uuid", @dataset.table_uuid)
   xml.tag!("created-at", @dataset.created_at, "type" => "datetime")
   xml.id(@dataset.id, "type"=>"integer")
   xml.tag!("updated-at", @dataset.updated_at, "type" => "datetime")
