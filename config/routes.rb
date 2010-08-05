@@ -8,9 +8,6 @@ ActionController::Routing::Routes.draw do |map|
   map.authorize '/oauth/authorize', :controller => 'oauth', :action => 'authorize'
   map.oauth '/oauth', :controller => 'oauth', :action => 'index'
 
-  #OpenID 
-  map.open_id_complete '/session', :controller => 'sessions', :action => 'create', :method => :get
-
   #User 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'

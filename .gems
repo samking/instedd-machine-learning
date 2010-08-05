@@ -1,0 +1,9 @@
+rails
+aws
+uuidtools
+parseconfig
+calais
+schleyfox-peach --source http://gems.github.com
+test-unit
+oauth
+oauth-plugin

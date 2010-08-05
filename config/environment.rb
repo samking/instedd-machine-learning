@@ -30,7 +30,6 @@ Rails::Initializer.run do |config|
   config.gem 'test-unit', :lib => 'test/unit' #fixes the bug at http://stackoverflow.com/questions/1145318/getting-uninitialized-constant-error-when-trying-to-run-tests that will cause crashes whenever running cucumber tests
   config.gem "oauth"
   config.gem "oauth-plugin"
-  config.gem "ruby-openid", :lib => 'openid'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
