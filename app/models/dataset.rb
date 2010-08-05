@@ -50,8 +50,14 @@ class Dataset < ActiveRecord::Base
       end
   end
 
+  def self.supports_service?(service)
+    service = service.to_sym
+    MACHINE_LEARNING_SERVICES.include?(service)
+  end
+
   #TODO: support parameters to specify rows, cols, and services
   def learn(service)
+    service = service.to_sym
     row_names, rows = database_table.as_array
     learning_response = Dataset.method("learn_from_" + service.to_s).call(rows)
     database_table.add_ml_response(row_names, learning_response, service)

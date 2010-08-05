@@ -1,7 +1,7 @@
 class DatasetsController < ApplicationController
   include MachineLearningConstants
 
-  before_filter :login_required
+  before_filter :login_or_oauth_required
 
   # GET /datasets
   # GET /datasets.xml
@@ -60,7 +60,7 @@ class DatasetsController < ApplicationController
                         ) unless params[:remove_rows].blank? #it's ok if removecols is blank
     @dataset.database_table.add_data(params[:data_url]) unless params[:data_url].blank?
     if not params[:service].blank?
-      if MACHINE_LEARNING_SERVICES.include?(params[:service].intern)
+      if Dataset.supports_service?(params[:service])
         @dataset.learn(params[:service].intern)
       else
         head :unprocessable_entity and return
