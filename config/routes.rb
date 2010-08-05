@@ -1,20 +1,28 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :oauth_clients
 
+  #OAuth 
+  map.resources :oauth_clients
   map.test_request '/oauth/test_request', :controller => 'oauth', :action => 'test_request'
   map.access_token '/oauth/access_token', :controller => 'oauth', :action => 'access_token'
   map.request_token '/oauth/request_token', :controller => 'oauth', :action => 'request_token'
   map.authorize '/oauth/authorize', :controller => 'oauth', :action => 'authorize'
   map.oauth '/oauth', :controller => 'oauth', :action => 'index'
+
+  #OpenID 
+  map.open_id_complete '/session', :controller => 'sessions', :action => 'create', :method => :get
+
+  #User 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
+  map.resource :session
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.resources :users
+  map.resources :users do |user|
+    #Main Client-Facing Data Route
+    user.resources :datasets
+  end
 
-  map.resource :session
-
-  map.open_id_complete '/session', :controller => 'sessions', :action => 'create', :method => :get
+  #Admin Data Route
   map.resources :datasets, :collection => {:cleanup => :delete}
 
   # The priority is based upon order of creation: first created -> highest priority.

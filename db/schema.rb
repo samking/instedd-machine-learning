@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100804092603) do
+ActiveRecord::Schema.define(:version => 20100805052218) do
 
   create_table "client_applications", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20100804092603) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  add_index "datasets", ["user_id"], :name => "index_datasets_on_user_id"
 
   create_table "oauth_nonces", :force => true do |t|
     t.string   "nonce"

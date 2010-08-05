@@ -17,7 +17,7 @@ class Dataset < ActiveRecord::Base
 
   #table_uuid can never change
   before_validation_on_create :generate_table_uuid
-  attr_readonly :table_uuid
+  attr_readonly :table_uuid, :user_id
 
   #TODO: ask machine learning services if we're still learning
   def is_learning?

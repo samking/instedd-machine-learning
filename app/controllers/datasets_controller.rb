@@ -39,7 +39,12 @@ class DatasetsController < ApplicationController
   # POST /datasets
   # POST /datasets.xml
   def create
-    @dataset = Dataset.new(params[:dataset])
+    p current_user
+    p current_user.id
+    @dataset = current_user.dataset.build(params[:dataset])
+#    @dataset = Dataset.new(params[:dataset])
+#    @dataset.user_id = current_user.id
+#    @dataset.user = current_user
 
     respond_to do |format|
       if @dataset.save

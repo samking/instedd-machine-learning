@@ -6,7 +6,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    open_id_authentication(params[:openid_url])
+    authenticate_with_open_id(params[:openid_url]) do |result, identity_url|
+      if result.successful?
+        @user = User.find_or_create_by_identity_url(identity_url)
+        @user.save if @user.new_record?
+        self.current_user = @user
+        successful_login
+      else
+        failed_login result.message
+      end
+    end
     #logout_keeping_session!
     #user = User.authenticate(params[:login], params[:password])
     #if user
@@ -38,19 +47,6 @@ protected
   def note_failed_signin
     flash[:error] = "Couldn't log you in as '#{params[:login]}'"
     logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
-  end
-
-  def open_id_authentication(openid_url)
-    authenticate_with_open_id(openid_url) do |result, identity_url|
-      if result.successful?
-        @user = User.find_or_create_by_identity_url(identity_url)
-        @user.save if @user.new_record?
-        self.current_user = @user
-        successful_login
-      else
-        failed_login result.message
-      end
-    end
   end
 
 private
