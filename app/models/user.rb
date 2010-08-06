@@ -27,8 +27,6 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation
 
-
-
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
   # uff.  this is really an authorization, not authentication routine.  
@@ -49,5 +47,21 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
 
+  def is_admin?
+    return login == "admin"
+  end
+
+  #can't toggle admin status of a user if that user is the only admin
+  def can_toggle_admin? 
+    return !is_admin || User.num_admins > 1
+  end
+
+  def toggle_admin
+    is_admin = !is_admin
+  end
+
+  def self.num_admins
+    User.all(:conditions => {:is_admin => true}).size
+  end
   
 end

@@ -1,12 +1,21 @@
 class DatasetsController < ApplicationController
   include MachineLearningConstants
 
+  MEMBER_ACTIONS = [:show, :update, :destroy]
+  ADMIN_ONLY_ACTIONS = [:cleanup]
+  before_filter :fetch_dataset, :only => MEMBER_ACTIONS
   before_filter :login_or_oauth_required
+  #before_filter :require_owner_authorization, :only => [:show, :update, :destroy]
 
   # GET /datasets
   # GET /datasets.xml
   def index
-    @datasets = Dataset.all
+    if current_user.is_admin?
+      @datasets = Dataset.all
+    else
+      #Each user can only see their own datasets
+      @datasets = Dataset.all(:conditions => {:user_id => current_user.id})
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,8 +26,6 @@ class DatasetsController < ApplicationController
   # GET /datasets/1
   # GET /datasets/1.xml
   def show
-    @dataset = Dataset.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  # show.xml.builder
@@ -55,7 +62,6 @@ class DatasetsController < ApplicationController
   # PUT /datasets/1
   # PUT /datasets/1.xml
   def update
-    @dataset = Dataset.find(params[:id])
     @dataset.database_table.remove_data(params[:remove_rows], params[:remove_cols]
                         ) unless params[:remove_rows].blank? #it's ok if removecols is blank
     @dataset.database_table.add_data(params[:data_url]) unless params[:data_url].blank?
@@ -81,7 +87,6 @@ class DatasetsController < ApplicationController
   # DELETE /datasets/1
   # DELETE /datasets/1.xml
   def destroy
-    @dataset = Dataset.find(params[:id])
     @dataset.destroy
 
     respond_to do |format|
@@ -101,6 +106,25 @@ class DatasetsController < ApplicationController
       format.html { redirect_to(datasets_url, :notice => 'Remote table was successfully deleted.') }
       format.xml  { head :ok }
     end
+  end
+
+  protected 
+
+  def authorized?(action = action_name, resource = nil)
+    return false unless logged_in?
+    return true if current_user.is_admin?
+    return false if ADMIN_ONLY_ACTIONS.include? action
+    if MEMBER_ACTIONS.include? action.to_sym
+      return current_user.id == @dataset.user_id
+    else
+      return true
+    end
+  end
+
+  private
+
+  def fetch_dataset
+    @dataset = Dataset.find(params[:id])
   end
 
 end

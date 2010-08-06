@@ -1,8 +1,8 @@
-<h1>Listing datasets</h1>
+<h1>Listing datasets for user: <%= current_user.login %></h1>
 
 <table>
   <tr>
-    <th>Table UUID</th>
+    <th>Your Table UUIDs</th>
   </tr>
 
 <% @datasets.each do |dataset| %>
@@ -14,13 +14,15 @@
 <% end %>
 </table>
 
-<h2>Tables in Remote Database</h2>
-<p><%= DatabaseInterface.tables_list.inspect %></p>
+<% if current_user.is_admin? %>
+  <h2>Tables in Remote Database</h2>
+  <p><%= DatabaseInterface.tables_list.inspect %></p>
 
-<p><%= form_tag(cleanup_datasets_path, :method => "delete") %>
-  Client UUID That Needs Its Tables Deleted <%= text_field_tag 'table_to_remove' %>
-  <%= submit_tag 'Delete' %>
-</p>
+  <p><%= form_tag(cleanup_datasets_path, :method => "delete") %>
+    Client UUID That Needs Its Tables Deleted <%= text_field_tag 'table_to_remove' %>
+    <%= submit_tag 'Delete' %>
+  </p>
+<% end %>
 
 <br />
 <%= link_to 'New dataset', new_dataset_path %>
