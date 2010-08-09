@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.resources :users do |user|
+  map.resources(:users, :member => {:toggle_admin => :put}) do |user|
     #Main Client-Facing Data Route
     user.resources :datasets
   end

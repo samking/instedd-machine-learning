@@ -5,7 +5,6 @@ class DatasetsController < ApplicationController
   ADMIN_ONLY_ACTIONS = [:cleanup]
   before_filter :fetch_dataset, :only => MEMBER_ACTIONS
   before_filter :login_or_oauth_required
-  #before_filter :require_owner_authorization, :only => [:show, :update, :destroy]
 
   # GET /datasets
   # GET /datasets.xml

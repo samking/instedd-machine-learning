@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def is_admin?
-    return login == "admin"
+    is_admin
   end
 
   #can't toggle admin status of a user if that user is the only admin
@@ -57,11 +57,19 @@ class User < ActiveRecord::Base
   end
 
   def toggle_admin
-    is_admin = !is_admin
+    update_attribute(:is_admin, !is_admin)
+  end
+
+  def make_admin
+    update_attribute(:is_admin, true)
+  end
+
+  def self.no_admins?
+    User.num_admins < 1
   end
 
   def self.num_admins
     User.all(:conditions => {:is_admin => true}).size
   end
-  
+
 end

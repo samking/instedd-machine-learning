@@ -11,11 +11,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/id
+  # PUT /users/id/toggle_admin
   def toggle_admin
     @user = User.find(params[:id])
 
     @user.toggle_admin if @user.can_toggle_admin?
+    p @user.is_admin
 
     respond_to do |format|
       if @user.save
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
+    @user.make_admin if User.no_admins?
     success = @user && @user.save
     if success && @user.errors.empty?
             # Protects against session fixation attacks, causes request forgery
@@ -65,6 +67,7 @@ class UsersController < ApplicationController
   protected
 
   def authorized?(action = action_name, resource = nil)
+    return false unless logged_in?
     current_user.is_admin?
   end
   

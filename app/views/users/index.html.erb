@@ -1,0 +1,22 @@
+<h1>Listing Users</h1>
+
+<table>
+  <tr>
+    <% ["ID", "Login", "Email", "Admin?", "Table IDs", "Destroy", "Toggle Admin"].each do |head| %>
+      <td><strong><%= head %></strong></td>
+    <% end %>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.login %></td>
+    <td><%= user.email %></td>
+    <td><%= user.is_admin %></td>
+    <td><%= (user.datasets.map {|dataset| dataset.id}).join(", ") %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Toggle', toggle_admin_user_path(user), :method => :put %></td>
+  </tr>
+<% end %>
+</table>
+
+
