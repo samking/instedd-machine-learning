@@ -19,6 +19,12 @@ class Dataset < ActiveRecord::Base
   before_validation_on_create :generate_table_uuid
   attr_readonly :table_uuid, :user_id
 
+  def self.purge_remote_databases
+    Dataset.all.each do |dataset|
+      DatabaseInterface.delete_table dataset.table_uuid
+    end
+  end
+
   #TODO: ask machine learning services if we're still learning
   def is_learning?
     false

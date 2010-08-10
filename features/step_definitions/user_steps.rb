@@ -90,7 +90,7 @@ end
 #
 
 def log_out
-  get '/sessions/destroy'
+  get logout_path 
 end
 
 def log_out!
@@ -129,3 +129,4 @@ def log_in_user! *args
   follow_redirect!
   response.should have_flash("notice", /Logged in successfully/)
 end
+

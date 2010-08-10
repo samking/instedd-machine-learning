@@ -66,6 +66,6 @@ Spork.each_run do
   end
 end
 
-After('@creates_test_db_table') do 
-  DatabaseInterface.delete_table @test_client[:uuid]
+After('@creates_db_tables') do 
+  Dataset.purge_remote_databases
 end

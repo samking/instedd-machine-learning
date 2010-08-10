@@ -1,12 +1,17 @@
-Visitors should be in control of creating an account and of proving their
-essential humanity/accountability or whatever it is people think the
-id-validation does.  We should be fairly skeptical about this process, as the
-identity+trust chain starts here.
+#Visitors should be in control of creating an account and of proving their
+#essential humanity/accountability or whatever it is people think the
+#id-validation does.  We should be fairly skeptical about this process, as the
+#identity+trust chain starts here.
+#
+#Story: Creating an account
+#  As an anonymous user
+#  I want to be able to create an account
+#  So that I can be one of the cool kids
 
-Story: Creating an account
-  As an anonymous user
-  I want to be able to create an account
-  So that I can be one of the cool kids
+Feature: deal with accounts
+In order to do what is described above
+A potential user
+should be able to deal with their own account
 
   #
   # Account Creation: Get entry form
@@ -29,7 +34,7 @@ Story: Creating an account
     When  she follows that redirect!
     Then  she should see a notice message 'Thanks for signing up!'
      And  a user with login: 'oona' should exist
-     And  the user should have login: 'oona', and email: 'unactivated@example.com'
+     And  the "user" should have "login: 'oona', and email: 'unactivated@example.com'"
 
      And  oona should be logged in
 
@@ -48,7 +53,7 @@ Story: Creating an account
      And  she should     see an errorExplanation message 'Login has already been taken'
      And  she should not see an errorExplanation message 'Email has already been taken'
      And  a user with login: 'reggie' should exist
-     And  the user should have email: 'registered@example.com'
+     And  the "user" should have "email: 'registered@example.com'"
 
      And  the user's created_at should stay the same under to_s
      And  the user's updated_at should stay the same under to_s
@@ -101,7 +106,7 @@ Story: Creating an account
     When  she follows that redirect!
     Then  she should see a notice message 'Thanks for signing up!'
      And  a user with login: 'oona' should exist
-     And  the user should have login: 'oona', and email: 'unactivated@example.com'
+     And  the "user" should have "login: 'oona', and email: 'unactivated@example.com'"
 
      And  oona should be logged in
 

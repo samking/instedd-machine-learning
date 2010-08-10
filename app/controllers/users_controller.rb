@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   ADMIN_ONLY_ACTIONS = [:index, :toggle_admin]
   before_filter :login_required, :only => ADMIN_ONLY_ACTIONS
+  before_filter :login_required, :only => :destroy
 
   def index
     @users = User.all
@@ -16,7 +17,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     @user.toggle_admin if @user.can_toggle_admin?
-    p @user.is_admin
 
     respond_to do |format|
       if @user.save
@@ -39,17 +39,23 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.make_admin if User.no_admins?
     success = @user && @user.save
-    if success && @user.errors.empty?
-            # Protects against session fixation attacks, causes request forgery
-      # protection if visitor resubmits an earlier form using back
-      # button. Uncomment if you understand the tradeoffs.
-      # reset session
-      self.current_user = @user # !! now logged in
-      redirect_back_or_default('/')
-      #flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
-    else
-      flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
-      render :action => 'new'
+    respond_to do |format|
+      if success && @user.errors.empty?
+        # Protects against session fixation attacks, causes request forgery
+        # protection if visitor resubmits an earlier form using back
+        # button. Uncomment if you understand the tradeoffs.
+        # reset session
+        self.current_user = @user # !! now logged in
+        #flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
+        format.html { redirect_back_or_default('/', :notice => 'Successfully signed up', :alert => 'success?') }
+        format.xml  { render :xml => @user }
+      else
+        format.html do 
+          flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
+          render :action => 'new'
+        end
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
     end
   end
 

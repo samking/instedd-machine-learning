@@ -1,30 +1,22 @@
-When /^the test client signs up for a table in the remote database using the api$/ do
+When /^(?:the |)#{QUOTED_ARG} user signs up for a table in the remote database using the api$/ do |username|
+  authenticate_user(username)
   visit('/datasets.xml', :post)
-  xml_response = response_body
-  xml_parser = REXML::Document.new xml_response
-  id_node = xml_parser.root.detect {|node| node.kind_of? REXML::Element and node.name == "id"}
-  uuid_node = xml_parser.root.detect {|node| node.kind_of? REXML::Element and node.name == "client-uuid"}
-  @test_client = {:id => id_node.text.to_i, :uuid => uuid_node.text}
-  @test_client[:dataset] = Dataset.find(@test_client[:id])
+  user = get_user_by_name(username)
+  user[:dataset] = get_xml_properties(response_body, ["id", "table-uuid"])
+  user[:dataset][:dataset] = Dataset.find(user[:dataset][:id])
 end
 
-When /^the test client signs up for a table in the remote database using the web interface$/ do
+When /^(?:the |)#{QUOTED_ARG} user signs up for a table in the remote database using the web interface$/ do |username|
   Then "I go to the new dataset page"
     And "I press \"dataset_submit\""
-
 end
 
-When /^the test client signs up for a table in the remote database$/ do
-  Then "the test client signs up for a table in the remote database using the api"
-  #Then "the test client signs up for a table in the remote database using the web interface"
+When /^(?:the |)#{QUOTED_ARG} user signs up for a table in the remote database$/ do |username|
+  Then "\"#{username}\" user signs up for a table in the remote database using the api"
 end
 
-When /^the test client successfully signed up for a table in the remote database$/ do
-  Then "the test client signs up for a table in the remote database"
-    And "the test client should have a table in the remote database"
-end
-
-When /^the test client doesn't have a correct login$/ do
-  @test_client = {:id => -1, :uuid => UUIDTools::UUID.random_create.to_s}
+When /^(?:the |)#{QUOTED_ARG} user successfully signed up for a table in the remote database$/ do |username|
+  Then "\"#{username}\" user signs up for a table in the remote database"
+    And "\"#{username}\" user should have a table in the remote database"
 end
 

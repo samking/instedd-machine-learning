@@ -11,6 +11,9 @@
 # produces a User instance stored in @user with 'mojojojo' as its login
 # attribute.
 #
+
+require File.expand_path(File.join(File.dirname(__FILE__), "quoted_arg_constant"))
+
 Given "a $resource instance with $attributes" do |resource, attributes|
   klass, instance, attributes = parse_resource_args resource, attributes
   instance = klass.new(attributes)
@@ -24,7 +27,7 @@ end
 #   "And the user has thac0: 3"
 # takes the earlier-defined @user instance and sets its thac0 to '3'.
 #
-Given "the $resource has $attributes" do |resource, attributes|
+Given /^the #{QUOTED_ARG} has #{QUOTED_ARG}$/ do |resource, attributes|
   klass, instance, attributes = parse_resource_args resource, attributes
   attributes.each do |attr, val|
     instance.send("#{attr}=", val)
@@ -62,7 +65,7 @@ Then /^no (\w+) with ([\w: \']+) should exist$/ do |resource, attributes|
 end
 
 # Resource has attributes with given values
-Then  "the $resource should have $attributes" do |resource, attributes|
+Then /^the #{QUOTED_ARG} should have #{QUOTED_ARG}$/ do |resource, attributes|
   klass, instance, attributes = parse_resource_args resource, attributes
   attributes.each do |attr, val|
     instance.send(attr).should == val
