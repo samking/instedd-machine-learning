@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   ADMIN_ONLY_ACTIONS = [:index, :toggle_admin]
-  before_filter :login_required, :only => ADMIN_ONLY_ACTIONS
-  before_filter :login_required, :only => :destroy
+  before_filter :login_required, :only => ADMIN_ONLY_ACTIONS + [:destroy]
 
   def index
     @users = User.all
@@ -12,7 +11,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/id/toggle_admin
+  # PUT /users/id/toggle_admin.format
   def toggle_admin
     @user = User.find(params[:id])
 
@@ -45,7 +44,7 @@ class UsersController < ApplicationController
         # protection if visitor resubmits an earlier form using back
         # button. Uncomment if you understand the tradeoffs.
         # reset session
-        self.current_user = @user # !! now logged in
+        #self.current_user = @user # !! now logged in #don't want this because it interacts weirdly with http basic
         #flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
         format.html { redirect_back_or_default('/', :notice => 'Successfully signed up', :alert => 'success?') }
         format.xml  { render :xml => @user }
@@ -74,7 +73,8 @@ class UsersController < ApplicationController
 
   def authorized?(action = action_name, resource = nil)
     return false unless logged_in?
-    current_user.is_admin?
+    return current_user.is_admin? if ADMIN_ONLY_ACTIONS.include? action.to_sym
+    return true
   end
   
 end

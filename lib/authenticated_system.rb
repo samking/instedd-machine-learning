@@ -9,7 +9,8 @@ module AuthenticatedSystem
     # Accesses the current user from the session.
     # Future calls avoid the database because nil is not equal to false.
     def current_user
-      @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie) unless @current_user == false
+      #@current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie) unless @current_user == false
+      @current_user = (login_from_basic_auth || login_from_session || login_from_cookie) unless @current_user == false
     end
 
     # Store the given user id in the session.
@@ -103,7 +104,7 @@ module AuthenticatedSystem
     # Login
     #
 
-    # Called from #current_user.  First attempt to login by the user id stored in the session.
+    # Called from #current_user.  Attempt to login by the user id stored in the session.
     def login_from_session
       self.current_user = User.find_by_id(session[:user_id]) if session[:user_id]
     end

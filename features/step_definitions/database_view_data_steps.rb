@@ -31,9 +31,9 @@ def get_all_csv_elements(file_descriptor)
   elems
 end
 
-When /^the contents of the #{QUOTED_ARG} csv file is in the database$/ do |filename|
+When /^(?:the |)#{QUOTED_ARG} user has the contents of the #{QUOTED_ARG} csv file in their database table$/ do |username, filename|
   elements = get_all_csv_elements(get_url_file_descriptor(filename))
-  db = @test_client[:dataset].database_table
+  db = get_dataset_from_username(username).database_table
   assert(db.has_elements?(elements),
          "Some element(s) didn't make it into the database.  The missing 
          elements were: \n
@@ -42,8 +42,9 @@ When /^the contents of the #{QUOTED_ARG} csv file is in the database$/ do |filen
          #{db.as_map.inspect}")
 end
 
-When /^the test client views their database table using the api$/ do
-  visit(dataset_path(@test_client[:id]) + ".xml")
+When /^(?:the |)#{QUOTED_ARG} user views their database table using the api$/ do |username|
+  authenticate_user(username)
+  visit(dataset_path(get_dataset_from_username(username)[:id]) + ".xml")
 end
 
 When /^the contents of the #{QUOTED_ARG} csv file is displayed to the api$/ do |filename|
@@ -57,13 +58,13 @@ When /^the contents of the #{QUOTED_ARG} csv file is displayed to the api$/ do |
   end
 end
 
-When /^there should be #{QUOTED_ARG} rows in the test client's table$/ do |desired_num_rows| 
+When /^there should be #{QUOTED_ARG} rows in (?:the |)#{QUOTED_ARG} user's table$/ do |desired_num_rows| 
   num_rows = @test_client[:dataset].database_table.as_map.size 
   assert_equal(desired_num_rows.to_i, num_rows,
                "There should have been #{desired_num_rows} rows.  Instead, there were #{num_rows}")
 end
 
-When /^#{QUOTED_ARG} row(?:|s) in the test client's table should have #{QUOTED_ARG} columns$/ do |num_rows_to_check, desired_num_cols| 
+When /^#{QUOTED_ARG} row(?:|s) in (?:the |)#{QUOTED_ARG} user's table should have #{QUOTED_ARG} column(?:s|)$/ do |num_rows_to_check, desired_num_cols| 
   rows, cols_arr = @test_client[:dataset].database_table.as_array
   num_rows_with_correct_cols = cols_arr.select{|cols| cols.size == desired_num_cols.to_i}.size
   assert_equal(num_rows_with_correct_cols, num_rows_to_check.to_i, 

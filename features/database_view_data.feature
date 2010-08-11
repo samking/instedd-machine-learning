@@ -4,12 +4,13 @@ A client
 Should be able to view data that tehy added to the database
 
 Background:
-  Given the test client successfully signed up for a table in the remote database
+  Given the "test" user successfully signed up
+    And the "test" user successfully signed up for a table in the remote database
 
-@creates_test_db_table
+@creates_db_tables
 Scenario Outline: viewing csv file
-  Given the test client successfully added the "<filename>" csv file to the database
-  When the test client views their database table using the api
+  Given the "test" user successfully added the "<filename>" csv file to their database table
+  When the "test" user views their database table using the api
   Then the contents of the "<filename>" csv file is displayed to the api
     #TODO: do we also want to test the xml structure of the response?  The above step only tests the content
 

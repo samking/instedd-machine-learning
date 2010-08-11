@@ -21,7 +21,7 @@ class DatabaseInterface
     @@sdb.create_domain table_name
   end
 
-  def self.tables_list
+  def self.list_tables
     @@sdb.list_domains[:domains]
   end
 

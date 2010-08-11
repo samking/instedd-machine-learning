@@ -16,7 +16,7 @@
 
 <% if current_user.is_admin? %>
   <h2>Tables in Remote Database</h2>
-  <p><%= DatabaseInterface.tables_list.inspect %></p>
+  <p><%= DatabaseInterface.list_tables.inspect %></p>
 
   <p><%= form_tag(cleanup_datasets_path, :method => "delete") %>
     Client UUID That Needs Its Tables Deleted <%= text_field_tag 'table_to_remove' %>

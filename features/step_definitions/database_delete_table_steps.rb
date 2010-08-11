@@ -1,20 +1,16 @@
-When /^the test client successfully deletes the table in the remote database$/ do
-  Then "the test client should have a table in the remote database"
-    And "the test client deletes the table in the remote database using the api"
-    And "the test client doesn't have a table in the remote database"
+When /^(?:the |)#{QUOTED_ARG} user successfully deletes their table in the remote database$/ do |username|
+  Then "the \"#{username}\" user should have a table in the remote database"
+    And "the \"#{username}\" user deletes their table in the remote database using the api"
+    And "the \"#{username}\" user doesn't have a table in the remote database"
 end
 
-When /^the test client deletes the table in the remote database using the api$/ do
-  visit(dataset_path(@test_client[:id]), :delete)
+When /^(?:the |)#{QUOTED_ARG} user deletes their table in the remote database using the api$/ do |username|
+  authenticate_user(username)
+  visit(dataset_path(get_dataset_from_username(username)[:id]), :delete)
 end
 
-When /^the test client deletes the table in the remote database using the web interface$/ do
-  visit dataset_path(@test_client[:id])
-  Then "I follow \"Destroy\""
-end
-
-When /^the test client deletes the table in the remote database$/ do
-  Then "the test client deletes the table in the remote database using the api"
-  #Then "the test client deletes the table in the remote database using the web interface"
+When /^(?:the |)#{QUOTED_ARG} user deletes their table in the remote database$/ do |username|
+  Then "the \"#{username}\" user deletes the table in the remote database using the api"
+  #Then "the \"#{username}\" user deletes the table in the remote database using the web interface"
 end
 

@@ -4,15 +4,15 @@ A client
 Should be able to add data to the database
 
 Background:
-  Given the test client successfully signed up for a table in the remote database
+  Given the "test" user successfully signed up
+    And the "test" user successfully signed up for a table in the remote database
 
-#api
-@creates_test_db_table
+@creates_db_tables
 Scenario Outline: adding csv file by the api
   Given we have a "<filename>" test file
-  When the test client adds the "<filename>" file to the database using the api
+  When the "test" user adds the "<filename>" file to their database table using the api
   Then the response to the api should have code "200"
-    And the contents of the "<filename>" csv file is in the database
+    And the "test" user has the contents of the "<filename>" csv file in their database table
 
   Examples: 
     | filename |
