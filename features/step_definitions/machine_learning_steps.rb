@@ -1,10 +1,12 @@
 require File.expand_path(File.join(File.dirname(__FILE__), "quoted_arg_constant"))
 
-When /^the test client runs machine learning using the #{QUOTED_ARG} service$/ do |service|
-  visit(dataset_path(@test_client[:id]), :put, :service => service)
+When /^(?:the |)#{QUOTED_ARG} user runs machine learning using the #{QUOTED_ARG} service$/ do |username, service|
+  authenticate_user(username)
+  visit(dataset_path(get_dataset_from_username(username)[:id]), :put, :service => service)
 end
 
-When /^the test client has no machine learning running$/ do
-  assert_false @test_client[:dataset].is_learning?
+When /^(?:the |)#{QUOTED_ARG} user has no machine learning running$/ do |username|
+  authenticate_user(username)
+  assert_false get_dataset_from_username(username).is_learning?
 end
 

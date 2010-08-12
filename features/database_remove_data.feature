@@ -16,7 +16,7 @@ Scenario: deleting a row
   When the "test" user deletes a "real" row in the "test" user's table
   Then there should be "3" rows in the "test" user's table
     And "3" rows in the "test" user's table should have "5" columns
-    And the row that the "test" user deleted should not be in the "test" user's table
+    And the row that was just deleted should not be in the "test" user's table
 
 @creates_db_tables
 Scenario: deleting a nonexistent row
@@ -30,7 +30,7 @@ Scenario: deleting one column from one row
   Then there should be "4" rows in the "test" user's table
     And "1" row in the "test" user's table should have "4" columns
     And "3" rows in the "test" user's table should have "5" columns
-    And the element that the "test" user deleted should not be in the "test" user's table
+    And the element that was just deleted should not be in the "test" user's table
 
 @creates_db_tables
 Scenario: deleting a nonexistent columns from a real row

@@ -32,24 +32,26 @@ def set_col_to_delete(username, real_col)
   end
 end
 
-When /^(?:the |)#{QUOTED_ARG} user deletes a #{QUOTED_ARG} row in (?:the |)#{QUOTED_ARG} user's table$/ do |real_row|
-  set_row_to_delete(real_row)
-  visit(dataset_path(@test_client[:id]) + '.xml', :put, :remove_rows => @row_to_delete)
+When /^(?:the |)#{QUOTED_ARG} user deletes a #{QUOTED_ARG} row in (?:the |)#{QUOTED_ARG} user's table$/ do |deleter_username, real_row, deleted_username|
+  authenticate_user(deleter_username)
+  set_row_to_delete(deleted_username, real_row)
+  visit(dataset_path(get_dataset_from_username(deleted_username)[:id]) + '.xml', :put, :remove_rows => @row_to_delete)
 end
 
-When /^the row that (?:the |)#{QUOTED_ARG} user deleted should not be in (?:the |)#{QUOTED_ARG} user's table$/ do 
-  deleted_row = @test_client[:dataset].database_table.as_map[@row_to_delete]
-  assert_nil deleted_row, "We should have deleted the #{@row_to_delete} row.  Instead, the row exists.  It is #{deleted_row}."
+When /^the row that was just deleted should not be in (?:the |)#{QUOTED_ARG} user's table$/ do |username|
+  deleted_row = get_dataset_from_username(username).database_table.as_map[@row_to_delete]
+  assert_nil deleted_row, "We should have deleted the #{@row_to_delete} row from #{username} user's table.  Instead, the row exists.  It is #{deleted_row}."
 end
 
-When /^(?:the |)#{QUOTED_ARG} user deletes a #{QUOTED_ARG} column from a #{QUOTED_ARG} row in (?:the |)#{QUOTED_ARG} user's table$/ do |real_col, real_row|
-  set_row_to_delete(real_row)
-  set_col_to_delete(real_col)
-  visit(dataset_path(@test_client[:id]) + '.xml', :put, {:remove_rows => @row_to_delete, :remove_cols => @col_to_delete})
+When /^(?:the |)#{QUOTED_ARG} user deletes a #{QUOTED_ARG} column from a #{QUOTED_ARG} row in (?:the |)#{QUOTED_ARG} user's table$/ do |deleter_username, real_col, real_row, deleted_username|
+  authenticate_user(deleter_username)
+  set_row_to_delete(deleted_username, real_row)
+  set_col_to_delete(deleted_username, real_col)
+  visit(dataset_path(get_dataset_from_username(deleted_username)[:id]) + '.xml', :put, {:remove_rows => @row_to_delete, :remove_cols => @col_to_delete})
 end
 
-When /^the element that (?:the |)#{QUOTED_ARG} user deleted should not be in (?:the |)#{QUOTED_ARG} user's table$/ do
-  row = @test_client[:dataset].database_table.as_map[@row_to_delete]
+When /^the element that was just deleted should not be in (?:the |)#{QUOTED_ARG} user's table$/ do |username|
+  row = get_dataset_from_username(username).database_table.as_map[@row_to_delete]
   col = row[@col_to_delete]
   assert_nil col, "We should have deleted the #{@col_to_delete} column from the #{@row_to_delete} row, but we didn't.  The column: #{col}"
 end
