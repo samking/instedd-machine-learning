@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
   #OAuth 
-  map.resources :oauth_clients
+  map.resources :oauth_clients, :collection => {:tokens => :get, :clients => :get}
   map.test_request '/oauth/test_request', :controller => 'oauth', :action => 'test_request'
   map.access_token '/oauth/access_token', :controller => 'oauth', :action => 'access_token'
   map.request_token '/oauth/request_token', :controller => 'oauth', :action => 'request_token'

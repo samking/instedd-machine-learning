@@ -110,14 +110,20 @@ class DatasetsController < ApplicationController
   protected 
 
   def authorized?(action = action_name, resource = nil)
-    return false unless logged_in?
-    return true if current_user.is_admin?
+    user = nil
+    if oauth?
+      user = User.find(current_token[:user_id])
+      AuthenticatedSystem::current_user=(user)
+    else
+      return false unless logged_in?
+      user = current_user
+    end
+    return true if user.is_admin?
     return false if ADMIN_ONLY_ACTIONS.include? action
     if MEMBER_ACTIONS.include? action.to_sym
-      return current_user.id == @dataset.user_id
-    else
-      return true
+      return user.id == @dataset.user_id
     end
+    return true
   end
 
   private

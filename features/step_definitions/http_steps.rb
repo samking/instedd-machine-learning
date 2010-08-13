@@ -1,3 +1,4 @@
+
 require File.expand_path(File.join(File.dirname(__FILE__), "quoted_arg_constant"))
 
 When /^the response to the api should have code #{QUOTED_ARG}$/ do |desired_code|
@@ -18,5 +19,10 @@ end
 When /^we have a #{QUOTED_ARG} test file$/ do |filename|
   visit("/tests/#{filename}")
   Then 'the response to the api should have code "200"' 
+end
+
+def authenticate_user(username)
+  user = get_user_by_name(username)
+  basic_auth(user[:login], @user_passwords[username.to_sym])
 end
 
