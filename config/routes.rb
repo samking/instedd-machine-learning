@@ -19,7 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.resources(:users, :member => {:toggle_admin => :put}) do |user|
     #Main Client-Facing Data Route
-    user.resources :datasets
+    #user.resources :datasets
   end
 
   #Admin Data Route

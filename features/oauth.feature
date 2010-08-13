@@ -14,6 +14,10 @@ Scenario: a client can register as an OAuth consumer
 
 Scenario: a client can consume a user's data using OAuth credentials
   Given "test" user successfully registered "external_client" as an OAuth consumer
+  When "test" user does the OAuth dance with "external_client"
+    And "external_client" tries to access "test" user's data using the OAuth token
+  Then "test" user can access the data.  
+    And there's an awesome http response
 
 Scenario: a user can revoke OAuth access
 

@@ -51,9 +51,8 @@ class User < ActiveRecord::Base
     is_admin
   end
 
-  #can't toggle admin status of a user if that user is the only admin
-  def can_toggle_admin? 
-    return !is_admin || User.num_admins > 1
+  def is_only_admin?
+    return is_admin && User.num_admins == 1
   end
 
   def toggle_admin

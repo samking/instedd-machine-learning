@@ -69,4 +69,5 @@ class OauthClientsController < ApplicationController
       raise ActiveRecord::RecordNotFound
     end
   end
+
 end

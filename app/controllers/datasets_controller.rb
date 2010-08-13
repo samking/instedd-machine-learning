@@ -94,8 +94,8 @@ class DatasetsController < ApplicationController
     end
   end
   
-  # DELETE /datasets
-  # DELETE /datasets.xml
+  # DELETE /datasets/cleanup
+  # DELETE /datasets/cleanup.xml
   # For when the remote databases get out of sync with the local database
   # and it is necessary to manually remove elements from them
   def cleanup
@@ -113,7 +113,7 @@ class DatasetsController < ApplicationController
     user = nil
     if oauth?
       user = User.find(current_token[:user_id])
-      AuthenticatedSystem::current_user=(user)
+      self.current_user=(user)
     else
       return false unless logged_in?
       user = current_user

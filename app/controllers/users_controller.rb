@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def toggle_admin
     @user = User.find(params[:id])
 
-    @user.toggle_admin if @user.can_toggle_admin?
+    @user.toggle_admin unless @user.is_only_admin?
 
     respond_to do |format|
       if @user.save
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
         #self.current_user = @user # !! now logged in #don't want this because it interacts weirdly with http basic
         #flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
         format.html { redirect_back_or_default('/', :notice => 'Successfully signed up', :alert => 'success?') }
-        format.xml  { render :xml => @user }
+        format.xml  { render :xml => @user, :status => :created}
       else
         format.html do 
           flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
@@ -61,11 +61,17 @@ class UsersController < ApplicationController
   # DELETE /users/id
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    can_delete = !@user.is_only_admin?
+    @user.destroy if can_delete 
 
     respond_to do |format|
-      format.html { redirect_to(users_url, :notice => 'User was successfully deleted.') }
-      format.xml  { head :ok }
+      if can_delete
+        format.html { redirect_to(users_url, :notice => 'User was successfully deleted.') }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to(users_url, :notice => "Can't delete the last admin") }
+        format.xml  { head :unprocessable_entity }
+      end
     end
   end
  
