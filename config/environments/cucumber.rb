@@ -21,11 +21,12 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
+config.gem 'test-unit', :lib => 'test/unit' #fixes the bug at http://stackoverflow.com/questions/1145318/getting-uninitialized-constant-error-when-trying-to-run-tests that will cause crashes whenever running cucumber tests
 config.gem 'cucumber-rails',   :lib => false, :version => '>=0.3.2' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber-rails'))
 config.gem 'database_cleaner', :lib => false, :version => '>=0.5.0' unless File.directory?(File.join(Rails.root, 'vendor/plugins/database_cleaner'))
 config.gem 'webrat',           :lib => false, :version => '>=0.7.0' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))
 config.gem 'spork',            :lib => false, :version => '>=0.7.5' unless File.directory?(File.join(Rails.root, 'vendor/plugins/spork'))
 config.gem 'ruby-debug'
-config.gem 'rspec'
+config.gem 'rspec',            :lib => false unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec'))
 
 $TEST_HOST = "http://localhost:3000"

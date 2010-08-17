@@ -1,5 +1,6 @@
 #xml.instruct!
 xml.dataset {
+  xml.name(@dataset.name)
   xml.tag!("table-uuid", @dataset.table_uuid)
   xml.tag!("created-at", @dataset.created_at, "type" => "datetime")
   xml.id(@dataset.id, "type"=>"integer")

@@ -19,6 +19,8 @@ class Dataset < ActiveRecord::Base
   before_validation_on_create :generate_table_uuid
   attr_readonly :table_uuid, :user_id
 
+  validates_uniqueness_of :name
+
   def self.purge_remote_databases
     Dataset.all.each do |dataset|
       DatabaseInterface.delete_table dataset.table_uuid

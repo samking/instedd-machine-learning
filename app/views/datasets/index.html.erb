@@ -2,12 +2,20 @@
 
 <table>
   <tr>
-    <th>Your Table UUIDs</th>
+    <th>Your Tables</th>
+  </tr>
+  <tr>
+    <% ["Table Name", "Table ID", "Table Owner Name","Table Owner User ID", "Show", "Destroy"].each do |header| %>
+      <td><strong><%= header %></strong></td>
+    <% end %>
   </tr>
 
 <% @datasets.each do |dataset| %>
   <tr>
-    <td><%=h dataset.table_uuid %></td>
+    <td><%= dataset.name %></td>
+    <td><%= dataset.table_uuid %></td>
+    <td><%= User.find(dataset.user_id).login %></td>
+    <td><%= dataset.user_id %></td>
     <td><%= link_to 'Show', dataset %></td>
     <td><%= link_to 'Destroy', dataset, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

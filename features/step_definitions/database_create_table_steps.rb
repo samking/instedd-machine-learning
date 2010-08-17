@@ -1,6 +1,6 @@
 When /^(?:the |)#{QUOTED_ARG} user signs up for a table in the remote database using the api$/ do |username|
   authenticate_user(username)
-  visit('/datasets.xml', :post)
+  visit('/datasets.xml', :post, "dataset[name]" => username)
   #user = get_user_by_name(username)
   #user[:datasets] = get_xml_properties(response_body, ["id", "table-uuid"])
   #user[:datasets][:dataset] = Dataset.find(user[:dataset][:id])

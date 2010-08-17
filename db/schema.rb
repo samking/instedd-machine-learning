@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100806094315) do
+ActiveRecord::Schema.define(:version => 20100817041207) do
 
   create_table "client_applications", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20100806094315) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "name"
   end
 
   add_index "datasets", ["user_id"], :name => "index_datasets_on_user_id"

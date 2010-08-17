@@ -11,4 +11,5 @@ Scenario: Create an account with free username using the api
     And the response to the api should have code "201" 
     And the body of the xml response to the api should include an "id" field
     And the body of the xml response to the api should include a "table-uuid" field
+    And the body of the xml response to the api should include a "name" field
 

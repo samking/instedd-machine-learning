@@ -27,7 +27,6 @@ Rails::Initializer.run do |config|
                       #curb requires you to
                       #sudo apt-get install libcurl4-openssl-dev 
   config.gem "schleyfox-peach", :source => "http://gems.github.com", :lib => "peach"
-  config.gem 'test-unit', :lib => 'test/unit' #fixes the bug at http://stackoverflow.com/questions/1145318/getting-uninitialized-constant-error-when-trying-to-run-tests that will cause crashes whenever running cucumber tests
   config.gem "oauth"
   config.gem "oauth-plugin"
 
