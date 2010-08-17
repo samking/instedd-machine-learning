@@ -46,7 +46,7 @@ class UsersController < ApplicationController
         # reset session
         #self.current_user = @user # !! now logged in #don't want this because it interacts weirdly with http basic
         #flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
-        format.html { redirect_back_or_default('/', :notice => 'Successfully signed up', :alert => 'success?') }
+        format.html { redirect_back_or_default('/') }
         format.xml  { render :xml => @user, :status => :created}
       else
         format.html do 
