@@ -1,0 +1,7 @@
+spam,foo,asd
+not-spam,asd,foo
+spam,asd,bar
+not-spam,bar,asd
+spam,foo,bar
+not-spam,bar,foo
+
