@@ -1,9 +1,9 @@
 rails
 aws
+gstore
 uuidtools
-parseconfig
 calais
+google-prediction
 schleyfox-peach --source http://gems.github.com
-test-unit
 oauth
 oauth-plugin

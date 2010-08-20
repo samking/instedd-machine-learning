@@ -2,4 +2,6 @@ development:
   sdb_user: sdb-api-key
   sdb_pass: sdb-secret-key
   calais_key: calais-api-key
+  google_storage_access_key_id: google-key
+  google_storage_secret_access_key: google-secret-key
 

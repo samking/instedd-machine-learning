@@ -20,15 +20,18 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "aws"
+  config.gem "gstore"
   config.gem "uuidtools"
-  config.gem "parseconfig"
+  #config.gem "parseconfig"
   config.gem "calais" #nokogiri, one of the dependenceis, requires you to 
                       #sudo apt-get install libxslt-dev libxml2-dev
                       #curb requires you to
                       #sudo apt-get install libcurl4-openssl-dev 
+  config.gem "google-prediction"
   config.gem "schleyfox-peach", :source => "http://gems.github.com", :lib => "peach"
   config.gem "oauth"
   config.gem "oauth-plugin"
+  #config.gem "xmlsimple"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

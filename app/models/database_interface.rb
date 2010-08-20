@@ -2,53 +2,78 @@
 class DatabaseInterface
 
   @@sdb = Aws::SdbInterface.new($user_config[:sdb_user], $user_config[:sdb_pass])
+  @@google_storage = GStore::Client.new(:access_key => $user_config[:google_storage_access_key_id], :secret_key => $user_config[:google_storage_secret_access_key])
 
   include DatabaseConstants
   
-  def initialize(table_name)
+  def initialize(db_name, table_name)
     @table_name = table_name
+    @db = get_db(db_name)
   end
 
-  def self.has_table? table_name
-    @@sdb.list_domains[:domains].include? table_name
+  def self.has_table?(db_name, table_name)
+    self.list_tables(db_name).include?(table_name)
   end
 
-  def self.delete_table table_name
-    @@sdb.delete_domain table_name
+  def self.delete_table(db_name, table_name)
+    db = get_db(db_name)
+    if db == @@sdb
+      db.delete_domain(table_name)
+    elsif db == @@google_storage
+      db.delete_bucket(table_name)
+    end
   end
 
-  def self.create_table table_name
-    @@sdb.create_domain table_name
+  def self.create_table(db_name, table_name)
+    db = get_db(db_name)
+    if db == @@sdb
+      db.create_domain(table_name)
+    elsif db == @@google_storage
+      db.create_bucket(table_name)
+    end
   end
 
-  def self.list_tables
-    @@sdb.list_domains[:domains]
+  def self.list_tables(db_name)
+    db = get_db(db_name)
+    if db == @@sdb
+      @@sdb.list_domains[:domains]
+    elsif db == @@google_storage
+      buckets = Hash.from_xml(db.list_buckets)["ListAllMyBucketsResult"]["Buckets"]["Bucket"]
+      buckets.map! {|bucket| bucket['Name']}
+    end
   end
 
   def remove_data(row_to_remove, col_to_remove=[])
     col_to_remove = [] if col_to_remove.blank? #empty parameter means delete the whole row
-    @@sdb.delete_attributes(@table_name, row_to_remove, [col_to_remove])
+    if @db == @@sdb
+      @db.delete_attributes(@table_name, row_to_remove, [col_to_remove])
+    elsif @db == @@google_storage
+      assert col_to_remove.blank?, "Can't remove a column from a Google Storage database.  Can only remove entire files"
+      @db.delete_object(@table_name, row_to_remove)
+    end
   end
 
-  #TODO: support formats other than csv
-  #TODO: support csv without header (specify noheader by parameter)
   def add_data(data_url)
-    reader = CSV::Reader.create(open(data_url))
-    header = reader.shift
+    if @db == @@sdb
+      reader = CSV::Reader.create(open(data_url))
+      header = reader.shift
 
-    items = []
-    reader.each do |row| 
-      #csv reader represents blank rows as [nil]
-      next if (row.blank? or (row.length == 1 and row[0].nil?)) 
+      items = []
+      reader.each do |row| 
+        #csv reader represents blank rows as [nil]
+        next if (row.blank? or (row.length == 1 and row[0].nil?)) 
 
-      attributes = {}
-      header.zip(row) do |col_head, col|
-        col = '' if col.nil?
-        attributes[col_head] = chunk_sdb_attribute(col)
+        attributes = {}
+        header.zip(row) do |col_head, col|
+          col = '' if col.nil?
+          attributes[col_head] = chunk_sdb_attribute(col)
+        end
+        items << Aws::SdbInterface::Item.new(UUIDTools::UUID.random_create, attributes)
       end
-      items << Aws::SdbInterface::Item.new(UUIDTools::UUID.random_create, attributes)
+      @@sdb.batch_put_attributes(@table_name, items)
+    elsif @db == @@google_storage
+      @db.put_object(@table_name, UUIDTools::UUID.random_create, open(data_url).read)
     end
-    @@sdb.batch_put_attributes(@table_name, items)
   end
 
   #SDB only allows a limited number of 'attributes' per row.  One attribute 
@@ -92,18 +117,42 @@ class DatabaseInterface
   def as_array
     row_names = []
     rows = [] 
-    @@sdb.select('select * from `' + @table_name + '`')[:items].each do |row| 
-      row.each do |row_name, row_data| 
-        row_names << row_name
-        rows << reassemble_sdb_items(row_data)
+    if @db == @@sdb
+      @@sdb.select('select * from `' + @table_name + '`')[:items].each do |row| 
+        row.each do |row_name, row_data| 
+          row_names << row_name
+          rows << reassemble_sdb_items(row_data)
+        end
+      end
+    elsif @db == @@google_storage
+      row_names = as_name_array
+      rows = row_names.map {|object_name| get_row(object_name)}
       end
     end
     return row_names, rows
   end
 
+  def get_row(row_name)
+    if @db == @@sdb
+      as_map[row_name] #TODO: this is slow because it gets the whole table just for one row.  Also, can't be used in as_array
+    elsif @db == @@google_storage
+      @db.get_object(@table_name, row_name)
+    end
+  end
+
   #Same as as_array, but doesn't include the row_name array
   def as_content_array
     as_array[1]
+  end
+
+  #same as as_array, but doesn't include the content of each row
+  def as_name_array
+    if @db == @@sdb
+      as_array[0]
+    elsif @db == @@google_storage
+      objects = Hash.from_xml(@db.get_bucket(@table_name))["ListBucketResult"]["Contents"]
+      objects.map! {|object| object["Key"]}
+    end
   end
 
   #Returns the database as a map from row_name to row.  Each row is a 
@@ -186,6 +235,12 @@ class DatabaseInterface
       hash_to_xml(item, builder)  
     end
     builder.target!
+  end
+
+  def self.get_db(db_name)
+    return @@sdb if db_name == :sdb
+    return @@google_storage if db_name == :google_storage
+    raise "Database service #{db_name} isn't supported"
   end
 
 end
