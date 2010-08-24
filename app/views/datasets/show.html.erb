@@ -2,10 +2,8 @@
   <b>Table</b>
   <p>ID: <%=h @dataset.table_uuid %></p>
   <p>Name: <%=h @dataset.name %></p>
+  <p>Remote DB Service: <%=h @dataset.remote_db_service %></p>
 </p>
-
-<h2>Is the service still learning?</h2>
-<p><%= @dataset.is_learning? %></p>
 
 <h2>Attributes</h2>
 <% @dataset.database_table.as_map.each do |key, val| %>
@@ -16,9 +14,15 @@
 <%= link_to 'Back', datasets_path %>
 <p><%= form_tag(dataset_path, :method => "put") %>
   UUID of row to delete<%= text_field_tag 'remove_rows' %><br />
-  Column to remove from row (blank deletes entire row)<%= text_field_tag 'remove_cols' %><br />
+  <% if @dataset.database_table.is_tabular? %>
+    Column to remove from row (blank deletes entire row)<%= text_field_tag 'remove_cols' %><br />
+  <% end %>
   URL of Data to Add<%= text_field_tag 'data_url' %><br />
-  Service to Use (supported: calais)<%= text_field_tag 'service' %><br />
+</p>
+<p>
+  Service to Use (supported: calais, google_prediction_train, google_prediction_check_training, google_prediction_predict)<%= text_field_tag 'service' %><br />
+  Row / File to use <%= text_field_tag 'learn_rows' %><br />
+  Statement to predict (only for google_prediction_predict) <%= text_field_tag 'prediction_query' %>
   <%= submit_tag 'Modify Data and/or run Machine Learning' %>
 </p>
 

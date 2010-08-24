@@ -1,21 +1,19 @@
-<h1>Listing datasets for user: <%= current_user.login %> (id: <%= current_user.id %>)</h1>
+<h1>Listing tables for user: <%= current_user.login %> (id: <%= current_user.id %>)</h1>
 
-<table>
+<table border="1">
   <tr>
-    <th>Your Tables</th>
-  </tr>
-  <tr>
-    <% ["Table Name", "Table ID", "Table Owner Name","Table Owner User ID", "Show", "Destroy"].each do |header| %>
-      <td><strong><%= header %></strong></td>
+    <% ["Table Name", "Table ID", "Table Owner Name","Table Owner User ID", "Database Service", "Show", "Destroy"].each do |header| %>
+      <th><%= header %></td>
     <% end %>
   </tr>
 
 <% @datasets.each do |dataset| %>
-  <tr>
+  <tr align="center">
     <td><%= dataset.name %></td>
     <td><%= dataset.table_uuid %></td>
     <td><%= User.find(dataset.user_id).login %></td>
     <td><%= dataset.user_id %></td>
+    <td><%= dataset.remote_db_service %></td>
     <td><%= link_to 'Show', dataset %></td>
     <td><%= link_to 'Destroy', dataset, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -27,7 +25,8 @@
   <p><%= DatabaseInterface.list_tables.inspect %></p>
 
   <p><%= form_tag(cleanup_datasets_path, :method => "delete") %>
-    Client UUID That Needs Its Tables Deleted <%= text_field_tag 'table_to_remove' %>
+    DB to remove table from<%= text_field_tag 'removal_db' %>
+    Table ID<%= text_field_tag 'table_to_remove' %>
     <%= submit_tag 'Delete' %>
   </p>
 <% end %>

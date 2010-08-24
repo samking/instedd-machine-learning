@@ -71,6 +71,6 @@ ActionController::Routing::Routes.draw do |map|
   #in /public.  Capybara can't do stuff like look at HTTP response codes.
   #Other solutions would require hardcoding in a URL (because rails thinks 
   #the url is example.com.  in the test environment)
-  map.connect 'tests/:path', :controller => 'tests', :action => 'show'
-  map.connect 'tests/:path.:format', :controller => 'tests', :action => 'show'
+  #map.connect 'tests/:path', :controller => 'tests', :action => 'show'
+  #map.connect 'tests/:path.:format', :controller => 'tests', :action => 'show'
 end

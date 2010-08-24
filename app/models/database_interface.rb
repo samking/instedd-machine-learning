@@ -8,15 +8,21 @@ class DatabaseInterface
   
   def initialize(db_name, table_name)
     @table_name = table_name
-    @db = get_db(db_name)
+    @db = self.class.get_db(db_name)
+    @db_name = db_name.to_sym
+  end
+
+  def self.supports_db_service?(service)
+    SUPPORTED_DB_SERVICES.include?(service.to_sym)
   end
 
   def self.has_table?(db_name, table_name)
-    self.list_tables(db_name).include?(table_name)
+    db_name = db_name.to_sym
+    self.list_tables(db_name)[db_name].include?(table_name)
   end
 
   def self.delete_table(db_name, table_name)
-    db = get_db(db_name)
+    db = self.get_db(db_name)
     if db == @@sdb
       db.delete_domain(table_name)
     elsif db == @@google_storage
@@ -25,7 +31,7 @@ class DatabaseInterface
   end
 
   def self.create_table(db_name, table_name)
-    db = get_db(db_name)
+    db = self.get_db(db_name)
     if db == @@sdb
       db.create_domain(table_name)
     elsif db == @@google_storage
@@ -33,14 +39,35 @@ class DatabaseInterface
     end
   end
 
-  def self.list_tables(db_name)
-    db = get_db(db_name)
-    if db == @@sdb
-      @@sdb.list_domains[:domains]
-    elsif db == @@google_storage
-      buckets = Hash.from_xml(db.list_buckets)["ListAllMyBucketsResult"]["Buckets"]["Bucket"]
-      buckets.map! {|bucket| bucket['Name']}
+  def self.list_tables(db_names=SUPPORTED_DB_SERVICES)
+    db_names = [db_names] unless db_names.is_a?(Array)
+    tables = {}
+    if db_names.include?(:sdb)
+      tables[:sdb] = @@sdb.list_domains[:domains]
     end
+    if db_names.include?(:google_storage)
+      buckets = Hash.from_xml(@@google_storage.list_buckets)["ListAllMyBucketsResult"]["Buckets"]["Bucket"]
+      tables[:google_storage] = buckets.map! {|bucket| bucket['Name']}
+    end
+    tables
+  end
+
+  def is_tabular?
+    TABULAR_DB_SERVICES.include?(@db_name)
+  end
+
+  def has_rows?(desired_row_names)
+    desired_row_names = [desired_row_names] unless desired_row_names.is_a? Array
+    rows_in_db = as_name_array
+    desired_row_names.each do |row_name|
+      return false unless rows_in_db.include?(row_name)
+    end
+    return true
+  end
+
+  def bucket_name
+    raise "This database is #{@db_name}.  It doesn't use buckets." unless BUCKET_SERVICES.include?(@db_name)
+    @table_name
   end
 
   def remove_data(row_to_remove, col_to_remove=[])
@@ -48,12 +75,16 @@ class DatabaseInterface
     if @db == @@sdb
       @db.delete_attributes(@table_name, row_to_remove, [col_to_remove])
     elsif @db == @@google_storage
-      assert col_to_remove.blank?, "Can't remove a column from a Google Storage database.  Can only remove entire files"
+      raise("Can't remove a column from a Google Storage database.
+            Can only remove entire files"
+           ) unless col_to_remove.blank? 
       @db.delete_object(@table_name, row_to_remove)
     end
   end
 
   def add_data(data_url)
+    row_uuid = UUIDTools::UUID.random_create.to_s
+
     if @db == @@sdb
       reader = CSV::Reader.create(open(data_url))
       header = reader.shift
@@ -68,11 +99,11 @@ class DatabaseInterface
           col = '' if col.nil?
           attributes[col_head] = chunk_sdb_attribute(col)
         end
-        items << Aws::SdbInterface::Item.new(UUIDTools::UUID.random_create, attributes)
+        items << Aws::SdbInterface::Item.new(row_uuid, attributes)
       end
       @@sdb.batch_put_attributes(@table_name, items)
     elsif @db == @@google_storage
-      @db.put_object(@table_name, UUIDTools::UUID.random_create, open(data_url).read)
+      @db.put_object(@table_name, row_uuid, :data => open(data_url).read)
     end
   end
 
@@ -87,12 +118,16 @@ class DatabaseInterface
   #adds the learning_response to the provided row_names.  Assumes that each 
   #array is in the same order.
   def add_ml_response(row_names, learning_response, service)
-    new_cols = []
-    row_names.zip(learning_response) do |row_name, ml_response|
-      new_cols << Aws::SdbInterface::Item.new(row_name, {"ml_#{service}:#{Time.new}" => 
-                                              chunk_sdb_attribute(ml_response)})
+    if @db_name == :sdb
+      new_cols = []
+      row_names.zip(learning_response) do |row_name, ml_response|
+        new_cols << Aws::SdbInterface::Item.new(row_name, {"ml_#{service}:#{Time.new}" => 
+                                                chunk_sdb_attribute(ml_response)})
+      end
+      @@sdb.batch_put_attributes(@table_name, new_cols)
+    elsif @db_name == :google_storage
+      raise "not implemented"
     end
-    @@sdb.batch_put_attributes(@table_name, new_cols)
   end
 
   def has_element? desired_element
@@ -126,17 +161,17 @@ class DatabaseInterface
       end
     elsif @db == @@google_storage
       row_names = as_name_array
-      rows = row_names.map {|object_name| get_row(object_name)}
-      end
+      rows = get_rows_from_names(row_names)
     end
     return row_names, rows
   end
 
-  def get_row(row_name)
+  def get_rows_from_names(row_names)
+    row_names = [row_names] unless row_names.is_a?(Array)
     if @db == @@sdb
-      as_map[row_name] #TODO: this is slow because it gets the whole table just for one row.  Also, can't be used in as_array
+      as_map.values_at(row_names)
     elsif @db == @@google_storage
-      @db.get_object(@table_name, row_name)
+      row_names.map {|row_name| @db.get_object(@table_name, row_name) }
     end
   end
 
@@ -151,7 +186,12 @@ class DatabaseInterface
       as_array[0]
     elsif @db == @@google_storage
       objects = Hash.from_xml(@db.get_bucket(@table_name))["ListBucketResult"]["Contents"]
-      objects.map! {|object| object["Key"]}
+      if objects.nil? #there is no contents node, meaning there are no tables in the database
+        []
+      else
+        objects = [objects] unless objects.is_a?(Array)
+        objects.map! {|object| object["Key"]}
+      end
     end
   end
 
@@ -173,6 +213,13 @@ class DatabaseInterface
     set = Set.new
     content.each {|row| row.each {|column_name, column_data| set << column_data}}
     set
+  end
+
+  def self.get_db(db_name)
+    db_name = db_name.to_sym
+    return @@sdb if db_name == :sdb
+    return @@google_storage if db_name == :google_storage
+    raise "Database service #{db_name} isn't supported"
   end
     
   private
@@ -235,12 +282,6 @@ class DatabaseInterface
       hash_to_xml(item, builder)  
     end
     builder.target!
-  end
-
-  def self.get_db(db_name)
-    return @@sdb if db_name == :sdb
-    return @@google_storage if db_name == :google_storage
-    raise "Database service #{db_name} isn't supported"
   end
 
 end

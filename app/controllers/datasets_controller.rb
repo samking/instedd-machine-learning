@@ -64,21 +64,27 @@ class DatasetsController < ApplicationController
     @dataset.database_table.remove_data(params[:remove_rows], params[:remove_cols]
                         ) unless params[:remove_rows].blank? #it's ok if removecols is blank
     @dataset.database_table.add_data(params[:data_url]) unless params[:data_url].blank?
-    if not params[:service].blank?
-      if Dataset.supports_service?(params[:service])
-        @dataset.learn(params[:service].intern)
+
+    if params[:service].blank? #default behavior
+      respond_to do |format|
+        if @dataset.update_attributes(params[:dataset])
+          format.html { redirect_to(@dataset, :notice => 'Dataset was successfully updated.') }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @dataset.errors, :status => :unprocessable_entity }
+        end
+      end
+    else #machine learning behavior
+      if MachineLearningInterface.supports_ml_service?(params[:service])
+        head :unprocessable_entity and return unless verify_rows(params[:learn_rows])
+        ml_response = @dataset.learner.learn(params[:service], params[:learn_rows], params[:prediction_query])
+        respond_to do |format|
+          format.html { render :text => ml_response.inspect }
+          format.xml  { render :xml => ml_response }
+        end
       else
         head :unprocessable_entity and return
-      end
-    end
-
-    respond_to do |format|
-      if @dataset.update_attributes(params[:dataset])
-        format.html { redirect_to(@dataset, :notice => 'Dataset was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @dataset.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -99,7 +105,7 @@ class DatasetsController < ApplicationController
   # For when the remote databases get out of sync with the local database
   # and it is necessary to manually remove elements from them
   def cleanup
-    DatabaseInterface.delete_table(params[:table_to_remove]) unless params[:table_to_remove].blank?
+    DatabaseInterface.delete_table(params[:removal_db], params[:table_to_remove]) unless params[:table_to_remove].blank? or params[:removal_db].blank?
 
     respond_to do |format|
       format.html { redirect_to(datasets_url, :notice => 'Remote table was successfully deleted.') }
@@ -120,7 +126,7 @@ class DatasetsController < ApplicationController
     end
     return true if user.is_admin?
     return false if ADMIN_ONLY_ACTIONS.include? action
-    if MEMBER_ACTIONS.include? action.to_sym
+    if MEMBER_ACTIONS.include?(action.to_sym)
       return user.id == @dataset.user_id
     end
     return true
@@ -130,6 +136,13 @@ class DatasetsController < ApplicationController
 
   def fetch_dataset
     @dataset = Dataset.find(params[:id])
+  end
+
+  #returns true if the user has all rows that they specified or if they
+  #didn't specify any rows
+  def verify_rows(rows)
+    return true if rows.blank?
+    return @dataset.database_table.has_rows?(rows)
   end
 
 end

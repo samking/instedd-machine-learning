@@ -8,6 +8,10 @@
     <%= f.text_field :name %>
   </p>
   <p>
+    <%= f.label "Remote Database Service (Supported: sdb, google_storage)" %><br />
+    <%= f.text_field :remote_db_service %>
+  </p>
+  <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>
