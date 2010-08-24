@@ -21,12 +21,18 @@ class DatabaseInterface
     self.list_tables(db_name)[db_name].include?(table_name)
   end
 
+  #only call for Google Storage
+  def clear_bucket
+    as_name_array.each { |object_to_delete| remove_data(object_to_delete) }
+  end
+
   def self.delete_table(db_name, table_name)
-    db = self.get_db(db_name)
-    if db == @@sdb
-      db.delete_domain(table_name)
-    elsif db == @@google_storage
-      db.delete_bucket(table_name)
+    db_name = db_name.to_sym
+    if db_name == :sdb
+      @@sdb.delete_domain(table_name)
+    elsif db_name == :google_storage
+      DatabaseInterface.new(:google_storage, table_name).clear_bucket
+      @@google_storage.delete_bucket(table_name)
     end
   end
 
@@ -72,9 +78,9 @@ class DatabaseInterface
 
   def remove_data(row_to_remove, col_to_remove=[])
     col_to_remove = [] if col_to_remove.blank? #empty parameter means delete the whole row
-    if @db == @@sdb
+    if @db_name == :sdb
       @db.delete_attributes(@table_name, row_to_remove, [col_to_remove])
-    elsif @db == @@google_storage
+    elsif @db_name == :google_storage
       raise("Can't remove a column from a Google Storage database.
             Can only remove entire files"
            ) unless col_to_remove.blank? 
