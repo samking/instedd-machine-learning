@@ -4,4 +4,5 @@ development:
   calais_key: calais-api-key
   google_storage_access_key_id: google-key
   google_storage_secret_access_key: google-secret-key
+  google_prediction_auth_token: auth-token
 
