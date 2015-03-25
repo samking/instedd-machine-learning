@@ -1,0 +1,1 @@
+takes data in a variety of formats and uses services like Open Calais to do machine learning.
